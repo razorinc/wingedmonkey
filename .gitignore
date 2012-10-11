@@ -1,0 +1,8 @@
+*.swp
+db/*.sqlite3
+log/*.log
+config/database.yml
+config/settings.yaml
+tmp/
+Gemfile.lock
+src/vendor/bundle
