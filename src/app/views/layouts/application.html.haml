@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title
+      Winged Monkey
+      = yield :title
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .two-column
+      #header
+        #logo
+          %a{:href => "/dashboard/index"} Winged Monkey
+        #controls
+          %select
+            %option Notifications
+          %select
+            %option My Account
+            %option Provider 1
+            %option Provider 2
+            %option Provider 3
+        #logout
+          %a{:href => "#"} Logout
+      #main-content
+        = yield
+      #sidebar
+        %button#jfl-button.alpha{:onclick => "self.location = '/launch/list'"}
+          %span.really-big +
+          %span Launch New Application
+        = yield :sidebar
+      #footer
+        Winged Monkey brought to you by Monkey Wings
