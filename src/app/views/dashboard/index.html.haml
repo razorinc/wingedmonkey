@@ -3,5 +3,4 @@
 - if @launched_apps.empty?
   = render :partial => "getting_started"
 - else
-  .box
-    %p This would show some awesome running applications, but not yet
+  = render :partial => "app_list"

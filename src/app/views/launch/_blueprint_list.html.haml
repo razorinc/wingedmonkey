@@ -1,0 +1,12 @@
+- @blueprints.each do |bp|
+  .box{:style => "margin-bottom: 10px"}
+    .blueprint
+      .left
+        .app-name= bp.name
+        .bp-description= bp.description
+      .right
+        .stats= "#{bp.cores} CPU / #{bp.memory.to_i / 1024 / 1024}MB Memory"
+    .control{:style => "display:block"}
+      = form_tag("/launch/launch", :method => "post") do
+        = hidden_field_tag(:template_id, bp.id)
+        = submit_tag("Launch")

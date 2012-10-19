@@ -17,7 +17,11 @@
 
 $ninesixty-columns: 24
 
+body,html
+  height: 100%
+
 .two-column
+  height: 100%
   +grid-container
   #header
     background-color: #cdcdcd
@@ -34,13 +38,13 @@ $ninesixty-columns: 24
     font-size: 10px
   #sidebar
     +grid(8)
+    height: 100%
     background-color: #eeeeee
-    height: 400px
     text-align: center
   #main-content
     +grid(16)
+    height: 100%
     background-color: #dddddd
-    height: 400px
     margin: 0px 10px
     #heading
       font-size: 125%
@@ -64,6 +68,15 @@ a:visited
   border: 1px solid #888
   padding: 5px 10px
   margin: 0px 10px
+  overflow: auto
+
+.box .left
+  float: left
+  width: 50%
+
+.box .right
+  float: right
+  width: 50%
 
 #main-content p
   margin-left: 10px

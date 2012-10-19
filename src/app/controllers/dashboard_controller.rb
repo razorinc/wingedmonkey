@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @launched_apps = []
+    ovirt = MonkeyWings::Ovirt.new
+    @launched_apps = ovirt.client.vms
   end
 end

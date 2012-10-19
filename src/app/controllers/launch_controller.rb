@@ -1,5 +1,7 @@
 class LaunchController < ApplicationController
   def list
+    ovirt = MonkeyWings::Ovirt.new
+    @blueprints = ovirt.client.templates
   end
 
   def launch

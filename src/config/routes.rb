@@ -3,7 +3,7 @@ Src::Application.routes.draw do
 
   get "launch/list"
 
-  get "launch/launch"
+  post "launch/launch"
 
   get "launch/start"
 

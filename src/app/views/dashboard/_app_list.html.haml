@@ -1,0 +1,8 @@
+- @launched_apps.each do |app|
+  .box{:style => "margin-bottom: 10px"}
+    .vm
+      .left
+        .app-name= app.name
+        .status= app.status
+      .right
+        .stats= "#{app.cores} CPU / #{app.memory.to_i / 1024 / 1024}MB Memory"
