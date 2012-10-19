@@ -8,6 +8,8 @@ gem 'haml-rails'
 gem 'sass'
 gem 'sass-rails'
 
+gem 'rbovirt'
+
 
 group :assets do
   gem 'compass-rails'
