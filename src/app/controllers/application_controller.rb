@@ -3,6 +3,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_provider
 
+  def present(object, name)
+    klass ||= Monkey::Wings.get_const(name.to_s.camelize + "Presenter")
+    presenter = klass.new(object, self)
+    yield presenter if block_given?
+    presenter
+  end
+
   def require_provider
     if not current_provider
       redirect_to dashboard_index_url

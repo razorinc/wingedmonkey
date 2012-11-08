@@ -9,6 +9,10 @@ class LaunchController < ApplicationController
     redirect_to :controller => "dashboard", :action => "index"
   end
 
+  def index
+    @launchables = current_provider.list_launchables
+  end
+
   def start
   end
 

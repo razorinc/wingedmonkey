@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get "launch/list"
 
+  get "launch/index"
+
   post "launch/launch"
 
   get "launch/start"

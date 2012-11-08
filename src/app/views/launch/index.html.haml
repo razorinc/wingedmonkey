@@ -1,0 +1,17 @@
+%h2 Launch a New Application
+
+#launch-steps{style: "text-align:center"}
+  .step#step1{style: "width:32%;float:left"}
+    1. Select an Application Blueprint
+  .step#step2{style: "width:32%;float:left"}
+    2. Configure and Deploy
+  .step#step3{style: "width:33%;float:left"}
+    3. Use You Application
+
+
+- present nil, "launchable" do |presenter|
+  = presenter.google
+
+#applications
+  - @launchables.each do |app|
+    = "hello"
