@@ -13,16 +13,21 @@
         #logo
           %a{:href => "/dashboard/index"} Winged Monkey
         #controls
-          %select
-            %option Notifications
-          %select
-            %option My Account
-            %option Provider 1
-            %option Provider 2
-            %option Provider 3
-        #logout
-          %a{:href => "#"} Logout
+          = render "layouts/provider_dropdown"
+        #user-nav
+          - if user_signed_in?
+            = link_to edit_user_registration_path do
+              %strong= current_user.email
+            |
+            = link_to "Logout", destroy_user_session_path, method: :delete
+          - else
+            = link_to "Sign up", new_user_registration_path
+            |
+            = link_to "Login", new_user_session_path
       #main-content
+        .container
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}"
         = yield
       #sidebar
         %button#jfl-button.alpha{:onclick => "self.location = '/launch/list'"}

@@ -10,6 +10,7 @@ gem 'sass-rails'
 
 gem 'rbovirt'
 
+gem 'devise'
 
 group :assets do
   gem 'compass-rails'

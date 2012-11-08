@@ -1,4 +1,4 @@
-- @launched_apps.each do |app|
+- @launched_apps.select {|app| app.running?}.each do |app|
   .box{:style => "margin-bottom: 10px"}
     .vm
       .left

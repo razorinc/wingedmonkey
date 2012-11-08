@@ -1,6 +1,9 @@
 #heading My Applications
 
-- if @launched_apps.empty?
-  = render :partial => "getting_started"
+- if current_provider
+  - if @launched_apps.empty?
+    = render :partial => "getting_started"
+  - else
+    = render :partial => "app_list"
 - else
-  = render :partial => "app_list"
+  = render :partial => "choose_provider"

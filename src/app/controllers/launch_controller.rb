@@ -1,10 +1,12 @@
 class LaunchController < ApplicationController
+  before_filter :require_provider
+
   def list
-    ovirt = MonkeyWings::Ovirt.new
-    @blueprints = ovirt.client.templates
+    @blueprints = current_provider.list_launchables
   end
 
   def launch
+    redirect_to :controller => "dashboard", :action => "index"
   end
 
   def start

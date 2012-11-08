@@ -5,6 +5,7 @@
 # provider.
 :providers:
   :dev_env_ovirt: &dev_env_ovirt
+    :name: Dev Ovirt
     :type: ovirt
     :credentials:
       :username: ovirt_login@domain
