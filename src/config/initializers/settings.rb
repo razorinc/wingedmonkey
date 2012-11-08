@@ -31,9 +31,7 @@ class ProviderCollection
   private
   def provider_class
     classname = @providers[current_provider_key][:type].capitalize
-    klass = Monkey::Wings.const_get(classname)
-    Rails.logger.info "\n\nProvider Class: #{klass}\n\n"
-    klass
+    Monkey::Wings.const_get(classname)
   end
 end
 
