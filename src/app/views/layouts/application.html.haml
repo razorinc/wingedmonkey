@@ -30,9 +30,10 @@
             = content_tag :div, msg, :id => "flash_#{name}"
         = yield
       #sidebar
-        %button#jfl-button.alpha{:onclick => "self.location = '/launch/list'"}
-          %span.really-big +
-          %span Launch New Application
+        - if current_provider
+          %button#jfl-button.alpha{:onclick => "self.location = '/launch/index'"}
+            %span.really-big +
+            %span Launch New Application
         = yield :sidebar
       #footer
         Winged Monkey brought to you by Monkey Wings
