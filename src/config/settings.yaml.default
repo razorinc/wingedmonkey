@@ -12,5 +12,9 @@
       :password: secret
       :url: https://HOST:PORT/api
       :datacenter: UUID
+  :mock: &mock
+    :name: Mock Provider
+    :type: mock
   :defaults:
-    :ovirt: *dev_env_ovirt
+    :ovirt: *qe_ovirt
+    :mock: *mock

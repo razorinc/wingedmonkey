@@ -189,6 +189,10 @@ They boil down to:
 
      $ rake db:migrate
 
-2. Run the server
+3. Create some providers
+
+     $ cp config/settings.yaml.default config/settings.yaml
+
+4. Run the server
 
      $ rails s
