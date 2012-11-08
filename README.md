@@ -82,7 +82,7 @@ apt-get and the package names will be slightly different.
 
 1. Clone the wingedmonkey repo
 
-     $ git clone git://github.com/wingedmonkey/wingedmonkey.git $CODE_DIR
+     $ git clone git://github.com/wingedmonkey/wingedmonkey.git ${CODE_DIR}
 
 #### Setting up rbenv
 
@@ -92,6 +92,7 @@ straightforward.  It boils down to:
 1. Clone the git repo to ~/
 
      $ cd
+
      $ git clone git://github.com/sstephenson/rbenv.git .rbenv
 
 2. Add ~/.rbenv/bin to your $PATH for access to the rbenv command-line utility.
@@ -133,6 +134,7 @@ straightforward.  It boils down to:
 2. Clone the plugin git repo to the plugins directory
 
      $ cd ~/.rbenv/plugins
+
      $ git clone git://github.com/sstephenson/ruby-build.git
 
 3. Listing available Ruby versions
@@ -161,12 +163,12 @@ They boil down to:
 
 1. Install the plugin
 
-     $ git clone git://github.com/carsomyr/rbenv-bundler.git \
-     ~/.rbenv/plugins/bundler
+     $ git clone git://github.com/carsomyr/rbenv-bundler.git ~/.rbenv/plugins/bundler
 
 2. Get the bundler gem (installed with the current rbenv Ruby version)
 
      $ rbenv local 1.9.3-p194
+
      $ gem install bundler
 
 #### Running the code
@@ -174,9 +176,18 @@ They boil down to:
 1. Install the bundle
 
      $ cd $CODE_DIR # wherever wingedmonkey is checked out
+
      $ cd src
+
      $ bundle install --path vendor/bundle
+
      $ rbenv rehash # make sure rbenv picks up binaries from gems
+
+2. Create the database
+
+     $ cp config/database.yml.default config/database.yml
+
+     $ rake db:migrate
 
 2. Run the server
 
