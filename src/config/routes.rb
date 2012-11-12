@@ -3,29 +3,31 @@ Rails.application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout", sign_up: "register"}
 
-  get "provider/select"
+  resources :launchables
 
-  get "dashboard/index"
+  get "providers/select"
+
+  # get "dashboard/index"
 
   get "dashboard/choose_provider"
 
-  get "launch/list"
+  # get "launch/list"
 
-  get "launch/index"
+  # get "launch/index"
 
-  post "launch/launch"
+  # post "launch/launch"
 
-  get "launch/start"
+  # get "launch/start"
 
-  get "launch/stop"
+  # get "launch/stop"
 
-  get "launch/pause"
+  # get "launch/pause"
 
-  get "launch/resume"
+  # get "launch/resume"
 
-  get "launch/restart"
+  # get "launch/restart"
 
-  get "launch/snapshot"
+  # get "launch/snapshot"
 
-  get "launch/clone"
+  # get "launch/clone"
 end

@@ -3,7 +3,7 @@
 
 function select_provider(provider) {
     $.ajax({
-        url: "/provider/select",
+        url: "/providers/select",
         type: "GET",
         data: {"provider" : provider},
         dataType: "html",

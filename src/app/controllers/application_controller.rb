@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+  class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_provider
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def require_provider
     if not current_provider
-      redirect_to dashboard_index_url
+      redirect_to root_url
     else
       # shoving this into Providers allows objects throughout the app to access
       Providers.current_provider_key = session[:current_provider]

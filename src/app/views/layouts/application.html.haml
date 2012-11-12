@@ -11,7 +11,7 @@
     .two-column
       #header
         #logo
-          %a{:href => "/dashboard/index"} Winged Monkey
+          = link_to "Winged Monkey", root_url
         #controls
           = render "layouts/provider_dropdown"
         #user-nav
@@ -31,9 +31,11 @@
         = yield
       #sidebar
         - if current_provider
-          %button#jfl-button.alpha{:onclick => "self.location = '/launch/index'"}
-            %span.really-big +
-            %span Launch New Application
+          %button#jfl-button.alpha
+            = link_to launchables_path do
+              %span.really-big +
+              %span Launch New Application
+
         = yield :sidebar
       #footer
         Winged Monkey brought to you by Monkey Wings

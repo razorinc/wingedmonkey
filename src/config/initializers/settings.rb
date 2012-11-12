@@ -1,7 +1,7 @@
-# load the settings.yaml file and make it available to the app
+# load the settings.yml file and make it available to the app
 require 'yaml'
 
-settings_file = File.join("#{Rails.root}", "config", "settings.yaml")
+settings_file = File.join("#{Rails.root}", "config", "settings.yml")
 Settings = YAML.load_file(settings_file) rescue {}
 
 class ProviderCollection
