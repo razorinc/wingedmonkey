@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LaunchTest < ActiveSupport::TestCase
+class LaunchableTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
