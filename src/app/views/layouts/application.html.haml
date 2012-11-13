@@ -13,17 +13,9 @@
         #logo
           = link_to "Winged Monkey", root_url
         #controls
-          = render "layouts/provider_dropdown"
+          = render "shared/provider_dropdown"
         #user-nav
-          - if user_signed_in?
-            = link_to edit_user_registration_path do
-              %strong= current_user.email
-            |
-            = link_to "Logout", destroy_user_session_path, method: :delete
-          - else
-            = link_to "Sign up", new_user_registration_path
-            |
-            = link_to "Login", new_user_session_path
+          = render "shared/user_nav"
       #main-content
         .container
           - flash.each do |name, msg|
