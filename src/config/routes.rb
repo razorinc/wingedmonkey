@@ -7,27 +7,4 @@ Rails.application.routes.draw do
 
   get "providers/select"
 
-  # get "dashboard/index"
-
-  get "dashboard/choose_provider"
-
-  # get "launch/list"
-
-  # get "launch/index"
-
-  # post "launch/launch"
-
-  # get "launch/start"
-
-  # get "launch/stop"
-
-  # get "launch/pause"
-
-  # get "launch/resume"
-
-  # get "launch/restart"
-
-  # get "launch/snapshot"
-
-  # get "launch/clone"
 end

@@ -1,6 +1,5 @@
 class DashboardController < ApplicationController
-  # before_filter :authenticate_user!
-  before_filter :require_provider, except: :index
+  skip_before_filter :require_provider, :only => :index
 
   def index
     if current_provider
