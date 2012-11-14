@@ -7,6 +7,4 @@
       .right
         .stats= "#{bp.cores} CPU / #{bp.memory.to_i / 1024 / 1024}MB Memory"
     .control{:style => "display:block"}
-      = form_tag("/launch/launch", :method => "post") do
-        = hidden_field_tag(:template_id, launchable.id)
-        = submit_tag("Launch")
+      = link_to "Launch", new_provider_application_path(:launchable_id => launchable.id)
