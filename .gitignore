@@ -6,3 +6,4 @@ src/config/settings.yml
 tmp/
 Gemfile.lock
 src/vendor/bundle
+.idea/
