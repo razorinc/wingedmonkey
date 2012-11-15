@@ -1,0 +1,20 @@
+# The providers section contains all the configured providers for Winged Monkey.
+# Each individual provider should be anchored with a name to be referenced in
+# the defaults section below (see "dev_env_ovirt" in this example)
+# The defaults section should contain a default value for each supported
+# provider.
+:providers:
+  :dev_env_ovirt: &dev_env_ovirt
+    :name: Dev Ovirt
+    :type: ovirt
+    :credentials:
+      :username: ovirt_login@domain
+      :password: secret
+      :url: https://HOST:PORT/api
+      :datacenter: UUID
+  :mock: &mock
+    :name: Mock Provider
+    :type: mock
+  :defaults:
+    :ovirt: *qe_ovirt
+    :mock: *mock

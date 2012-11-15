@@ -1,0 +1,9 @@
+#heading My Applications
+
+- if current_provider
+  - if @provider_applications.blank?
+    = render :partial => "getting_started"
+  - else
+    = render :partial => "provider_applications_list"
+- else
+  = render :partial => "choose_provider"

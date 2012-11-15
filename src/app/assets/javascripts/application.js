@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function select_provider(provider) {
+    $.ajax({
+        url: "/providers/select",
+        type: "GET",
+        data: {"provider" : provider},
+        dataType: "html",
+        success: function(data) {
+            window.location.reload();
+        }
+    });
+}
