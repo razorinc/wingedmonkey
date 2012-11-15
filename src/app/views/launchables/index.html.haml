@@ -1,4 +1,4 @@
-%h2 Launch a New Application
+#heading Launch a New Application
 
 #launch-steps{style: "text-align:center"}
   .step#step1{style: "width:32%;float:left"}
@@ -13,5 +13,7 @@
   = presenter.google
 
 #applications
-  - @launchables.each do |app|
-    = "hello"
+  - if @launchables.blank?
+    %p This is where a list of application blueprints would be
+  - else
+    = render :partial => "launchables_list"

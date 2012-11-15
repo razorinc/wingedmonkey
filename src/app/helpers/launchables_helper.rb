@@ -1,0 +1,2 @@
+module LaunchablesHelper
+end

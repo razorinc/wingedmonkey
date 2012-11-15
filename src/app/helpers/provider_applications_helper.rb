@@ -1,0 +1,2 @@
+module ProviderApplicationsHelper
+end
