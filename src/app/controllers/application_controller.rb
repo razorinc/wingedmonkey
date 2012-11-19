@@ -31,7 +31,10 @@ class ApplicationController < ActionController::Base
       if not Providers.current_provider_key
         Providers.current_provider_key = session[:current_provider]
       end
-      Providers.current_provider
+      provider = Providers.current_provider
+      # if there's no provider matching the current key, clear the session
+      session[:current_provider] = nil if not provider
+      provider # return the provider (or nil)
     end
   end
 end
