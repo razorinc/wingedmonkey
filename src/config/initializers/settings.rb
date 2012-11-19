@@ -10,8 +10,9 @@ class ProviderCollection
   end
 
   def current_provider
+    return nil if empty?
     provider_config = @providers[self.current_provider_key]
-    provider_class.new(provider_config)
+    provider_class.new(provider_config) if provider_config
   end
 
   def current_provider_key
