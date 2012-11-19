@@ -2,11 +2,11 @@
 require 'yaml'
 
 settings_file = File.join("#{Rails.root}", "config", "settings.yml")
-Settings = YAML.load_file(settings_file)
+Settings = YAML.load_file(settings_file) rescue {}
 
 class ProviderCollection
-  def initialize providers
-    @providers = providers
+  def initialize providers=nil
+    @providers = providers || {}
   end
 
   def current_provider
@@ -26,6 +26,10 @@ class ProviderCollection
     @providers.reject{|k,v| k == :defaults}.map do |key,provider|
       [provider[:name], key]
     end
+  end
+
+  def empty?
+    @providers.empty?
   end
 
   private
