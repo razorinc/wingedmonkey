@@ -2,7 +2,7 @@
 require 'yaml'
 
 settings_file = File.join("#{Rails.root}", "config", "settings.yml")
-Settings = YAML.load_file(settings_file) rescue {}
+Settings = YAML.load_file(settings_file)
 
 class ProviderCollection
   def initialize providers
