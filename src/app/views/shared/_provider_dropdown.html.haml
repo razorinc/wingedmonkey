@@ -1,3 +1,3 @@
 = select_tag("provider",
-             options_for_select(Providers.list, Providers.current_provider_key ),
+             options_for_select(PROVIDERS.list, PROVIDERS.current_provider_key ),
              prompt: "Select Provider", onchange: "select_provider(this.value)")
