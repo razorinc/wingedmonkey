@@ -36,8 +36,8 @@ class ProviderCollection
   private
   def provider_class
     classname = @providers[current_provider_key][:type].capitalize
-    Monkey::Wings.const_get(classname)
+    Providers.const_get(classname).const_get(classname)
   end
 end
 
-Providers = ProviderCollection.new(Settings[:providers])
+PROVIDERS = ProviderCollection.new(Settings[:providers])

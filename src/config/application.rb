@@ -18,6 +18,13 @@ module Src
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/lib/)
+    #config.autoload_paths += %W(#{config.root}/app/presenters/)
+
+    # [Rails.root].flatten.map { |p|
+    #    Dir[p.join('app', 'presenters', '**', '*.rb')]
+    # }.flatten.uniq.each do |decorator|
+    #   Rails.application.config.cache_classes ? require(decorator) : load(decorator)
+    # end
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
