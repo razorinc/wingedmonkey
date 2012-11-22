@@ -28,7 +28,6 @@ module Providers
       # For instance, the current user, the user's permissions, etc...
       def list_launchables filter=nil
         filter ||= {}
-        {}
       end
 
       # List all of the systems.

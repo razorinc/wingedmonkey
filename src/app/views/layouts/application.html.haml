@@ -20,12 +20,12 @@
         .container
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
-        - if PROVIDERS.empty?
+        - if Provider.providers_config.empty?
           = render "layouts/no_providers"
         - else
           = yield
       #sidebar
-        - if current_provider
+        - if current_provider_key
           %button#jfl-button.alpha
             = link_to launchables_path do
               %span.really-big +
