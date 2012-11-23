@@ -14,11 +14,11 @@
 //= require jquery_ujs
 //= require_tree .
 
-function select_provider(provider_key) {
+function select_provider(provider_id) {
     $.ajax({
         url: "/providers/select",
         type: "GET",
-        data: {"provider_key" : provider_key},
+        data: {"provider_id" : provider_id},
         dataType: "html",
         success: function(data) {
             window.location.reload();

@@ -5,13 +5,13 @@ class Provider
   PROVIDERS_CONFIG = YAML.load_file(File.join("#{Rails.root}", "config", "providers.yml")) rescue []
 
   #more to be added as needed
-  attr_accessor :key, :name, :type, :url
+  attr_accessor :id, :name, :type, :url
 
   def self.all
     PROVIDERS_CONFIG
   end
 
-  def self.find(key)
-    PROVIDERS_CONFIG.find{ |provider| provider.key == key }
+  def self.find(id)
+    PROVIDERS_CONFIG.find{ |provider| provider.id == id }
   end
 end
