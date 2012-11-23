@@ -25,7 +25,7 @@
         - else
           = yield
       #sidebar
-        - if current_provider_key
+        - if current_provider.present?
           %button#jfl-button.alpha
             = link_to launchables_path do
               %span.really-big +

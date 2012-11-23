@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # before_filter :authenticate_user
   before_filter :require_provider
 
+  helper_method :current_provider
   helper_method :current_provider_key
 
   def present(object, name)
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_provider
-    redirect_to root_url unless current_provider_key
+    redirect_to root_url unless current_provider.present?
   end
 
   def set_current_provider_key provider_key
@@ -21,11 +22,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_provider_key
-    session[:current_provider_key] unless session[:current_provider_key].blank?
+    session[:current_provider_key]
   end
 
   def current_provider
-    Provider.find(current_provider_key)
+    Provider.find(session[:current_provider_key])
   end
 
   def current_provider_model_class(model_name)
