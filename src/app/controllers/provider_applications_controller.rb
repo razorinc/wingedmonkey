@@ -2,7 +2,7 @@ class ProviderApplicationsController < ApplicationController
   skip_before_filter :require_provider, :only => :index
 
   def index
-    if current_provider_key
+    if current_provider_key && current_provider
       @provider_applications = current_provider_model_class(:provider_application).all
     end
   end

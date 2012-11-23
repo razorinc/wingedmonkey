@@ -1,7 +1,7 @@
 require 'yaml'
 
 class Provider
-  #TODO rescue empty providers config properly
+  #TODO rescue empty providers config properly, add validation of the config file
   PROVIDERS_CONFIG = YAML.load_file(File.join("#{Rails.root}", "config", "providers.yml")) rescue {}
 
   #more to be added as needed

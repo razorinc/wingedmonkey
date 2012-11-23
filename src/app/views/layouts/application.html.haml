@@ -21,7 +21,7 @@
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
         - if Provider.all.blank?
-          = render "layouts/no_providers"
+          = render "shared/no_providers"
         - else
           = yield
       #sidebar
