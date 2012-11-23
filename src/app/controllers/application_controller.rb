@@ -13,39 +13,24 @@ class ApplicationController < ActionController::Base
   end
 
   def require_provider
-    if not current_provider_key
-      redirect_to root_url
-    # else
-    #   # shoving this into Providers allows objects throughout the app to access
-    #   PROVIDERS.current_provider_key = session[:current_provider]
-    end
+    redirect_to root_url unless current_provider_key
   end
 
-  def set_current_provider provider_name
-    session[:current_provider] = provider_name.to_sym
-    # PROVIDERS.current_provider_key = provider_name
-  end
-
-  # returns given provider hash
-  def current_provider
-    Provider.new(current_provider_key)
-    # if session[:current_provider]
-    #   unless PROVIDERS.current_provider_key
-    #     PROVIDERS.current_provider_key = session[:current_provider]
-    #   end
-    #   provider = PROVIDERS.current_provider
-    #   # if there's no provider matching the current key, clear the session
-    #   session[:current_provider] = nil unless provider
-    #   provider # return the provider (or nil)
-    # end
+  def set_current_provider_key provider_key
+    session[:current_provider_key] = provider_key
   end
 
   def current_provider_key
-    session[:current_provider] unless session[:current_provider].blank?
+    session[:current_provider_key] unless session[:current_provider_key].blank?
+  end
+
+  def current_provider
+    Provider.find(current_provider_key)
   end
 
   def current_provider_model_class(model_name)
     provider_type = current_provider.type.capitalize
+    model_name = model_name.to_s.camelize
     Providers.const_get(provider_type).const_get(provider_type+model_name)
   end
 end

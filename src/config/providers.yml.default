@@ -1,0 +1,11 @@
+# This is an example of provider configuration file providers.yml
+- !ruby/object:Provider
+  key: dev_env_ovirt
+  name: Dev Ovirt
+  type: ovirt
+  url: https://HOST:PORT/api
+- !ruby/object:Provider
+  key: my_mock
+  name: Mock Provider
+  type: mock
+  url: https://HOST:PORT/api

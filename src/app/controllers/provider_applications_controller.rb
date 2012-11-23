@@ -3,7 +3,7 @@ class ProviderApplicationsController < ApplicationController
 
   def index
     if current_provider_key
-      @provider_applications = current_provider_model_class("ProviderApplication").all
+      @provider_applications = current_provider_model_class(:provider_application).all
     end
   end
 

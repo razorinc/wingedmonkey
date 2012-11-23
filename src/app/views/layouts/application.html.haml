@@ -20,7 +20,7 @@
         .container
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
-        - if Provider.providers_config.empty?
+        - if Provider.all.blank?
           = render "layouts/no_providers"
         - else
           = yield
