@@ -2,7 +2,7 @@
 db/*.sqlite3
 log/*.log
 src/config/database.yml
-src/config/settings.yml
+src/config/providers.yml
 tmp/
 Gemfile.lock
 src/vendor/bundle
