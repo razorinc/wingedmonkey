@@ -7,4 +7,4 @@
       .right
         / .stats= "#{bp.cores} CPU / #{bp.memory.to_i / 1024 / 1024}MB Memory"
     .control{:style => "display:block"}
-      / = link_to "Launch", new_provider_application_path(:launchable_id => launchable.id)
+      = link_to "Launch", new_provider_application_path(:launchable_id => launchable.id)

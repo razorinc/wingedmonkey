@@ -26,11 +26,9 @@
           = yield
       #sidebar
         - if current_provider.present?
-          %button#jfl-button.alpha
-            = link_to launchables_path do
-              %span.really-big +
-              %span Launch New Application
-
+          = link_to launchables_path do
+            %span.really-big +
+            %span Launch New Application
         = yield :sidebar
       #footer
         Winged Monkey brought to you by Monkey Wings

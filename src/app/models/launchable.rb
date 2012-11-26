@@ -3,7 +3,7 @@ class Launchable
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name, :description
+  attr_accessor :id, :name, :description
 
   def initialize(attributes = {})
     attributes.each do |name, value|
