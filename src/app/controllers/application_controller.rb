@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  # before_filter :authenticate_user
-  before_filter :require_provider
+  before_filter :require_provider_authentication
 
   helper_method :current_provider
   helper_method :current_provider_id
@@ -14,11 +13,19 @@ class ApplicationController < ActionController::Base
   end
 
   def require_provider
+    session[:return_to] ||= request.path
     redirect_to root_url unless current_provider.present?
+  end
+
+  def require_provider_authentication
+    require_provider
+    session[:return_to] ||= request.path
+    redirect_to new_session_path unless session[:current_provider_creds].present?
   end
 
   def set_current_provider_id provider_id
     session[:current_provider_id] = provider_id
+    session.delete(:current_provider_creds)
   end
 
   def current_provider_id

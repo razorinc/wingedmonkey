@@ -1,5 +1,5 @@
 class ProviderApplicationsController < ApplicationController
-  skip_before_filter :require_provider, :only => :index
+  skip_before_filter :require_provider_authentication, :only => :index
 
   def index
     # TODO in future, user will be redirected to provider login page instead of here if there is no current_provider

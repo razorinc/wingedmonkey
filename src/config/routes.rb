@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :launchables
   resources :provider_applications
+  resources :sessions
 
   get "providers/select"
 
