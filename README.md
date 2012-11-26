@@ -191,7 +191,7 @@ They boil down to:
 
 3. Create some providers
 
-     $ cp config/settings.yaml.default config/settings.yaml
+     $ cp config/providers.yaml.default config/providers.yaml
 
 4. Run the server
 
