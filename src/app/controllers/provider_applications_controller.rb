@@ -12,9 +12,13 @@ class ProviderApplicationsController < ApplicationController
   def new
     if params[:launchable_id].present?
       @launchable = current_provider_model_class(:launchable).find(params[:launchable_id])
-      @provider_application = ProviderApplication.new
     else
       redirect_to launchables_path, :alert => "Please select Application Blueprint first"
     end
+  end
+
+  def create
+    current_provider_model_class(:launchable).launch(params[:launchable_id], params[:name])
+    redirect_to provider_applications_path
   end
 end

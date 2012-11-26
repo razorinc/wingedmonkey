@@ -1,0 +1,8 @@
+- @provider_applications.each do |app|
+  .box{:style => "margin-bottom: 10px"}
+    .vm
+      .left
+        .id= app.id
+        .app-name= app.name
+        .status= app.state
+        .launchable= app.launchable.name
