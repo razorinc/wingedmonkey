@@ -1,0 +1,9 @@
+# The list of mock launchables
+- !ruby/object:Providers::Mock::MockLaunchable
+  id: 1
+  name: Mock Launchable 1
+  description: This is the first launchable
+- !ruby/object:Providers::Mock::MockLaunchable
+  id: 2
+  name: Mock Launchable 2
+  description: This is the second launchable
