@@ -4,37 +4,34 @@ class ApplicationController < ActionController::Base
   before_filter :require_provider
 
   helper_method :current_provider
+  helper_method :current_provider_id
 
   def present(object, name)
-    klass ||= Providerpresenters.const_get(current_provider.type.to_s.camelize).const_get(name.to_s.camelize + "Presenter")
+    klass ||= ProviderPresenters.const_get(current_provider.type.to_s.camelize).const_get(name.to_s.camelize + "Presenter")
     presenter = klass.new(object, self)
     yield presenter if block_given?
     presenter
   end
 
   def require_provider
-    if not current_provider
-      redirect_to root_url
-    else
-      # shoving this into Providers allows objects throughout the app to access
-      PROVIDERS.current_provider_key = session[:current_provider]
-    end
+    redirect_to root_url unless current_provider.present?
   end
 
-  def set_current_provider provider_name
-    session[:current_provider] = provider_name
-    PROVIDERS.current_provider_key = provider_name
+  def set_current_provider_id provider_id
+    session[:current_provider_id] = provider_id
+  end
+
+  def current_provider_id
+    session[:current_provider_id]
   end
 
   def current_provider
-    if session[:current_provider]
-      if not PROVIDERS.current_provider_key
-        PROVIDERS.current_provider_key = session[:current_provider]
-      end
-      provider = PROVIDERS.current_provider
-      # if there's no provider matching the current key, clear the session
-      session[:current_provider] = nil if not provider
-      provider # return the provider (or nil)
-    end
+    Provider.find(session[:current_provider_id])
+  end
+
+  def current_provider_model_class(model_name)
+    provider_type = current_provider.type.capitalize
+    model_name = model_name.to_s.camelize
+    Providers.const_get(provider_type).const_get(provider_type+model_name)
   end
 end
