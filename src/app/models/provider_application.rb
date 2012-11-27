@@ -5,7 +5,7 @@ class ProviderApplication
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name, :description
+  attr_accessor :id, :launchable_id, :name, :state
 
   def initialize(attributes = {})
     attributes.each do |name, value|

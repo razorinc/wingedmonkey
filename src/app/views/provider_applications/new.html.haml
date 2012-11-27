@@ -10,4 +10,7 @@
 
 Here should be the ProviderApplication configuration form as described in Wireframes page 8.
 
-%p= @launchable.name
+= form_for @provider_application, :url => provider_applications_path do |f|
+  = f.hidden_field :launchable_id, :name => 'provider_application[launchable_id]'
+  = f.text_field :name, :name => 'provider_application[name]'
+  = f.submit "Launch " + @launchable.name, :id => 'save'
