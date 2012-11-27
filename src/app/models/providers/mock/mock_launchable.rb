@@ -13,15 +13,6 @@ module Providers
       def self.find(id)
         MOCK_LAUNCHABLE_CONFIG.find{ |launchable| launchable.id.to_s == id }
       end
-
-      def self.launch(id, name)
-        launchable = find(id)
-        app = MockProviderApplication.new({
-                                            :launchable_id => id,
-                                            :name => name,
-                                            :state => 'running'
-                                          })
-      end
     end
   end
 end
