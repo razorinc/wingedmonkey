@@ -28,4 +28,15 @@ class ProviderApplicationsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @provider_application =
+      params[:id] ? current_provider_model_class(:provider_application).find(params[:id]) : nil
+
+    if !@provider_application.nil?
+      @provider_application.destroy
+    end
+
+    redirect_to provider_applications_path
+  end
 end
