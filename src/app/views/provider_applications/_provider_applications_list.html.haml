@@ -6,3 +6,4 @@
         .app-name= app.name
         .status= app.state
         .launchable= app.launchable.name
+        .stop= button_to 'Stop', provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?'

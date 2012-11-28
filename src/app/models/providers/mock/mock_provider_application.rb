@@ -21,10 +21,18 @@ module Providers
         @@provider_applications << self
       end
 
+      def destroy
+        @@provider_applications.delete(self)
+      end
+
       # List all of the Provider Applications.
       def self.all filter=nil
         filter ||= {}
         @@provider_applications
+      end
+
+      def self.find(id)
+        @@provider_applications.find{ |app| app.id.to_s == id }
       end
     end
   end
