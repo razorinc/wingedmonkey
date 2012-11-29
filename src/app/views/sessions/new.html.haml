@@ -1,6 +1,5 @@
 %h1 Log in
 
 = form_tag sessions_path do
-  - present nil, "session" do |presenter|
-    = presenter.login_form
+  = render_provider_partial "login_form"
   = submit_tag "Login"
