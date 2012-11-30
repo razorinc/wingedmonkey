@@ -13,7 +13,9 @@
         #logo
           = link_to "Winged Monkey", root_url
         #controls
-          = render "shared/provider_dropdown"
+          - if authenticated?
+            = "Logged into #{current_provider.name}."
+            = link_to "Change your provider.", new_session_path
       #main-content
         .container
           - flash.each do |name, msg|

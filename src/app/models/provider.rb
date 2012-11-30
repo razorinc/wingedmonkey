@@ -16,6 +16,10 @@ class Provider
     providers.find{ |provider| provider.id == id }
   end
 
+  def connect credentials
+    raise "Base provider does not implement #connect method.  Check that config/providers.yml uses provider-specific objects instead of directly using Provider."
+  end
+
 private
   def self.providers
     if not @@providers or @@providers.empty?

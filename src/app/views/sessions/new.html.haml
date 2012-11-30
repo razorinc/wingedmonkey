@@ -1,6 +1,11 @@
-%h1 Log in
+%div
+  Select a provider
+  = render "shared/provider_dropdown"
 
-= form_tag sessions_path do
-  = render_provider_partial "login_form"
-  %br
-  = submit_tag "Login"
+%br
+- if current_provider
+  %h1 Log in
+  = form_tag sessions_path do
+    = render_provider_partial "login_form"
+    %br
+    = submit_tag "Login"

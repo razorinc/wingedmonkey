@@ -12,15 +12,11 @@ class ApplicationController < ActionController::Base
     presenter
   end
 
-  def require_provider
-    session[:return_to] ||= request.path
-    redirect_to root_url unless current_provider.present?
-  end
-
   def require_provider_authentication
-    require_provider
     session[:return_to] ||= request.path
-    redirect_to new_session_path unless session[:current_provider_creds].present?
+    # TODO combine these into one check and always redirect to new_session_path
+    # requires that the login form presents a provider select box
+    redirect_to new_session_path unless current_provider.present? and session[:current_provider_creds].present?
   end
 
   def set_current_provider_id provider_id
