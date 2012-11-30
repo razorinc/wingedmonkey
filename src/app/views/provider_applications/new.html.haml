@@ -11,6 +11,5 @@
 Here should be the ProviderApplication configuration form as described in Wireframes page 8.
 
 = form_for @provider_application, :url => provider_applications_path do |f|
-  = f.hidden_field :launchable_id, :name => 'provider_application[launchable_id]'
-  = f.text_field :name, :name => 'provider_application[name]'
+  = render_provider_partial("provider_application_form", {:form => f, :provider_application => @provider_application})
   = f.submit "Launch " + @launchable.name, :id => 'save'
