@@ -19,6 +19,10 @@ module ApplicationHelper
     end
   end
 
+  def authenticated?
+    session[:current_provider_creds].present?
+  end
+
   private
   # Finds the class at:
   #   ProviderPresenters::<Provider>::<Name>Presenter

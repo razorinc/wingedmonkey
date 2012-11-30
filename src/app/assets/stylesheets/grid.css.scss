@@ -34,8 +34,9 @@ body,html{
       @include grid(10);
     }
     #controls{
-      @include grid(6);
+      @include grid(10);
       text-align: right;
+      font-size: 12px;
     }
     #user-nav{
       @include grid(8);
