@@ -1,0 +1,6 @@
+%h1 Log in
+
+= form_tag sessions_path do
+  = render_provider_partial "login_form"
+  %br
+  = submit_tag "Login"

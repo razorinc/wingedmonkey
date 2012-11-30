@@ -1,10 +1,18 @@
 # This is an example of provider configuration file providers.yml
-- !ruby/object:Provider
+# Each entry should correspond to a specific provider model object
+#- !ruby/object:Providers::Mock::Mock
+#  id: mock1
+#  name: Mock Provider
+#  type: mock
+#  url: https://HOST:PORT/api
+
+- !ruby/object:Providers::Ovirt::OvirtProvider
   id: dev_env_ovirt
   name: Dev Ovirt
   type: ovirt
   url: https://HOST:PORT/api
-- !ruby/object:Provider
+  datacenter: UUID
+- !ruby/object:Providers::Mock::MockProvider
   id: my_mock
   name: Mock Provider
   type: mock

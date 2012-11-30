@@ -1,6 +1,6 @@
 module Providers
   module Conductor
-    class Conductor
+    class ConductorProvider < Provider
     end
   end
 end

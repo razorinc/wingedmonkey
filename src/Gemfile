@@ -10,8 +10,6 @@ gem 'sass-rails'
 gem 'psych'
 gem 'rbovirt'
 
-gem 'devise'
-
 group :assets do
   gem 'compass-rails'
   gem 'compass'
