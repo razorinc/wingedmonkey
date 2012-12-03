@@ -14,14 +14,12 @@
 //= require jquery_ujs
 //= require_tree .
 
-function select_provider(provider_id) {
-    $.ajax({
-        url: "/providers/select",
-        type: "GET",
-        data: {"provider_id" : provider_id},
-        dataType: "html",
-        success: function(data) {
-            window.location.reload();
-        }
-    });
-}
+$(document).ready(function() {
+  // hide elements with javascript_hidden class
+  $(".javascript_hidden").hide();
+
+  // submit provider_select_form when provider select changes
+  $("#provider_select_form #provider_id").change(function(){
+    $(this).closest('form').submit();
+  });
+});

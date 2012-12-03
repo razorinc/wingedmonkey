@@ -15,7 +15,7 @@
         #controls
           - if authenticated?
             = "Logged into #{current_provider.name}."
-            = link_to "Change your provider.", new_session_path
+            = link_to "Change your provider.", logout_path
       #main-content
         .container
           - flash.each do |name, msg|

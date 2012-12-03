@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   resources :launchables
   resources :provider_applications
+
+  match 'login',       :to => 'sessions#new',     :as => 'login'
+  match 'logout',      :to => 'sessions#destroy', :as => 'logout'
   resources :sessions
 
-  get "providers/select"
+  post "providers/select"
 
 end
