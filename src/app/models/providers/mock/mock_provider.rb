@@ -1,7 +1,11 @@
 module Providers
   module Mock
     class MockProvider < Provider
-      def connect credentials
+      def valid_credentials? credentials
+        true
+      end
+
+      def connect! credentials
         true
       end
     end
