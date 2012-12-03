@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+
+//= require alchemy/rails
+//= require alchemy/flash_messages
 
 $(document).ready(function() {
   // hide elements with javascript_hidden class
