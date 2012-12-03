@@ -1,11 +1,7 @@
-%div
+#provider_select
   Select a provider
   = render "shared/provider_dropdown"
 
 %br
-- if current_provider
-  %h1 Log in
-  = form_tag sessions_path do
-    = render_provider_partial "login_form"
-    %br
-    = submit_tag "Login"
+#provider_login
+  = render :partial => "provider_login_form"

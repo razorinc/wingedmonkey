@@ -1,0 +1,6 @@
+- if current_provider
+  %h1 Log in
+  = form_tag sessions_path, :id => "provider_login_form" do
+    = render_provider_partial "login_credentials"
+    %br
+    = submit_tag "Login"

@@ -1,3 +1,5 @@
-= select_tag("provider_id",
-             options_from_collection_for_select(Provider.all, 'id', 'name', current_provider_id),
-             prompt: "Select Provider", onchange: "select_provider(this.value)")
+= form_tag providers_select_path, :id => "provider_select_form", :remote => true do
+  = select_tag("provider_id",
+               options_from_collection_for_select(Provider.all, 'id', 'name', current_provider_id),
+               :prompt => "Select Provider")
+  = submit_tag "Select Provider", :name => 'select_provider', :class => "button javascript_hidden"

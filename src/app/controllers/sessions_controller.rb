@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:current_provider_creds)
+    session.delete(:current_provider_id)
     redirect_to login_path
   end
 end

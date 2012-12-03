@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   match 'logout',      :to => 'sessions#destroy', :as => 'logout'
   resources :sessions
 
-  get "providers/select"
+  post "providers/select"
 
 end

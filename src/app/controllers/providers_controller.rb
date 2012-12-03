@@ -3,6 +3,10 @@ class ProvidersController < ApplicationController
 
   def select
     set_current_provider_id params[:provider_id]
-    render :nothing => true
+
+    respond_to do |format|
+      format.html { redirect_to login_path }
+      format.js
+    end
   end
 end
