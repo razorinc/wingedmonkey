@@ -12,6 +12,11 @@
   type: ovirt
   url: https://HOST:PORT/api
   datacenter: UUID
+- !ruby/object:Providers::Conductor::ConductorProvider
+  id: dev_conductor
+  name: Dev Conductor
+  type: conductor
+  url: https://HOST:PORT/api
 - !ruby/object:Providers::Mock::MockProvider
   id: my_mock
   name: Mock Provider
