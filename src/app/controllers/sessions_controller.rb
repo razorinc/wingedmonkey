@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if current_provider.connect(params)
+    if current_provider.valid_credentials?(params)
       session[:current_provider_creds] = params
       return_to = session.delete(:return_to) || root_url
       redirect_to return_to, notice: "Logged into #{current_provider.type}"

@@ -6,14 +6,18 @@ module Providers
     class OvirtProvider < Provider
       attr_accessor :datacenter
 
-      def connect credentials
-        client = OVIRT::Client.new(credentials[:username], credentials[:password], url, datacenter)
+      def valid_credentials? credentials
+        client = connect!(credentials)
         begin
           client.api_version
         rescue => e
           false
         end
         true
+      end
+
+      def connect! credentials
+        OVIRT::Client.new(credentials[:username], credentials[:password], url, datacenter)
       end
     end
   end
