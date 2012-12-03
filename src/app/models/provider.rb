@@ -20,8 +20,12 @@ class Provider
     not_implement __method__
   end
 
-  def connect! credentials
+  def connect!
     not_implemented __method__
+  end
+
+  def credentials= credentials
+    @credentials = credentials
   end
 
 private

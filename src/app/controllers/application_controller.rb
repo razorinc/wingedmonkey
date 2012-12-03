@@ -15,8 +15,7 @@ class ApplicationController < ActionController::Base
   def require_provider_authentication
     session[:return_to] ||= request.path
     if current_provider.present? and session[:current_provider_creds].present?
-      # having this depend on both current_provider and credentials may present
-      # problems in unforeseen edge cases
+      current_provider.credentials = session[:current_provider_creds]
       Provider.current_provider = current_provider
     else
       redirect_to login_path
