@@ -16,15 +16,19 @@ class Provider
     providers.find{ |provider| provider.id == id }
   end
 
-  def connect! credentials
-    raise "Base provider does not implement #connect method.  Check that config/providers.yml uses provider-specific objects instead of directly using Provider."
+  def valid_credentials? credentials
+    not_implement __method__
   end
 
-  def valid_credentials? credentials
-    raise "Base provider does not implement #valid_credentials? method.  Check that config/providers.yml uses provider-specific objects instead of directly using Provider."
+  def connect! credentials
+    not_implemented __method__
   end
 
 private
+  def not_implemented method
+    raise "Base provider does not implement ##{method} method.  Check that config/providers.yml uses provider-specific objects instead of directly using Provider."
+  end
+
   def self.providers
     if not @@providers or @@providers.empty?
       require 'providers'
