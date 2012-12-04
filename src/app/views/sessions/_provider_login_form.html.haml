@@ -1,6 +1,6 @@
 - if current_provider
   %h1 Log in
-  = form_tag sessions_path, :id => "provider_login_form" do
+  = form_tag sessions_path, :id => "provider_login_form", :class => 'form labels_top messages_bottom' do
     = render_provider_partial "login_credentials"
-    %br
-    = submit_tag "Login"
+    .control_group
+      = submit_tag "Login", :class => 'button primary'

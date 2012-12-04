@@ -12,4 +12,56 @@
  */
 
 @import "compass/reset";
+@import "compass/layout/sticky-footer";
+
+@import "vars";
 @import "alchemy/composites/content_elements";
+@import "fonts";
+@import "text";
+
+@include sticky-footer(50px, "#container", "#container_footer", "#footer");
+
+*{ @include box-sizing(border-box); }
+
+body,html{}
+
+#wrapper{
+  height: 100%;
+  width: 960px;
+  margin: 0 auto;
+
+  #container{
+
+    #header{
+      padding: 15px;
+      background-color: #cdcdcd;
+      .controls{ float: right; }
+    }
+
+    #sidebar{
+      float: right;
+      width: 250px;
+      background-color: #eeeeee;
+      padding: 15px;
+    }
+
+    #content{
+      margin-right: 250px;
+      background-color: #dddddd;
+      padding: 15px;
+      .three-column{
+        #left{
+        }
+        #middle{
+        }
+        #right{
+        }
+      }
+    }
+  }
+
+  #footer{
+    background-color: #cdcdcd;
+    font-size: 10px;
+  }
+}

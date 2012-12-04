@@ -9,27 +9,26 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .two-column
-      #header
-        #logo
-          = link_to "Winged Monkey", root_url
-        #controls
-          - if authenticated?
-            = "Logged into #{current_provider.name}."
-            = link_to "Change your provider.", logout_path
-      #main-content
-        .container
+    #wrapper
+      #container
+        #header
+          .controls
+            - if authenticated?
+              = "Logged into #{current_provider.name}."
+              = link_to "Change your provider.", logout_path
+          %h1= link_to "Winged Monkey", root_url
+        #sidebar
+          - if current_provider.present?
+            = link_to "+ Launch New Application", launchables_path
+          = yield :sidebar
+        #content
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
-        - if Provider.all.blank?
-          = render "shared/no_providers"
-        - else
-          = yield
-      #sidebar
-        - if current_provider.present?
-          = link_to launchables_path do
-            %span.really-big +
-            %span Launch New Application
-        = yield :sidebar
+          - if Provider.all.blank?
+            = render "shared/no_providers"
+          - else
+            = yield
+        #container_footer
+          container_footer
       #footer
         Winged Monkey brought to you by Monkey Wings

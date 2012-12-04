@@ -1,0 +1,11 @@
+h1,h2,h3,h4,h5 {
+  font-weight: 300;
+  text-transform: none;
+}
+
+h2{ padding: 10px 0px; }
+
+a{
+  color: $link_color;
+  &:hover{ text-decoration: underline; }
+}
