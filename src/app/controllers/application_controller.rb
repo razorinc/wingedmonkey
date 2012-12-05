@@ -5,13 +5,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_provider
   helper_method :current_provider_id
 
-  def present(object, name)
-    klass ||= ProviderPresenters.const_get(current_provider.type.to_s.camelize).const_get(name.to_s.camelize + "Presenter")
-    presenter = klass.new(object, self)
-    yield presenter if block_given?
-    presenter
-  end
-
   def require_provider_authentication
     session[:return_to] ||= request.path
     if current_provider.present? and session[:current_provider_creds].present?
