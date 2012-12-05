@@ -1,6 +1,7 @@
 class Launchable
   include ActiveModel::Validations
   include ActiveModel::Conversion
+  extend ProviderModel
   extend ActiveModel::Naming
 
   attr_accessor :id, :name, :description

@@ -3,6 +3,7 @@
 class ProviderApplication
   include ActiveModel::Validations
   include ActiveModel::Conversion
+  extend ProviderModel
   extend ActiveModel::Naming
 
   attr_accessor :id, :launchable_id, :name, :state
