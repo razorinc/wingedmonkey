@@ -27,10 +27,4 @@ class ApplicationController < ActionController::Base
   def current_provider
     Provider.find(session[:current_provider_id])
   end
-
-  def current_provider_model_class(model_name)
-    provider_type = current_provider.type.capitalize
-    model_name = model_name.to_s.camelize
-    Providers.const_get(provider_type).const_get(provider_type+model_name)
-  end
 end
