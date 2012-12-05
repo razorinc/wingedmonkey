@@ -5,13 +5,13 @@ module Providers
       # List all of the launchable items.
       # The list may be reduced by the information in the current context.
       def self.all filter=nil
-        connection = Provider.current.connect!
-        connection.launchables
+        connect! {|connection| connection.launchables}
       end
 
       def self.find(id)
-        connection = Provider.current.connect!
-        connection.launchables.find{ |launchable| launchable.id.to_s == id }
+        connect! do |connection|
+          connection.launchables.find{|launchable| launchable.id.to_s == id}
+        end
       end
     end
   end
