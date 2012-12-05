@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     session[:return_to] ||= request.path
     if current_provider.present? and session[:current_provider_creds].present?
       current_provider.credentials = session[:current_provider_creds]
-      Provider.current_provider = current_provider
+      Provider.current = current_provider
     else
       redirect_to login_path
     end

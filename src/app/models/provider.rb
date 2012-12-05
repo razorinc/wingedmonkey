@@ -41,11 +41,11 @@ private
     @@providers
   end
 
-  def self.current_provider
+  def self.current
     Thread.current[:provider]
   end
 
-  def self.current_provider=(provider)
+  def self.current=(provider)
     Thread.current[:provider] = provider
   end
 end
