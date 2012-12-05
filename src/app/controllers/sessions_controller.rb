@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       return_to = session.delete(:return_to) || root_url
       redirect_to return_to, notice: "Logged into #{current_provider.type}"
     else
-      flash.now.alert "Invalid cloud credentials"
+      flash.alert = "Invalid cloud credentials"
       render "new"
     end
   end
