@@ -7,7 +7,8 @@ module Providers
       attr_accessor :datacenter
 
       def valid_credentials? credentials
-        client = connect!(credentials)
+        @credentials = credentials
+        client = connect!
         begin
           client.api_version
         rescue => e
@@ -16,8 +17,8 @@ module Providers
         true
       end
 
-      def connect! credentials
-        OVIRT::Client.new(credentials[:username], credentials[:password], url, datacenter)
+      def connect!
+        OVIRT::Client.new(@credentials[:username], @credentials[:password], url, datacenter)
       end
     end
   end

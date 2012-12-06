@@ -16,20 +16,36 @@ class Provider
     providers.find{ |provider| provider.id == id }
   end
 
-  def connect! credentials
-    raise "Base provider does not implement #connect method.  Check that config/providers.yml uses provider-specific objects instead of directly using Provider."
+  def valid_credentials? credentials
+    not_implement __method__
   end
 
-  def valid_credentials? credentials
-    raise "Base provider does not implement #valid_credentials? method.  Check that config/providers.yml uses provider-specific objects instead of directly using Provider."
+  def connect!
+    not_implemented __method__
+  end
+
+  def credentials= credentials
+    @credentials = credentials
   end
 
 private
+  def not_implemented method
+    raise "Base provider does not implement ##{method} method.  Check that config/providers.yml uses provider-specific objects instead of directly using Provider."
+  end
+
   def self.providers
     if not @@providers or @@providers.empty?
       require 'providers'
       @@providers = YAML.load_file(File.join("#{Rails.root}", "config", "providers.yml"))
     end
     @@providers
+  end
+
+  def self.current
+    Thread.current[:provider]
+  end
+
+  def self.current=(provider)
+    Thread.current[:provider] = provider
   end
 end

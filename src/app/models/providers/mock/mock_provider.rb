@@ -5,8 +5,9 @@ module Providers
         true
       end
 
-      def connect! credentials
-        true
+      def connect!
+        raise "Invalid credentials" if not @credentials #TODO: code smell
+        MockConnection.new
       end
     end
   end
