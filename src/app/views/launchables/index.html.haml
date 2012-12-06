@@ -1,15 +1,18 @@
-%h2 Launch a New Application
+%section
+  %h2 Launch a New Application
 
-#launch-steps{style: "text-align:center"}
-  .step#step1{style: "width:32%;float:left"}
-    1. Select an Application Blueprint
-  .step#step2{style: "width:32%;float:left"}
-    2. Configure and Deploy
-  .step#step3{style: "width:33%;float:left"}
-    3. Use Your Application
+  %ol.progress
+    %li= link_to "Select an Application Blueprint", launchables_path, :class => 'current'
+    %li
+      %a Configure and Deploy
+    %li
+      %a Use Your Application
 
-#applications
+%section
   - if @launchables.blank?
     %p This is where a list of application blueprints would be
   - else
-    = render :partial => "launchables_list"
+    %ul.launchables
+    - @launchables.each do |launchable|
+      %li.launchable
+        = render_provider_partial("launchable", {:launchable => launchable })

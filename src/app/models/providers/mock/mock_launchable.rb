@@ -1,6 +1,7 @@
 module Providers
   module Mock
     class MockLaunchable < Launchable
+      attr_accessor :cost
 
       # List all of the launchable items.
       # The list may be reduced by the information in the current context.

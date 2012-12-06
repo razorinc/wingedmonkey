@@ -18,17 +18,13 @@
               = link_to "Change your provider.", logout_path
           %h1= link_to "Winged Monkey", root_url
         #sidebar
-          - if current_provider.present?
-            = link_to "+ Launch New Application", launchables_path
-          = yield :sidebar
+          = yield :sidebar if content_for? :sidebar
         #content
-          - flash.each do |name, msg|
-            = content_tag :div, msg, :id => "flash_#{name}"
+          = render :partial => 'shared/flash_messages'
           - if Provider.all.blank?
             = render "shared/no_providers"
           - else
             = yield
-        #container_footer
-          container_footer
+        #footer_spacer
       #footer
         Winged Monkey brought to you by Monkey Wings
