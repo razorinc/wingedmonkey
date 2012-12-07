@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "login"
   skip_before_filter :require_provider_authentication
 
   def new
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
       return_to = session.delete(:return_to) || root_url
       redirect_to return_to, notice: "Logged into #{current_provider.type}"
     else
-      flash.alert = "Invalid cloud credentials"
+      flash[:error] = "Invalid cloud credentials"
       render "new"
     end
   end

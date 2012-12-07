@@ -9,5 +9,151 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
+
+@import "compass/reset";
+@import "compass/layout/sticky-footer";
+
+@import "vars";
+@import "alchemy/composites/content_elements";
+@import "colors";
+@import "fonts";
+@import "text";
+@import "forms";
+
+@include sticky-footer(50px, "#container", "#footer_spacer", "#footer");
+
+*{ @include box-sizing(border-box); }
+
+body,html{}
+
+#wrapper{
+  height: 100%;
+  width: 960px;
+  margin: 0 auto;
+
+  #container{
+
+    #header{
+      padding: 15px;
+      background-color: #cdcdcd;
+      .controls{ float: right; }
+    }
+
+    #sidebar{
+      float: right;
+      width: 250px;
+      background-color: #eeeeee;
+    }
+
+    #content{
+      margin-right: 250px;
+      background-color: #dddddd;
+      @include clearfix;
+
+      // BOXES
+      .box{
+        padding: 10px;
+        float: left;
+        &.three{ width: 33%; }
+        &.two{ width: 50%; }
+      }
+
+      // PROGRESS TRACKER
+      ol.progress{
+        counter-reset: li; /* Initiate a counter */
+        list-style: none; /* remove default numbering */
+        *list-style: decimal; /* keep using default numbering for ie6/7 */
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        padding-top: 34px;
+
+        li{
+          position: relative;
+          text-align: center;
+          display: table-cell;
+
+          // dashed line between points
+          &:not(:last-child):after{
+            content: "";
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            border-top: 1px dotted $g4;
+          }
+
+          a, span{
+            color: $g4;
+            position: relative;
+            display: block;
+            &.current, &:hover:not(span){
+              color: $g6;
+              &:before{ background: $success_color; }
+            }
+            // numbered circles
+            &:before{
+              content: counter(li);
+              counter-increment: li;
+              font-family: $headlinefont;
+              font-weight: 600;
+              font-size: 14px;
+              text-align: center;
+              line-height: 2em;
+              position: absolute;
+              top: -30px;
+              left: 50%;
+              margin-left: -1em;
+              z-index: 1;
+              color: white;
+              background: $g4;
+              height: 2em;
+              width: 2em;
+              @include border-radius(2em);
+            }
+          }
+        }
+      }
+
+      // LAUNCHABLES AND APPLICATIONS LISTING
+      .launchable, .provider_application{
+        display: block;
+        list-style-type: none;
+        @include box-shadow($g4 -1px 1px 2px, inset -1px 1px 1px 0px $g0);
+        @include border-radius(2px);
+        background: #eeeeee;
+        padding: 8px;
+        margin-bottom: 10px;
+        p.description{
+          &.truncated{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        ul.controls{
+          float: right;
+          .button{ margin: 0 }
+          li{
+            @include inline-block;
+            margin: 3px 0px 3px 5px;
+            &.cost{ font-weight: bold; }
+          }
+        }
+      }
+    }
+
+    section{
+      @include clearfix;
+      padding: 15px;
+    }
+
+  }
+
+  #footer{
+    background-color: #cdcdcd;
+    font-size: 10px;
+  }
+}

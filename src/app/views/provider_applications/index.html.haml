@@ -1,9 +1,14 @@
-#heading My Applications
+- content_for :sidebar do
+  %section
+    = link_to "+ Launch New Application", launchables_path, :class => 'button primary large'
 
-- if current_provider.present?
+%section
+  %h2 My Applications
+
   - if @provider_applications.blank?
     = render :partial => "getting_started"
   - else
-    = render :partial => "provider_applications_list"
-- else
-  = render :partial => "choose_provider"
+    %ul.provider_applications
+      - @provider_applications.each do |app|
+        %li.provider_application
+          = render_provider_partial("provider_application", { :app => app })

@@ -1,3 +1,8 @@
-.app-name= launchable.name
-.bp-description= launchable.description
-.cost Cost? None, because this is a mock provider
+%ul.controls
+  %li.cost= number_to_currency(launchable.cost, :format => "%u%n / HR")
+  %li= link_to "Select",
+            new_provider_application_path(:launchable_id => launchable.id),
+            :class => 'button'
+%h5= link_to launchable.name, "#"
+%p.description.truncated= launchable.description
+

@@ -1,7 +1,0 @@
-- @launchables.each do |launchable|
-  .box{:style => "margin-bottom: 10px"}
-    .blueprint
-      .left
-        = render_provider_partial("launchable", {:launchable => launchable})
-    .control{:style => "display:block"}
-      = link_to "Launch", new_provider_application_path(:launchable_id => launchable.id)

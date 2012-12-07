@@ -1,0 +1,81 @@
+-# Possible flash message possible structures:
+-# flash[:warning] = "warning message"
+-# flash[:warning] = ["warning message", "warning message"]
+-# flash[:notice] = "notice message"
+-# flash[:notice] = ["notice message", "notice message"]
+-# flash[:success] = "success message"
+-# flash[:success] = ["success message", "notice message"]
+-# flash[:error] = "error message"
+-# flash[:error] = [t("error message"), t("error message")]
+-# flash[:error] = {
+-#   :summary => "error message summary",
+-#   :failures => [ "error message", "error message", "error message" ]
+-#   or
+-#   :failures => { :a => "error message", :b => "error message", :c => "error message" }
+-#   or
+-#   :failures => "error message"
+-# }
+
+- unless flash.empty?
+  - if flash[:success]
+    .flash_hud
+      %a.control{ :href => "#", :title => t("close") }
+      %ul.flash_messages.success
+        - if flash[:success].kind_of?(Array)
+          -flash[:success].each do |msg|
+            %li= msg
+        - else
+          %li= flash[:success]
+
+  - if flash[:notice]
+    .flash_hud
+      %a.control{ :href => "#", :title => t("close") }
+      %ul.flash_messages.success
+        - if flash[:notice].kind_of?(Array)
+          -flash[:notice].each do |msg|
+            %li= msg
+        - else
+          %li= flash[:notice]
+
+  - if flash[:warning]
+    .flash_hud
+      %a.control{ :href => "#", :title => t("close") }
+      %ul.flash_messages.warning
+        - if flash[:warning].kind_of?(Array)
+          - flash[:warning].each do |msg|
+            %li= msg
+        - else
+          %li= flash[:warning]
+
+  - if flash[:error]
+    .flash_hud
+      %a.control{ :href => "#", :title => t("close") }
+      - if flash[:error].kind_of?(Hash)
+        %ul.flash_messages.error
+          - if flash[:error][:summary].present?
+            %li= flash[:error][:summary]
+          %ul
+            - if flash[:error][:failures].present?
+              - if flash[:error][:failures].is_a?(Hash)
+                - flash[:error][:failures].each do |key, value|
+                  %li
+                    = key
+                    = ": #{value}" if value.present?
+              - elsif flash[:error][:failures].is_a?(Array)
+                - flash[:error][:failures].each do |msg|
+                  %li= msg
+              - else
+                %li= flash[:error][:failures]
+            - else
+              -flash[:error].each do |e|
+                %li= e
+      - elsif flash[:error].kind_of?(Array)
+        %ul.flash_messages.error
+          - flash[:error].each do |msg|
+            %li= msg
+      - else
+        %ul.flash_messages.error
+          %li= flash[:error]
+
+- if content_for? :error_messages
+  = yield :error_messages

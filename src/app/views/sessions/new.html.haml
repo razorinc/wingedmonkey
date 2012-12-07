@@ -1,7 +1,11 @@
-#provider_select
-  Select a provider
-  = render "shared/provider_dropdown"
+%section#provider_select
+  = form_tag providers_select_path, :id => "provider_select_form", :class => "form labels_top", :remote => true do
+    .control_group
+      .label= label_tag "Select a provider"
+      .input= select_tag("provider_id",
+                          options_from_collection_for_select(Provider.all, 'id', 'name', current_provider_id),
+                          :prompt => "Select Provider")
+      = submit_tag "Select Provider", :name => 'select_provider', :class => "button javascript_hidden"
 
-%br
-#provider_login
+%section#provider_login
   = render :partial => "provider_login_form"

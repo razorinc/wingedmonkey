@@ -1,0 +1,16 @@
+h1,h2,h3,h4,h5 {
+  font-weight: 300;
+  text-transform: none;
+}
+h1,h2,h3,h4,h5 { padding: 0.5em 0; }
+h1 {font-size: 180%; }
+h2 { font-size: 170%; }
+h3 { font-size: 140%; }
+h4 { font-size: 130%; }
+h5 { font-size: 115%; }
+
+a{
+  color: $link_color;
+  text-decoration: none;
+  &:hover:not(.button){ color: darken($link_color, 10%); }
+}

@@ -5,16 +5,11 @@ gem 'rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'haml-rails'
-gem 'sass'
 gem 'sass-rails'
+gem 'compass-rails'
 gem 'psych'
 gem 'rbovirt'
-
-group :assets do
-  gem 'compass-rails'
-  gem 'compass'
-  gem 'compass-960-plugin'
-end
+gem "alchemy", "~> 1.0.0"
 
 group :development, :test do
   gem 'debugger'
