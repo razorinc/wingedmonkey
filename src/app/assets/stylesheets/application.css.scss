@@ -19,6 +19,7 @@
 @import "colors";
 @import "fonts";
 @import "text";
+@import "forms";
 
 @include sticky-footer(50px, "#container", "#footer_spacer", "#footer");
 

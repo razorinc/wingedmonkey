@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+@import "compass/reset";
+@import "compass/layout/sticky-footer";
+
+@import "vars";
+@import "alchemy/composites/content_elements";
+@import "colors";
+@import "fonts";
+@import "text";
+@import "forms";
+
+@include sticky-footer(50px, "#wrapper", "#footer_spacer", "#footer");
+
+*{ @include box-sizing(border-box); }
+
+body,html{
+  height: 100%;
+}
+
+#wrapper{
+  width: 550px;
+  margin: 0 auto;
+  padding: 50px;
+
+  #container{
+    @include box-shadow(0 4px 4px -2px $g4);
+    @include border-radius(3px);
+    #header{
+      position: relative;
+      z-index: 1;
+      padding: 0px 15px;
+      background-color: #cdcdcd;
+      @include border-radius(2px 2px 0px 0px);
+      @include box-shadow(inset 0px 2px 3px $g1);
+      border: 1px solid $g4;
+      border-bottom: none;
+    }
+    #content{
+      @include border-radius(0px 0px 2px 2px);
+      border: 1px solid $g4;
+      section{
+        padding: 10px;
+      }
+    }
+  }
+}
+
+#footer{
+  background-color: #cdcdcd;
+  font-size: 10px;
+  text-align: center;
+}

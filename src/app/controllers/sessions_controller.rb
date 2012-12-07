@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "login"
   skip_before_filter :require_provider_authentication
 
   def new
