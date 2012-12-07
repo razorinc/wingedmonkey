@@ -44,17 +44,12 @@ body,html{}
       float: right;
       width: 250px;
       background-color: #eeeeee;
-      padding: 15px;
     }
 
     #content{
       margin-right: 250px;
       background-color: #dddddd;
       @include clearfix;
-      section{
-        @include clearfix;
-        padding: 15px;
-      }
 
       // BOXES
       .box{
@@ -122,8 +117,8 @@ body,html{}
         }
       }
 
-      // LAUNCHABLES LIST
-      .launchable{
+      // LAUNCHABLES AND APPLICATIONS LISTING
+      .launchable, .provider_application{
         display: block;
         list-style-type: none;
         @include box-shadow($g4 -1px 1px 2px, inset -1px 1px 1px 0px $g0);
@@ -149,6 +144,12 @@ body,html{}
         }
       }
     }
+
+    section{
+      @include clearfix;
+      padding: 15px;
+    }
+
   }
 
   #footer{

@@ -1,5 +1,6 @@
 - content_for :sidebar do
-  = link_to "+ Launch New Application", launchables_path, :class => 'button primary large'
+  %section
+    = link_to "+ Launch New Application", launchables_path, :class => 'button primary large'
 
 %section
   %h2 My Applications
@@ -7,4 +8,7 @@
   - if @provider_applications.blank?
     = render :partial => "getting_started"
   - else
-    = render :partial => "provider_applications_list"
+    %ul.provider_applications
+      - @provider_applications.each do |app|
+        %li.provider_application
+          = render_provider_partial("provider_application", { :app => app })

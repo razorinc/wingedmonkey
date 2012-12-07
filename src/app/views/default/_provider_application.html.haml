@@ -1,4 +1,10 @@
-.id= app.id
-.app-name= app.name
-.status= app.state
-.launchable= app.launchable.name
+
+%ul.controls
+  %li.status= app.state
+  %li.stop= button_to 'Stop', provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button danger'
+%h5
+  = link_to app.name, "#"
+  = "[ID: #{app.id}]"
+%dl
+  %dt Launchable:
+  %dd= app.launchable.name
