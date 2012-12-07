@@ -21,10 +21,7 @@
           = yield :sidebar if content_for? :sidebar
         #content
           = render :partial => 'shared/flash_messages'
-          - if Provider.all.blank?
-            = render "shared/no_providers"
-          - else
-            = yield
+          = yield
         #footer_spacer
       #footer
         Winged Monkey brought to you by Monkey Wings

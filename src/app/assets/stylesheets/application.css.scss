@@ -123,18 +123,20 @@ body,html{}
       }
 
       // LAUNCHABLES LIST
-      li.launchable{
+      .launchable{
         display: block;
         list-style-type: none;
-        @include box-shadow($g4 -1px 1px 2px);
+        @include box-shadow($g4 -1px 1px 2px, inset -1px 1px 1px 0px $g0);
         @include border-radius(2px);
-        background: $g1;
+        background: #eeeeee;
         padding: 8px;
         margin-bottom: 10px;
         p.description{
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          &.truncated{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
         ul.controls{
           float: right;

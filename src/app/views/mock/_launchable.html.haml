@@ -4,5 +4,5 @@
             new_provider_application_path(:launchable_id => launchable.id),
             :class => 'button'
 %h5= link_to launchable.name, "#"
-%p.description= launchable.description
+%p.description.truncated= launchable.description
 

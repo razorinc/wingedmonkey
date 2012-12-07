@@ -1,15 +1,20 @@
-%h2 Configure and Deploy
+%section
+  %h2 Configure and Deploy
+  %ol.progress
+    %li
+      = link_to "Select an Application Blueprint", launchables_path
+    %li
+      %span.current Configure and Deploy
+    %li
+      %span Use Your Application
 
-#launch-steps{style: "text-align:center; overflow: hidden;"}
-  .step#step1{style: "width:32%;float:left"}
-    = link_to "1. Select an Application Blueprint", launchables_path
-  .step#step2{style: "width:32%;float:left"}
-    2. Configure and Deploy
-  .step#step3{style: "width:33%;float:left"}
-    3. Use Your Application
-
-Here should be the ProviderApplication configuration form as described in Wireframes page 8.
-
-= form_for @provider_application, :url => provider_applications_path do |f|
-  = render_provider_partial("provider_application_form", {:form => f, :provider_application => @provider_application})
-  = f.submit "Launch " + @launchable.name, :id => 'save'
+%section
+  %h3 You selected
+  .launchable
+    = render_provider_partial("launchable_summary", {:launchable => @launchable })
+%section
+  %h3 Configuration
+  = form_for @provider_application, :url => provider_applications_path, :html => { :class => 'form' } do |f|
+    = render_provider_partial("provider_application_form", {:form => f, :provider_application => @provider_application})
+    .control_group
+      = f.submit "Deploy " + @launchable.name, :id => 'save', :class => 'button primary'
