@@ -9,9 +9,7 @@ gem 'sass-rails'
 gem 'compass-rails'
 gem 'psych'
 gem 'rbovirt'
-
-# gem "alchemy", :git => "git://github.com/ehelms/alchemy.git", :branch => "engine"
-gem "alchemy", :path => "~/alchemy"
+gem "alchemy", "~> 1.0.0"
 
 group :development, :test do
   gem 'debugger'
