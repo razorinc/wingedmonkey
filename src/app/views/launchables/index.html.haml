@@ -2,11 +2,12 @@
   %h2 Launch a New Application
 
   %ol.progress
-    %li= link_to "Select an Application Blueprint", launchables_path, :class => 'current'
     %li
-      %a Configure and Deploy
+      %span.current Select an Application Blueprint
     %li
-      %a Use Your Application
+      %span Configure and Deploy
+    %li
+      %span Use Your Application
 
 %section
   - if @launchables.blank?

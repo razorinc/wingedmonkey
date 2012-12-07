@@ -89,12 +89,12 @@ body,html{}
             border-top: 1px dotted $g4;
           }
 
-          a{
+          a, span{
             color: $g4;
-            &.current{ color: $g6; }
             position: relative;
             display: block;
-            &:hover, &.current{
+            &.current, &:hover:not(span){
+              color: $g6;
               &:before{ background: $success_color; }
             }
             // numbered circles
@@ -115,7 +115,7 @@ body,html{}
               background: $g4;
               height: 2em;
               width: 2em;
-              @include border-radius(20px);
+              @include border-radius(2em);
             }
           }
         }
@@ -125,8 +125,8 @@ body,html{}
       li.launchable{
         display: block;
         list-style-type: none;
-        @include box-shadow(#aaa -1px 1px 2px);
-        @include border-radius(3px, 3px);
+        @include box-shadow($g4 -1px 1px 2px);
+        @include border-radius(2px);
         background: $g1;
         padding: 8px;
         margin-bottom: 10px;
