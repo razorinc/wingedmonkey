@@ -10,12 +10,12 @@
   description: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
   cost: 0.03
 - !ruby/object:Providers::Mock::MockLaunchable
-  id: 1
+  id: 3
   name: Mock Launchable 3
   description: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
   cost: 0.09
 - !ruby/object:Providers::Mock::MockLaunchable
-  id: 2
+  id: 4
   name: Mock Launchable 4
   description: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
   cost: 0.03
