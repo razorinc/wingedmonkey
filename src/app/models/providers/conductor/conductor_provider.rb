@@ -1,14 +1,17 @@
 module Providers
   module Conductor
     class ConductorProvider < Provider
+      attr_accessor :pool_id
+
       def valid_credentials? credentials
-        client = connect! credentials
+        @credentials = credentials
+        client = connect!
         client.valid_credentials?
       end
 
-      def connect! credentials
+      def connect!
         Providers::Conductor::ConductorClient.
-          new(credentials[:username], credentials[:password], url)
+          new(@credentials[:username], @credentials[:password], url, pool_id)
       end
     end
   end

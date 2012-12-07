@@ -17,6 +17,7 @@
   name: Dev Conductor
   type: conductor
   url: https://HOST:PORT/api
+  pool_id: 1
 - !ruby/object:Providers::Mock::MockProvider
   id: my_mock
   name: Mock Provider
