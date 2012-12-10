@@ -1,8 +1,18 @@
 *.swp
 db/*.sqlite3
 log/*.log
-src/config/database.yml
-src/config/providers.yml
+config/database.yml
+config/providers.yml
 tmp/
-src/vendor/bundle
+vendor/bundle
 .idea/
+
+# Ignore bundler config
+/.bundle
+/coverage
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
