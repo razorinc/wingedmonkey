@@ -52,9 +52,12 @@ def as_user user
 end
 
 def login user
-  raise "expected hash with :provider and :username keys" unless user.is_a? Hash
-  session[:current_provider_id] = user[:provider]
-  session[:current_provider_creds] = user[:username]
+  if user.is_a? Hash and user[:provider] and user[:username]
+    session[:current_provider_id] = user[:provider]
+    session[:current_provider_creds] = user[:username]
+  else
+    raise "expecting a hash containing :provider and :username"
+  end
 end
 
 def logout
