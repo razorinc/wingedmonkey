@@ -40,3 +40,24 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def mock_user
+  @mock_user ||= {:provider => "my_mock", :username => "username"}
+end
+
+def as_user user
+  login user
+  yield # will raise error is no block is given
+  logout
+end
+
+def login user
+  raise "expected hash with :provider and :username keys" unless user.is_a? Hash
+  session[:current_provider_id] = user[:provider]
+  session[:current_provider_creds] = user[:username]
+end
+
+def logout
+  session.delete(:current_provider_id)
+  session.delete(:current_provider_creds)
+end
