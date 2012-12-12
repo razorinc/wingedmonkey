@@ -34,4 +34,6 @@ WingedMonkey::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.providers_file = File.join("#{Rails.root}", "config", "providers_test.yml")
 end
