@@ -9,7 +9,7 @@ module ProviderModel
   end
 
   def provider_model
-    provider_type = Provider.current.type.capitalize
+    provider_type = Provider.current.type.camelize
     model_name = self.name
     Providers.const_get(provider_type).const_get(provider_type+model_name)
   end
