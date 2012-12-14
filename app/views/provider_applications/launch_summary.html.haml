@@ -1,0 +1,26 @@
+%section
+  %h2 Launch a New Application
+  %ol.progress
+    %li
+      %span Select an Application Blueprint
+    %li
+      %span Configure and Deploy
+    %li
+      %span.current Use Your Application
+
+%section
+  %h2 Success! Your new application is starting now.
+
+  %dl.properties
+    %dt Name
+    %dd= @provider_application.name
+    %dt Launchable
+    %dd= @provider_application.launchable.name
+
+%section
+  %h2 What's next?
+  %p Visit the application to monitor status and begin using the application once it has completed launching.
+  %p
+    = link_to "Go to Application", provider_application_path(@provider_application.id), :class => 'button primary'
+    Or, you can
+    = link_to "Launch another application", launchables_path
