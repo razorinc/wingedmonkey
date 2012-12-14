@@ -15,11 +15,10 @@ module Providers
 
       def save
         self.class.connect! {|connection|
-          connection.create_server(
-                                   :name => @name,
-                                   :imageRef => @launchable_id,
-                                   :flavorRef => @flavor_id,
-                                   )
+          server = connection.create_server(:name => @name,
+                                            :imageRef => @launchable_id,
+                                            :flavorRef => @flavor_id)
+          @id = server.id
         }
       end
 
