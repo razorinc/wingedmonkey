@@ -12,7 +12,7 @@ gem 'rbovirt'
 gem 'openstack'
 
 # gem "alchemy", "~> 1.0.0"
-gem 'alchemy', :git => 'git://github.com/jtomasek/converge-ui.git', :branch => 'gettext_production_fix'
+gem 'alchemy', :git => 'git://github.com/ui-alchemy/alchemy.git', :branch => 'master'
 
 group :assets do
   gem 'therubyracer'

@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/jtomasek/converge-ui.git
-  revision: 3392234ff75e19fe7fa556d169ad16c9af64c96f
-  branch: gettext_production_fix
+  remote: git://github.com/ui-alchemy/alchemy.git
+  revision: 04073ba7a2d3972bc3113a8fd9a5b515138327b3
+  branch: master
   specs:
     alchemy (1.0.0)
       rails (>= 3.0.0)
