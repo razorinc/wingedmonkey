@@ -15,10 +15,18 @@ class ProviderApplicationsController < ApplicationController
   def create
     @provider_application = ProviderApplication.create(params[:provider_application])
     if @provider_application.save
-      redirect_to provider_applications_path
+      redirect_to launch_summary_provider_application_path(@provider_application.id)
     else
       render :new
     end
+  end
+
+  def show
+    @provider_application = ProviderApplication.find(params[:id])
+  end
+
+  def launch_summary
+    @provider_application = ProviderApplication.find(params[:id])
   end
 
   def destroy
