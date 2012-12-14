@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 
-//= require alchemy/rails
 //= require alchemy/flash_messages
 
 $(document).ready(function() {

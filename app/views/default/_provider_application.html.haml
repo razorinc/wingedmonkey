@@ -1,4 +1,3 @@
-
 %ul.controls
   %li.status= app.state
   %li.stop= button_to 'Stop', provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button danger'
