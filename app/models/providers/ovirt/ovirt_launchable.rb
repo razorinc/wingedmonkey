@@ -1,5 +1,5 @@
 module Providers
-  module Mock
+  module Ovirt
     class OvirtLaunchable < Launchable
 
       # List all of the launchable items.
