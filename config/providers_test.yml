@@ -13,10 +13,10 @@
   url: https://ovirt.test/api
   datacenter: UUID
 - !ruby/object:Providers::Conductor::ConductorProvider
-  id: dev_conductor
-  name: Dev Conductor
+  id: test_conductor
+  name: Test Conductor
   type: conductor
-  url: https://conductor.test/api
+  url: http://conductor.test.com/api
   pool_id: 1
 - !ruby/object:Providers::Mock::MockProvider
   id: my_mock

@@ -67,3 +67,10 @@ def logout
   session.delete(:current_provider_creds)
   Provider.current = nil
 end
+
+def with_provider id
+  provider = Provider.find(id)
+  Provider.current = provider
+  yield provider
+  Provider.current = nil
+end
