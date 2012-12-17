@@ -18,9 +18,7 @@ module Providers
       end
 
       def self.find(id)
-        connect! do |connection|
-          connection.launchables.find{|launchable| launchable.id.to_s == id}
-        end
+        self.all.find{|launchable| launchable.id.to_s == id.to_s}
       end
     end
   end
