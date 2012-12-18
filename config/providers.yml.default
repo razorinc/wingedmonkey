@@ -21,8 +21,8 @@
 - !ruby/object:Providers::OpenStack::OpenStackProvider
   id: dev_open_stack
   name: Dev OpenStack
-  type: openstack
-  url: https://HOST:PORT/api
+  type: open_stack
+  url: https://HOST:PORT/v2.0
   tenant: sample
 - !ruby/object:Providers::Mock::MockProvider
   id: my_mock
