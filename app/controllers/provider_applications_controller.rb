@@ -5,7 +5,6 @@ class ProviderApplicationsController < ApplicationController
 
   def new
     if params[:launchable_id].present?
-      @provider = current_provider
       @launchable = Launchable.find(params[:launchable_id])
       @provider_application = ProviderApplication.create({:launchable_id => @launchable.id})
     else
