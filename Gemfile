@@ -9,6 +9,7 @@ gem 'sass-rails'
 gem 'compass-rails'
 gem 'psych'
 gem 'rbovirt'
+gem 'openstack'
 
 # gem "alchemy", "~> 1.0.0"
 gem 'alchemy', :git => 'git://github.com/ui-alchemy/alchemy.git', :branch => 'master'

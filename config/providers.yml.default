@@ -18,6 +18,12 @@
   type: conductor
   url: https://HOST:PORT/api
   pool_id: 1
+- !ruby/object:Providers::OpenStack::OpenStackProvider
+  id: dev_open_stack
+  name: Dev OpenStack
+  type: open_stack
+  url: https://HOST:PORT/v2.0
+  tenant: sample
 - !ruby/object:Providers::Mock::MockProvider
   id: my_mock
   name: Mock Provider

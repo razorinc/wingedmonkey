@@ -1,0 +1,13 @@
+- flavor = app.flavor
+%ul.controls
+  %li.status= app.state
+  %li.stop= button_to 'Stop', provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button danger'
+%h5
+  = link_to app.name, provider_application_path(app.id)
+  = "[ID: #{app.id}]"
+%dl
+  %dt Launchable:
+  %dd= app.launchable.name
+%dl
+  %dt Flavor:
+  %dd= flavor.name + " | " + (flavor.ram / 1024).to_s + "GB RAM | " + flavor.vcpus.to_s + " VCPU | " + flavor.disk.to_s + "GB Disk"

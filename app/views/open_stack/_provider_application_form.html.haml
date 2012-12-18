@@ -1,0 +1,5 @@
+= form.hidden_field :launchable_id, :name => 'provider_application[launchable_id]'
+.control_group
+  .label= form.label :name, "Application name", :for => 'provider_application_name'
+  .input= form.text_field :name, :name => 'provider_application[name]'
+  .input= select_tag(:flavor_id, options_from_collection_for_select(current_provider.flavors, 'id', 'name'), :name => 'provider_application[flavor_id]')
