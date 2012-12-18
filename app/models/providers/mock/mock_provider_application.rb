@@ -6,9 +6,11 @@ module Providers
       end
 
       def save
-        @state = 'running'
-        self.class.connect! do |connection|
-          connection.add_application(self)
+        run_callbacks :save do
+          @state = 'running'
+          self.class.connect! do |connection|
+            connection.add_application(self)
+          end
         end
       end
 

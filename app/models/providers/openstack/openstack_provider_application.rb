@@ -14,12 +14,14 @@ module Providers
       end
 
       def save
-        self.class.connect! {|connection|
-          server = connection.create_server(:name => @name,
-                                            :imageRef => @launchable_id,
-                                            :flavorRef => @flavor_id)
-          @id = server.id
-        }
+        run_callbacks :save do
+          self.class.connect! {|connection|
+            server = connection.create_server(:name => @name,
+                                              :imageRef => @launchable_id,
+                                              :flavorRef => @flavor_id)
+            @id = server.id
+          }
+        end
       end
 
       def destroy

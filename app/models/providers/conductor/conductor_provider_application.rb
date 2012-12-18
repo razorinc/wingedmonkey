@@ -6,7 +6,9 @@ module Providers
       end
 
       def save
-        ## not implemented yet
+        run_callbacks :save do
+          ## not implemented yet
+        end
       end
 
       def destroy
