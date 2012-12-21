@@ -41,24 +41,6 @@ module Providers
         deployments
       end
 
-      def deployables
-        doc = xml "/pools/" + @pool_id.to_s + "/deployables"
-        deployables = []
-        deployables_xml = doc.xpath("//deployable")
-        deployables_xml.each do |deployable_listing_xml|
-          deployable_id = deployable_listing_xml["id"];
-          deployable_doc = xml "/deployables/#{deployable_id}"
-          deployable_xml = deployable_doc.root
-          name = deployable_xml.xpath("name").text
-          description = deployable_xml.xpath("description").text
-          deployables << Launchable.
-            create({ :id => deployable_id,
-                     :name => name,
-                     :description => description })
-        end
-        deployables
-      end
-
       def persisted?
         false
       end
