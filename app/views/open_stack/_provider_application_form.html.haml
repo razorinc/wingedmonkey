@@ -1,7 +1,7 @@
 = form.hidden_field :launchable_id, :name => 'provider_application[launchable_id]'
 .control_group
-  .label= form.label :name, "Application name", :for => 'provider_application_name'
+  .label= form.label :name, :for => 'provider_application_name'
   .input= form.text_field :name, :name => 'provider_application[name]'
 .control_group
-  .label= form.label :name, "Flavor", :for => 'provider_application_flavor'
+  .label= form.label :flavor_id, :for => 'provider_application_flavor_id'
   .input= form.collection_select :flavor_id, current_provider.flavors, 'id', 'name', {:include_blank => true}, {:name => 'provider_application[flavor_id]', :id => 'provider_application_flavor'}
