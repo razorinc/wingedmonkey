@@ -3,13 +3,11 @@ module Providers
     class ConductorLaunchable < Launchable
 
       def self.all filter=nil
-        connect! {|connection| connection.deployables}
+        filter ||= {}
       end
 
-      def self.find id
-        connect! do |connection|
-          connection.deployables.find{|launchable| launchable.id.to_s == id}
-        end
+      def self.find(id)
+        nil
       end
     end
   end
