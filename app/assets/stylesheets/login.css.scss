@@ -16,45 +16,79 @@
 
 @import "vars";
 @import "alchemy/composites/content_elements";
-@import "colors";
 @import "fonts";
 @import "text";
 @import "forms";
+@import "shared";
 
 @include sticky-footer(50px, "#wrapper", "#footer_spacer", "#footer");
 
-*{ @include box-sizing(border-box); }
-
-body,html{
-  height: 100%;
-}
-
 #wrapper{
-  width: 550px;
+  $border_radius: 4px;
+
+  max-width: 320px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 0;
 
   #container{
-    @include box-shadow(0 4px 4px -2px $g4);
-    @include border-radius(3px);
+    background: white;
+    margin-top: 35%;
+    @include box-shadow(0 0 15px 0 rgba($g1, 0.5) inset,
+                        0 4px 4px -4px $g2);
+    @include border-radius($border_radius);
+
     #header{
-      position: relative;
-      z-index: 1;
+      line-height: 1;
       padding: 0px 15px;
-      background-color: #cdcdcd;
-      @include border-radius(2px 2px 0px 0px);
-      @include box-shadow(inset 0px 2px 3px $g1);
-      border: 1px solid $g4;
-      border-bottom: none;
+      @include border-radius($border_radius $border_radius 0 0);
+      border: 1px solid rgba($g4, 0.4);
+      border-bottom: 2px solid $primary_gradient_top_color;
+
+      img {
+        height: 45px;
+        padding: 5px;
+      }
     }
+
     #content{
-      @include border-radius(0px 0px 2px 2px);
-      border: 1px solid $g4;
-      section{
-        padding: 10px;
+      width: 320px;
+      padding: 0 0 15px 0;
+      @include border-radius(0 0 $border_radius $border_radius);
+      border: 1px solid rgba($g4, 0.4);
+
+      h2 {
+        margin: 15px 0 5px 0;
+        padding: 0;
+        font-size: 150%;
+      }
+    }
+
+    section {
+      padding: 0 15px;
+
+      &#provider_select form {
+        .input {
+          display: inline-block;
+          width: auto;
+          max-width: 215px;
+        }
+
+        .button {
+          margin: 2px 5px 0 5px;
+          max-width: 70px;
+        }
       }
     }
   }
+}
+
+#provider_login {
+  .buttons {
+    .button {
+      margin: 5px 0 0 0;
+    }
+  }
+
 }
 
 #footer{

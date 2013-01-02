@@ -11,16 +11,16 @@
   %body
     #wrapper
       #container
+        = render :partial => 'shared/flash_messages'
         #header
+          = link_to image_tag("logo.png"), root_url, :id => "logo"
           .controls
             - if authenticated?
               = "Logged into #{current_provider.name}."
               = link_to "Change your provider.", logout_path
-          %h1= link_to "Winged Monkey", root_url
         #sidebar
           = yield :sidebar if content_for? :sidebar
         #content
-          = render :partial => 'shared/flash_messages'
           = yield
         #footer_spacer
       #footer

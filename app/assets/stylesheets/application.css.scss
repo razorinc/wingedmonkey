@@ -16,10 +16,10 @@
 
 @import "vars";
 @import "alchemy/composites/content_elements";
-@import "colors";
 @import "fonts";
 @import "text";
 @import "forms";
+@import "shared";
 
 @include sticky-footer(50px, "#container", "#footer_spacer", "#footer");
 
@@ -29,15 +29,26 @@ body,html{}
 
 #wrapper{
   height: 100%;
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
 
   #container{
-
     #header{
-      padding: 15px;
-      background-color: #cdcdcd;
-      .controls{ float: right; }
+      line-height: 1;
+      padding: 0.5em 1em;
+      border-bottom: 3px solid $primary_gradient_top_color;
+
+      .controls {
+        float: right;
+      }
+
+      h1 {
+        padding: 0;
+      }
+
+      a {
+        color: $primary_gradient_top_color;
+      }
     }
 
     #sidebar{

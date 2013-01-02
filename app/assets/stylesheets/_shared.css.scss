@@ -1,0 +1,23 @@
+*{ @include box-sizing(border-box); }
+
+body,html{
+  height: 100%;
+  position: relative;
+}
+
+body {
+  @include background(rgb(244, 244, 244) image-url("bg.png"));
+}
+
+.flash_hud {
+  max-width: 960px;
+  margin: 0 auto;
+  @include background(white);
+  @include border-radius(0 0 $border_radius $border_radius);
+  @include box-shadow(0 0 15px 0 rgba($g1, 0.5) inset,
+                      0 4px 2px -4px $g2);
+
+  ul:last-child {
+    @include border-radius(0 0 $border_radius $border_radius);
+  }
+}
