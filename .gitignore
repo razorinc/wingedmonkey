@@ -9,6 +9,7 @@ vendor/bundle
 
 # Ignore bundler config
 /.bundle
+/bundle
 /coverage
 # Ignore the default SQLite database.
 /db/*.sqlite3
