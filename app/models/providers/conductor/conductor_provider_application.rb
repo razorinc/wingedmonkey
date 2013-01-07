@@ -5,10 +5,8 @@ module Providers
         raise "Conductor does not currently support the association between provider applications and launchables."
       end
 
-      def save
-        run_callbacks :save do
-          ## not implemented yet
-        end
+      def launch
+        ## not implemented yet
       end
 
       def destroy

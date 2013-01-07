@@ -5,12 +5,10 @@ module Providers
         Launchable.find(@launchable_id)
       end
 
-      def save
-        run_callbacks :save do
-          @state = 'running'
-          self.class.connect! do |connection|
-            connection.create_vm(self)
-          end
+      def launch
+        @state = 'running'
+        self.class.connect! do |connection|
+          connection.create_vm(self)
         end
       end
 

@@ -13,15 +13,13 @@ module Providers
         }
       end
 
-      def save
-        run_callbacks :save do
-          self.class.connect! {|connection|
-            server = connection.create_server(:name => @name,
-                                              :imageRef => @launchable_id,
-                                              :flavorRef => @flavor_id)
-            @id = server.id
-          }
-        end
+      def launch
+        self.class.connect! {|connection|
+          server = connection.create_server(:name => @name,
+                                            :imageRef => @launchable_id,
+                                            :flavorRef => @flavor_id)
+          @id = server.id
+        }
       end
 
       def destroy

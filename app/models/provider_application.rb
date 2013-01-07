@@ -23,4 +23,15 @@ class ProviderApplication
   def persisted?
     false
   end
+
+  def save
+    run_callbacks :save do
+      new_record? ? launch : update
+    end
+  end
+
+  ## not implemented yet
+  def new_record?
+    true
+  end
 end
