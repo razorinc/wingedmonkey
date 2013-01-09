@@ -16,5 +16,6 @@
   %h3 Configuration
   = form_for @provider_application, :url => provider_applications_path, :html => { :class => 'form' } do |f|
     = render_provider_partial("provider_application_form", {:form => f, :provider_application => @provider_application})
-    .control_group
-      = f.submit "Deploy " + @launchable.name, :id => 'save', :class => 'button primary'
+    .control_group.buttons
+      .input
+        = f.submit "Deploy Launchable", :id => 'save', :class => 'button primary'

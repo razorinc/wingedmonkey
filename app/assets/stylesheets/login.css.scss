@@ -15,34 +15,36 @@
 @import "compass/layout/sticky-footer";
 
 @import "vars";
+@import "mixins";
 @import "alchemy/composites/content_elements";
 @import "fonts";
 @import "text";
 @import "forms";
 @import "shared";
 
-@include sticky-footer(50px, "#wrapper", "#footer_spacer", "#footer");
+.flash_hud,
+#wrapper {
+  width: 312px;
+}
 
 #wrapper{
-  $border_radius: 4px;
-
-  max-width: 320px;
   margin: 0 auto;
   padding: 0;
+  position: relative;
+  top: $window_top_position;
 
   #container{
     background: white;
-    margin-top: 35%;
     @include box-shadow(0 0 15px 0 rgba($g1, 0.5) inset,
                         0 4px 4px -4px $g2);
     @include border-radius($border_radius);
+    @include container_border;
 
     #header{
       line-height: 1;
       padding: 0px 15px;
       @include border-radius($border_radius $border_radius 0 0);
-      border: 1px solid rgba($g4, 0.4);
-      border-bottom: 2px solid $primary_gradient_top_color;
+      border-bottom: 2px solid $primary_color;
 
       img {
         height: 45px;
@@ -51,10 +53,8 @@
     }
 
     #content{
-      width: 320px;
       padding: 0 0 15px 0;
       @include border-radius(0 0 $border_radius $border_radius);
-      border: 1px solid rgba($g4, 0.4);
 
       h2 {
         margin: 15px 0 5px 0;
@@ -88,11 +88,4 @@
       margin: 5px 0 0 0;
     }
   }
-
-}
-
-#footer{
-  background-color: #cdcdcd;
-  font-size: 10px;
-  text-align: center;
 }

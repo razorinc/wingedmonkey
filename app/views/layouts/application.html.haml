@@ -9,19 +9,18 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    = render :partial => 'shared/flash_messages'
     #wrapper
+      #header
+        = link_to image_tag("logo.png"), root_url, :id => "logo"
+        .controls
+          - if authenticated?
+            = "Logged into #{current_provider.name}."
+            = link_to "Log out", logout_path
       #container
-        = render :partial => 'shared/flash_messages'
-        #header
-          = link_to image_tag("logo.png"), root_url, :id => "logo"
-          .controls
-            - if authenticated?
-              = "Logged into #{current_provider.name}."
-              = link_to "Change your provider.", logout_path
-        #sidebar
-          = yield :sidebar if content_for? :sidebar
         #content
           = yield
-        #footer_spacer
+        #sidebar
+          = yield :sidebar if content_for? :sidebar
       #footer
         Winged Monkey brought to you by Monkey Wings
