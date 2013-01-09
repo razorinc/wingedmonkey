@@ -1,0 +1,21 @@
+# English translations for version package.
+# Copyright (C) 2013 THE version'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the version package.
+# Jiri Tomasek <jtomasek@redhat.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: version 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-10 17:00+0100\n"
+"PO-Revision-Date: 2013-01-10 16:57+0100\n"
+"Last-Translator: Jiri Tomasek <jtomasek@redhat.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Winged Monkey brought to you by Monkey Wings"
+msgstr "Winged Monkey brought to you by Monkey Wings"
