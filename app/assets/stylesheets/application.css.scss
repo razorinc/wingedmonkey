@@ -144,6 +144,22 @@
         }
       }
 
+      // JUST FOR LAUNCHABLE
+      .launchable {
+        ul.controls {
+          margin-top: 0;
+
+          li {
+            margin-top: 0;
+
+            .button, .btn {
+              position: relative;
+              top: -2px;
+            }
+          }
+        }
+      }
+
       // JUST PROVIDER APPLICATIONS
       .provider_application {
         padding: 0;
