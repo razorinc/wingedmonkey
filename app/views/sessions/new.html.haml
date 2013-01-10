@@ -5,7 +5,7 @@
       .input= select_tag("provider_id",
                           options_from_collection_for_select(Provider.all, 'id', 'name', current_provider_id),
                           :prompt => "-- Select Provider --")
-      = submit_tag "Select", :name => 'select_provider', :class => "button javascript_hidden"
+      = submit_tag "Select", :name => 'select_provider', :class => "button js_hidden"
 
 %section#provider_login
   = render :partial => "provider_login_form"

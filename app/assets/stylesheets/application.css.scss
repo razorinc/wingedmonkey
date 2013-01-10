@@ -174,11 +174,6 @@
             dd {
               display: inline;
             }
-
-            &:after {
-              display: inline;
-              content: ", ";
-            }
           }
 
           // link to show more properties
@@ -187,15 +182,17 @@
 
             &:before {
               display: inline-block;
-              content: "⇣";
+              content: ", ⇣";
               text-decoration: none;
               padding-right: 0.2em;
             }
+
+            &.open:before{ content: ", ⇡"; }
           }
         }
 
         .properties {
-          display: none;
+          display: table;
           width: 100%;
           height: 2em;
           color: $g4;

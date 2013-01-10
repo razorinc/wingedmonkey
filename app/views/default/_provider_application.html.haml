@@ -8,9 +8,9 @@
   %dl.ip
     %dd 10.14.151.623
 
-  = link_to "see more", "#", :class => "more"
+  = link_to "see more", "#", :class => "more js_toggle_trigger", "data-title-closed" => "see more", "data-title-open" => "see less"
 
-%ul.properties
+%ul.properties.js_hidden.js_toggleable
   %li
     %span.label Status
     = app.state
