@@ -9,7 +9,9 @@
       %span.current Use Your Application
 
 %section
-  %h2 Success! Your new application is starting now.
+  %h3
+    %span.success.strong Success!
+    = "Your new application is starting now."
 
   %dl.properties
     %dt Name
@@ -18,9 +20,17 @@
     %dd= @provider_application.launchable.name
 
 %section
-  %h2 What's next?
-  %p Visit the application to monitor status and begin using the application once it has completed launching.
+  %h3 What's next?
   %p
+    = "Visit the application to monitor status and begin using the application once it has completed launching."
+    %br
     = link_to "Go to Application", provider_application_path(@provider_application.id), :class => 'button primary'
-    Or, you can
+    %br
+    %br
+    = "You can"
     = link_to "Launch another application", launchables_path
+    = "."
+    %br
+    = "Or you can"
+    = link_to "See list of all your running applications", root_path
+    = "."

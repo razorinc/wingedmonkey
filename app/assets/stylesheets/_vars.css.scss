@@ -1,1 +1,8 @@
-$headlinefont:        "OpenSans", "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
+$primary_color: rgb(110, 50, 0);
+$primary_gradient_top_color: lighten($primary_color, 0%);
+$primary_gradient_bottom_color: darken($primary_color, 15%);
+$btn_primary_color: darken($primary_color, 5%);
+$headlinefont: "OpenSans", "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
+$border_radius: 4px;
+$window_top_position: 5em;
+$background_color: rgb(240, 240, 240);

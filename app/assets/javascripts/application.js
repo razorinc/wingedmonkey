@@ -16,10 +16,30 @@
 //= require alchemy/flash_messages
 
 $(document).ready(function() {
-  // hide elements with javascript_hidden class
-  $(".javascript_hidden").hide();
+  // Remove no-js class from html tag if js is on
+  $("html").removeClass("no-js");
 
-  // submit provider_select_form when provider select changes
+  // Hide elements with javascript_hidden class
+  $(".js_hidden").hide();
+
+  // Toggle functionality
+  $('js_toggle_trigger').show(); //toggle triggers are hidden by default
+
+  $('.js_toggle_trigger').click(function(e) {
+    var $trigger = $(this);
+    e.preventDefault();
+    $trigger.closest('.toggle_container').find('.js_toggleable').slideToggle(80, function() {
+      // Animation complete.
+      $trigger.toggleClass('open');
+      if($trigger.hasClass('open')) {
+        $trigger.text($trigger.data('title-open'));
+      } else {
+        $trigger.text($trigger.data('title-closed'));
+      }
+    });
+  });
+
+  // Submit provider_select_form when provider select changes
   $("#provider_select_form #provider_id").change(function(){
     $(this).closest('form').submit();
   });
