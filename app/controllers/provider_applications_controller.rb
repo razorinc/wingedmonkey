@@ -8,7 +8,7 @@ class ProviderApplicationsController < ApplicationController
       @launchable = Launchable.find(params[:launchable_id])
       @provider_application = ProviderApplication.create({:launchable_id => @launchable.id})
     else
-      redirect_to launchables_path, :alert => "Please select Application Blueprint first"
+      redirect_to launchables_path, :alert => _("Please select Application Blueprint first")
     end
   end
 

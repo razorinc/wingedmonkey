@@ -15,8 +15,8 @@
         = link_to image_tag("logo.png"), root_url, :id => "logo"
         .controls
           - if authenticated?
-            = "Logged into #{current_provider.name}."
-            = link_to "Log out", logout_path
+            = _("Logged into %s.") % current_provider.name
+            = link_to _("Log out"), logout_path
       #container
         #content
           = yield
