@@ -12,8 +12,10 @@
   %h3 You selected
   .launchable
     = render_provider_partial("launchable_summary", {:launchable => @launchable })
+
 %section
   %h3 Configuration
+  = render 'shared/error_messages', :object => @provider_application if @provider_application.errors.any?
   = form_for @provider_application, :url => provider_applications_path, :html => { :class => 'form' } do |f|
     = render_provider_partial("provider_application_form", {:form => f, :provider_application => @provider_application})
     .control_group.buttons

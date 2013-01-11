@@ -13,7 +13,7 @@ module Providers
         }
       end
 
-      def save
+      def launch
         self.class.connect! {|connection|
           server = connection.create_server(:name => @name,
                                             :imageRef => @launchable_id,

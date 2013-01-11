@@ -17,6 +17,7 @@ class ProviderApplicationsController < ApplicationController
     if @provider_application.save
       redirect_to launch_summary_provider_application_path(@provider_application.id)
     else
+      @launchable = Launchable.find(params[:provider_application][:launchable_id])
       render :new
     end
   end

@@ -5,7 +5,7 @@ module Providers
         Launchable.find(@launchable_id)
       end
 
-      def save
+      def launch
         @state = 'running'
         self.class.connect! do |connection|
           connection.create_vm(self)

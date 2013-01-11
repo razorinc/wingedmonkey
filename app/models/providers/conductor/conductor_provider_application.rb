@@ -5,7 +5,7 @@ module Providers
         raise "Conductor does not currently support the association between provider applications and launchables."
       end
 
-      def save
+      def launch
         ## not implemented yet
       end
 
