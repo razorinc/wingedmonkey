@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-14 11:01+0100\n"
-"PO-Revision-Date: 2013-01-10 15:49+0100\n"
+"POT-Creation-Date: 2013-01-15 13:46+0100\n"
+"PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -60,10 +60,13 @@ msgstr ""
 msgid "Launch a New Application"
 msgstr ""
 
-msgid "Launch another application"
+msgid "Launch another Application"
 msgstr ""
 
 msgid "Launchable"
+msgstr ""
+
+msgid "List of my Applications"
 msgstr ""
 
 msgid "Log in"
@@ -90,9 +93,6 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "Or you can"
-msgstr ""
-
 msgid "Password"
 msgstr ""
 
@@ -102,13 +102,61 @@ msgstr ""
 msgid "Provider selection"
 msgstr ""
 
+msgid "Providers/conductor/conductor provider application"
+msgstr ""
+
+msgid "Providers/mock/mock provider application"
+msgstr ""
+
+msgid "Providers/open_stack/open_stack provider application"
+msgstr ""
+
+msgid "Providers/ovirt/ovirt provider application"
+msgstr ""
+
+msgid "Providers::Conductor::ConductorProviderApplication|Launchable id"
+msgstr ""
+
+msgid "Providers::Conductor::ConductorProviderApplication|Name"
+msgstr ""
+
+msgid "Providers::Conductor::ConductorProviderApplication|State"
+msgstr ""
+
+msgid "Providers::Mock::MockProviderApplication|Launchable id"
+msgstr ""
+
+msgid "Providers::Mock::MockProviderApplication|Name"
+msgstr ""
+
+msgid "Providers::Mock::MockProviderApplication|State"
+msgstr ""
+
+msgid "Providers::OpenStack::OpenStackProviderApplication|Flavor id"
+msgstr ""
+
+msgid "Providers::OpenStack::OpenStackProviderApplication|Launchable id"
+msgstr ""
+
+msgid "Providers::OpenStack::OpenStackProviderApplication|Name"
+msgstr ""
+
+msgid "Providers::OpenStack::OpenStackProviderApplication|State"
+msgstr ""
+
+msgid "Providers::Ovirt::OvirtProviderApplication|Launchable id"
+msgstr ""
+
+msgid "Providers::Ovirt::OvirtProviderApplication|Name"
+msgstr ""
+
+msgid "Providers::Ovirt::OvirtProviderApplication|State"
+msgstr ""
+
 msgid "Running applications can be stopped, restarted, paused, resumed, and deleted."
 msgstr ""
 
 msgid "Running time"
-msgstr ""
-
-msgid "See list of all your running applications"
 msgstr ""
 
 msgid "Select"
@@ -153,9 +201,6 @@ msgstr ""
 msgid "Winged Monkey brought to you by Monkey Wings"
 msgstr ""
 
-msgid "You can"
-msgstr ""
-
 msgid "You can select from a variety of applications for your selected back end provider. Each application may have options that allow you to customize the running systems. Click Launch to launch a new application and get started."
 msgstr ""
 
@@ -166,6 +211,45 @@ msgid "You selected"
 msgstr ""
 
 msgid "Your new application is starting now."
+msgstr ""
+
+msgid "helpers.label.providers_conductor_conductor_provider_application.launchable_id"
+msgstr ""
+
+msgid "helpers.label.providers_conductor_conductor_provider_application.name"
+msgstr ""
+
+msgid "helpers.label.providers_conductor_conductor_provider_application.state"
+msgstr ""
+
+msgid "helpers.label.providers_mock_mock_provider_application.launchable_id"
+msgstr ""
+
+msgid "helpers.label.providers_mock_mock_provider_application.name"
+msgstr ""
+
+msgid "helpers.label.providers_mock_mock_provider_application.state"
+msgstr ""
+
+msgid "helpers.label.providers_open_stack_open_stack_provider_application.flavor_id"
+msgstr ""
+
+msgid "helpers.label.providers_open_stack_open_stack_provider_application.launchable_id"
+msgstr ""
+
+msgid "helpers.label.providers_open_stack_open_stack_provider_application.name"
+msgstr ""
+
+msgid "helpers.label.providers_open_stack_open_stack_provider_application.state"
+msgstr ""
+
+msgid "helpers.label.providers_ovirt_ovirt_provider_application.launchable_id"
+msgstr ""
+
+msgid "helpers.label.providers_ovirt_ovirt_provider_application.name"
+msgstr ""
+
+msgid "helpers.label.providers_ovirt_ovirt_provider_application.state"
 msgstr ""
 
 msgid "see less"

@@ -1,7 +1,0 @@
-en:
-  activerecord:
-    models:
-      #list of model name translations
-    attributes:
-      #list of activerecord model attributes
-
