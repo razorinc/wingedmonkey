@@ -1,6 +1,6 @@
 .container
   %ul.controls
-    %li.stop= button_to 'Stop', provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button warning'
+    %li.stop= button_to 'Stop', provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button warning', :title => 'Stop'
 
   %h3
     = link_to app.name, provider_application_path(app.id)
