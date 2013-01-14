@@ -25,12 +25,5 @@
     = "Visit the application to monitor status and begin using the application once it has completed launching."
     %br
     = link_to "Go to Application", provider_application_path(@provider_application.id), :class => 'button primary'
-    %br
-    %br
-    = "You can"
-    = link_to "Launch another application", launchables_path
-    = "."
-    %br
-    = "Or you can"
-    = link_to "See list of all your running applications", root_path
-    = "."
+    = link_to "Launch another Application", launchable_path, :class => 'button'
+    = link_to "List of my Applications", root_path, :class => 'button'
