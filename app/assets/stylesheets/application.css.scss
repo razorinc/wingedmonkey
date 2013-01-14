@@ -126,7 +126,7 @@
 
         ul.controls{
           float: right;
-          margin: 0.25em 0 1em 1em;
+          margin: 0 0 0 1em;
           position: relative;
 
           .button {
@@ -135,7 +135,7 @@
 
           li {
             @include inline-block;
-            margin: 3px 0px 3px 5px;
+            margin: 0 0 0 5px;
 
             &.cost {
               font-weight: bold;
@@ -147,11 +147,7 @@
       // JUST FOR LAUNCHABLE
       .launchable {
         ul.controls {
-          margin-top: 0;
-
           li {
-            margin-top: 0;
-
             .button, .btn {
               position: relative;
               top: -2px;
@@ -169,9 +165,22 @@
 
           // buttons
           ul.controls {
-            right: 15px;
-            @include opacity(0);
-            @include transition(all 0.15s linear);
+            margin-top: 2px;
+
+            .stop .button {
+              width: 40px;
+              height: 40px;
+              border: 0 none;
+              padding: 0;
+              color: transparent;
+              @include text-shadow(none);
+              @include background(image-url("icon_stop_inactive.png") no-repeat 50% 50%);
+              @include box-shadow(none);
+
+              &:hover {
+                @include background(image-url("icon_stop_active.png") no-repeat 50% 50%);
+              }
+            }
           }
 
           &:hover {
