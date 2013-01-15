@@ -9,7 +9,7 @@ module Providers
           images_hash = connection.images
           images_hash.each do |image_hash|
             state = image_hash[:status]
-            wm_state = (state == "ACTIVE") ? "ACTIVE" : "INACTIVE"
+            wm_state = (state == "ACTIVE") ? Launchable::WM_STATE_ACTIVE : Launchable::WM_STATE_INACTIVE
             launchables << Launchable.
               create({ :id => image_hash[:id],
                        :name => image_hash[:name],

@@ -6,6 +6,9 @@ class Launchable
 
   attr_accessor :id, :name, :description, :wm_state
 
+  WM_STATE_ACTIVE = "ACTIVE"
+  WM_STATE_INACTIVE = "INACTIVE"
+
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)

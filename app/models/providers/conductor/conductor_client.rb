@@ -55,7 +55,7 @@ module Providers
             create({ :id => deployable_id,
                      :name => name,
                      :description => description,
-                     :wm_state => "ACTIVE" })
+                     :wm_state => Launchable::WM_STATE_ACTIVE })
         end
         deployables
       end
