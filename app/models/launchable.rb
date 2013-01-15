@@ -4,7 +4,10 @@ class Launchable
   extend ProviderModel
   extend ActiveModel::Naming
 
-  attr_accessor :id, :name, :description
+  attr_accessor :id, :name, :description, :wm_state
+
+  WM_STATE_ACTIVE = "ACTIVE"
+  WM_STATE_INACTIVE = "INACTIVE"
 
   def initialize(attributes = {})
     attributes.each do |name, value|

@@ -54,7 +54,8 @@ module Providers
           deployables << Launchable.
             create({ :id => deployable_id,
                      :name => name,
-                     :description => description })
+                     :description => description,
+                     :wm_state => Launchable::WM_STATE_ACTIVE })
         end
         deployables
       end
