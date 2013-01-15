@@ -8,10 +8,13 @@ module Providers
         connect! {|connection|
           images_hash = connection.images
           images_hash.each do |image_hash|
+            state = image_hash[:status]
+            wm_state = (state == "ACTIVE") ? "ACTIVE" : "INACTIVE"
             launchables << Launchable.
               create({ :id => image_hash[:id],
                        :name => image_hash[:name],
-                       :state => image_hash[:status]
+                       :state => state,
+                       :wm_state => wm_state
                      })
           end
         }
