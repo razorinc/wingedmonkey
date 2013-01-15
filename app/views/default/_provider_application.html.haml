@@ -3,7 +3,8 @@
     %li.stop= button_to 'Stop', provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button warning', :title => 'Stop'
 
   %h3
-    = link_to app.name, provider_application_path(app.id)
+    -#= link_to app.name, provider_application_path(app.id)
+    = app.name
 
   %dl.ip
     %dd 10.14.151.623
