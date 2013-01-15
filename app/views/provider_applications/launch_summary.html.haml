@@ -22,8 +22,8 @@
 %section
   %h3 What's next?
   %p
-    = "Visit the application to monitor status and begin using the application once it has completed launching."
-    %br
-    = link_to "Go to Application", provider_application_path(@provider_application.id), :class => 'button primary'
-    = link_to "Launch another Application", launchable_path, :class => 'button'
-    = link_to "List of my Applications", root_path, :class => 'button'
+    -#= "Visit the application to monitor status and begin using the application once it has completed launching."
+    -#%br
+    -#= link_to "Go to Application", provider_application_path(@provider_application.id), :class => 'button primary'
+    = link_to "List of my Applications", root_path, :class => 'button primary'
+    = link_to "Launch another Application", launchable_path, :class => 'button primary'
