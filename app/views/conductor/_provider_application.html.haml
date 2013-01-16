@@ -1,6 +1,7 @@
 %ul.controls
   %li.status= app.state
-  %li.stop= button_to _('Stop'), provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button danger'
+  - if app.wm_state == ProviderApplication::WM_STATE_RUNNING
+    %li.stop= button_to _('Stop'), provider_application_path(app.id), :method => :delete, :confirm => 'Are you sure you want to stop this application?', :class => 'button danger'
 %h5
   -#= link_to app.name, provider_application_path(app.id)
   = app.name
