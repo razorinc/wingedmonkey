@@ -8,6 +8,7 @@ module Providers
       def launch
         return false if not valid?
         @state = 'running'
+        @wm_state = ProviderApplication::WM_STATE_RUNNING
         self.class.connect! do |connection|
           connection.add_application(self)
         end
