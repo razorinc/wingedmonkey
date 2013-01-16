@@ -22,7 +22,7 @@ gem 'oj'
 gem 'alchemy', :git => 'git://github.com/ui-alchemy/alchemy.git', :branch => 'master'
 
 group :assets do
-  gem 'therubyracer'
+  gem 'therubyracer', :platforms => :ruby
   gem 'uglifier'
 end
 
