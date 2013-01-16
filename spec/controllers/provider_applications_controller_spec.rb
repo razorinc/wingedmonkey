@@ -48,7 +48,8 @@ describe ProviderApplicationsController do
       it "responds with success when there are no errors" do
         as_user mock_user do
           post "create", :provider_application => {:launchable_id => 1, :name => "New application"}
-          response.should redirect_to(provider_applications_path)
+          app = ProviderApplication.all.last
+          response.should redirect_to(launch_summary_provider_application_path(app.id))
         end
       end
 
