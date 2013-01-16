@@ -52,7 +52,7 @@ describe ProviderApplicationsController do
         end
       end
 
-      it "render 'new' when parameters are missing" do
+      it "renders 'new' when parameters are missing" do
         as_user mock_user do
           post "create", :provider_application => {}
           response.should render_template("new")
