@@ -35,12 +35,12 @@ describe ApplicationHelper do
     partial.should eq "default/partial_name"
   end
 
-  it "indicates that a provideer partial can be found" do
+  it "indicates that a provider partial can be found" do
     File.stub!(:exists?).and_return(true)
     partial_exists?("partial", "exists").should be_true
   end
 
-  it "indicates that a provideer partial cannot be found" do
+  it "indicates that a provider partial cannot be found" do
     File.stub!(:exists?).and_return(false)
     partial_exists?("partial", "exists").should be_false
   end
