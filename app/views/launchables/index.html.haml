@@ -1,17 +1,17 @@
 %section
-  %h2 Launch a New Application
+  %h2= _("Launch a New Application")
 
   %ol.progress
     %li
-      %span.current Select an Application Blueprint
+      %span.current= _("Select an Application Blueprint")
     %li
-      %span Configure and Deploy
+      %span= _("Configure and Deploy")
     %li
-      %span Application Overview
+      %span= _("Application Overview")
 
 %section
   - if @launchables.blank?
-    %p This is where a list of application blueprints would be
+    %p= _("There are no Application Blueprints available.")
   - else
     %ul.launchables
     - @launchables.each do |launchable|

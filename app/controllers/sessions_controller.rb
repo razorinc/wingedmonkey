@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       return_to = session.delete(:return_to) || root_url
       redirect_to return_to
     else
-      flash[:error] = "Invalid cloud credentials"
+      flash[:error] = _("Invalid cloud credentials")
       render "new"
     end
   end

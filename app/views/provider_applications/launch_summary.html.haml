@@ -1,29 +1,29 @@
 %section
-  %h2 Launch a New Application
+  %h2= _("Launch a New Application")
   %ol.progress
     %li
-      %span Select an Application Blueprint
+      %span= _("Select an Application Blueprint")
     %li
-      %span Configure and Deploy
+      %span= _("Configure and Deploy")
     %li
-      %span.current Application Overview
+      %span.current= _("Application Overview")
 
 %section
   %h3
-    %span.success.strong Success!
-    = "Your new application is starting now."
+    %span.success.strong= _("Success!")
+    = _("Your new application is starting now.")
 
   %dl.properties
-    %dt Name
+    %dt= _("Name")
     %dd= @provider_application.name
-    %dt Launchable
+    %dt= _("Launchable")
     %dd= @provider_application.launchable.name
 
 %section
-  %h3 What's next?
+  %h3= _("What's next?")
   %p
-    -#= "Visit the application to monitor status and begin using the application once it has completed launching."
-    -#%br
-    -#= link_to "Go to Application", provider_application_path(@provider_application.id), :class => 'button primary'
-    = link_to "List of my Applications", root_path, :class => 'button primary'
-    = link_to "Launch another Application", launchable_path, :class => 'button primary'
+    / = _("Visit the application to monitor status and begin using the application once it has completed launching.")
+    / %br
+    / = link_to _("Go to Application"), provider_application_path(@provider_application.id), :class => 'button primary'
+    = link_to _("List of my Applications"), provider_applications_path, :class => 'button primary'
+    = link_to _("Launch another Application"), launchable_path, :class => 'button'

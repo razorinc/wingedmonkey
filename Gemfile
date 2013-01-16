@@ -10,6 +10,7 @@ gem 'compass-rails'
 gem 'psych'
 gem 'rbovirt'
 gem 'openstack'
+gem 'gettext_i18n_rails'
 
 # gem "alchemy", "~> 1.0.0"
 gem 'alchemy', :git => 'git://github.com/ui-alchemy/alchemy.git', :branch => 'master'
@@ -23,6 +24,11 @@ group :development, :test do
   gem 'debugger'
   gem 'sqlite3'
   gem 'rspec-rails'
+end
+
+group :development do
+  gem 'gettext', '>=1.9.3', :require => false
+  gem 'ruby_parser', "~> 2.3.1"
 end
 
 group :test do

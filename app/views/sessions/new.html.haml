@@ -1,11 +1,11 @@
 %section#provider_select
-  %h2 Provider selection
+  %h2= _("Provider selection")
   = form_tag providers_select_path, :id => "provider_select_form", :class => "form labels_top", :remote => true do
     .control_group
       .input= select_tag("provider_id",
                           options_from_collection_for_select(Provider.all, 'id', 'name', current_provider_id),
-                          :prompt => "-- Select Provider --")
-      = submit_tag "Select", :name => 'select_provider', :class => "button js_hidden"
+                            :prompt => _("-- Select Provider --"))
+      = submit_tag _("Select"), :name => 'select_provider', :class => "button js_hidden"
 
 %section#provider_login
   = render :partial => "provider_login_form"
