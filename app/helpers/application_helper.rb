@@ -25,4 +25,8 @@ module ApplicationHelper
     partial_file = ::Rails.root.to_s + "/app/views/" + provider_name + "/_" + partial_name + ".html.haml"
     File.exists?(partial_file)
   end
+
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
 end
