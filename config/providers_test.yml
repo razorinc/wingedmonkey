@@ -7,7 +7,7 @@
 #  url: https://HOST:PORT/api
 
 - !ruby/object:Providers::Ovirt::OvirtProvider
-  id: dev_env_ovirt
+  id: test_ovirt
   name: Dev Ovirt
   type: ovirt
   url: https://ovirt.test/api
