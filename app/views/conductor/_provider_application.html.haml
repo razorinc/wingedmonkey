@@ -4,7 +4,7 @@
 %h5
   -#= link_to app.name, provider_application_path(app.id)
   = app.name
-  = "[ID: #{app.id}]"
+  = _("[ID: %s]") % app.id
 %dl.properties
   %dt Launchable
   %dd= _("Unknown")

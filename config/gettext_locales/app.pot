@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-15 13:46+0100\n"
+"POT-Creation-Date: 2013-01-16 10:43+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,13 +27,19 @@ msgstr ""
 msgid "< My Applications"
 msgstr ""
 
-msgid "After you have launched some applications, you can monitor their status. The way the status is reported by each applciation may vary depending on which back end provider is hosting your applciation."
+msgid "After you have launched some applications, you can monitor their status. The way the status is reported by each application may vary depending on which back end provider is hosting your application."
 msgstr ""
 
 msgid "Application Overview"
 msgstr ""
 
 msgid "Are you sure you want to stop this application?"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Conductor does not currently support the association between provider applications and launchables."
 msgstr ""
 
 msgid "Configuration"
@@ -43,9 +49,6 @@ msgid "Configure and Deploy"
 msgstr ""
 
 msgid "Deploy Launchable"
-msgstr ""
-
-msgid "Go to Application"
 msgstr ""
 
 msgid "Invalid cloud credentials"
@@ -189,13 +192,13 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-msgid "Visit the application to monitor status and begin using the application once it has completed launching."
-msgstr ""
-
 msgid "What can you do with Winged Monkey?"
 msgstr ""
 
 msgid "What's next?"
+msgstr ""
+
+msgid "Winged Monkey"
 msgstr ""
 
 msgid "Winged Monkey brought to you by Monkey Wings"
@@ -211,6 +214,9 @@ msgid "You selected"
 msgstr ""
 
 msgid "Your new application is starting now."
+msgstr ""
+
+msgid "[ID: %s]"
 msgstr ""
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.launchable_id"

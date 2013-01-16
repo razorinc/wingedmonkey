@@ -2,7 +2,7 @@ module Providers
   module Conductor
     class ConductorProviderApplication < ProviderApplication
       def launchable
-        raise "Conductor does not currently support the association between provider applications and launchables."
+        raise _("Conductor does not currently support the association between provider applications and launchables.")
       end
 
       def launch
