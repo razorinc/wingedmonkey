@@ -13,7 +13,8 @@ describe Providers::Ovirt::OvirtProviderApplication do
 
       obj = Providers::Ovirt::OvirtProviderApplication.new({
         :id => 1,
-        :name => "name"
+        :name => "name",
+        :launchable_id => 1
       })
       obj.save
       obj.state.should eq "running"
@@ -37,7 +38,7 @@ describe Providers::Ovirt::OvirtProviderApplication do
   describe "as a class" do
     before :all do
       @vms = [
-        OpenStruct.new({:id => 1, :name => "first", :description => "first template"}, :status => "  up  \n", :memory => "1234", :cores => 1),
+        OpenStruct.new({:id => 1, :name => "first", :description => "first template", :status => "  up  \n", :memory => "1234", :cores => 1}),
         OpenStruct.new({:id => 2, :name => "second", :description => "second template"}),
         OpenStruct.new({:id => 3, :name => "third", :description => "third template"}),
         OpenStruct.new({:id => 4, :name => "fourth", :description => "fourth template"})]
