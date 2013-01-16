@@ -1,9 +1,10 @@
+- title _("My Applications")
+
 - content_for :sidebar do
   .container
     %section.launch
-      = link_to _("+ Launch New Application"), launchables_path, :class => 'button primary', :id => "launch"
+      = link_to _("Launch New Application"), launchables_path, :class => 'button primary', :id => "launch"
     %section
-      %p Some other useful information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet cursus leo. Etiam et purus augue. Nullam non sapien eros, ut fringilla mauris. Suspendisse sapien est, dignissim vitae tempus eu, molestie et est. Curabitur vulputate quam id mauris scelerisque euismod. Donec ultricies dignissim ante eget imperdiet. Ut tristique magna nec neque facilisis sodales vitae ut dui. Nam commodo sagittis tortor, quis lobortis nulla lobortis a. Cum sociis natoque penatibus.
 
 %section
   %h2= _("My Applications")
