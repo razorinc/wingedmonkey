@@ -43,6 +43,35 @@ describe ProviderApplicationsController do
         end
       end
     end
-  end
 
+    describe "POST 'create'" do
+      it "responds with success when there are no errors" do
+        as_user mock_user do
+          post "create", :provider_application => {:launchable_id => 1, :name => "New application"}
+          app = ProviderApplication.all.last
+          response.should redirect_to(launch_summary_provider_application_path(app.id))
+        end
+      end
+
+      it "renders 'new' when parameters are missing" do
+        as_user mock_user do
+          post "create", :provider_application => {}
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "POST 'destroy'" do
+
+      it "redirects to provider applications" do
+        as_user mock_user do
+          params = {:launchable_id => 1, :name => "New application"}
+          application = Providers::Mock::MockProviderApplication.new(params)
+          application.save
+          post "destroy", {:id => application.id}
+          response.should redirect_to(provider_applications_path)
+        end
+      end
+    end
+  end
 end

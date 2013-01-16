@@ -67,5 +67,8 @@ module WingedMonkey
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Providers configuration
+    config.providers_file = File.join("#{Rails.root}", "config", "providers.yml")
   end
 end

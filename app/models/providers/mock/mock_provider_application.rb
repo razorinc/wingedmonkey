@@ -6,6 +6,7 @@ module Providers
       end
 
       def launch
+        return false if not valid?
         @state = 'running'
         self.class.connect! do |connection|
           connection.add_application(self)

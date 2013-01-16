@@ -13,6 +13,7 @@ class ProviderApplication
   attr_accessor :id, :launchable_id, :name, :state
 
   validates :name, :presence => true
+  validates :launchable_id, :presence => true
 
   def initialize(attributes = {})
     attributes.each do |name, value|

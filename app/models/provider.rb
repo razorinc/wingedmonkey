@@ -36,7 +36,7 @@ private
   def self.providers
     if not @@providers or @@providers.empty?
       require 'providers'
-      @@providers = YAML.load_file(File.join("#{Rails.root}", "config", "providers.yml"))
+      @@providers = YAML.load_file(Rails.configuration.providers_file)
     end
     @@providers
   end

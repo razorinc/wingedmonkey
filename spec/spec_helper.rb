@@ -55,6 +55,8 @@ def login user
   if user.is_a? Hash and user[:provider] and user[:username]
     session[:current_provider_id] = user[:provider]
     session[:current_provider_creds] = user[:username]
+    Provider.current = Provider.find(session[:current_provider_id])
+    Provider.current.credentials = {:username => user[:username]}
   else
     raise "expecting a hash containing :provider and :username"
   end
@@ -63,4 +65,12 @@ end
 def logout
   session.delete(:current_provider_id)
   session.delete(:current_provider_creds)
+  Provider.current = nil
+end
+
+def with_provider id
+  provider = Provider.find(id)
+  Provider.current = provider
+  yield provider
+  Provider.current = nil
 end

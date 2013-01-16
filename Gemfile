@@ -32,8 +32,11 @@ group :development do
 end
 
 group :test do
+  gem 'debugger'
   gem 'capybara'
   gem 'simplecov', :require => false
   gem 'launchy'
   gem 'factory_girl'
+  gem 'vcr'
+  gem 'fakeweb'
 end
