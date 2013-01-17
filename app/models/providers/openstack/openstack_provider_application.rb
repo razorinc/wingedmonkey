@@ -34,10 +34,18 @@ module Providers
         connect! {|connection|
           servers_hash = connection.list_servers_detail
           servers_hash.each do |server_hash|
+            state = server_hash[:status]
+            wm_state = case state
+                         when "BUILD", "HARD_REBOOT", "PASSWORD", "REBOOT", "REBUILD", "RESCUE", "RESIZE", "REVERT_RESIZE", "VERIFY_RESIZE" then ProviderApplication::WM_STATE_PENDING
+                         when "ACTIVE" then ProviderApplication::WM_STATE_RUNNING
+                         when "SHUTOFF", "SUSPENDED" then ProviderApplication::WM_STATE_STOPPED
+                         else ProviderApplication::WM_STATE_FAILED
+                       end
             apps << ProviderApplication.
               create({ :id => server_hash[:id],
                        :name => server_hash[:name],
-                       :state => server_hash[:status],
+                       :state => state,
+                       :wm_state => wm_state,
                        :launchable_id => server_hash[:image][:id],
                        :flavor_id => server_hash[:flavor][:id]
                      })
