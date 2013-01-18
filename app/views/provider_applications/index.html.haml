@@ -7,14 +7,14 @@
     %section
 
 %section
+
   %h2= _("My Applications")
 
   - if @provider_applications.blank?
     = render :partial => "getting_started"
   - else
+    #refresh_applications_list= render "update_applications_link"
     %ul.provider_applications
-      - @provider_applications.each do |app|
-        %li.provider_application.running.toggle_container
-          = render_provider_partial("provider_application", { :app => app })
+      = render :partial => "provider_applications", :locals => {:provider_applications => @provider_applications }
 
 = render :partial => 'features'
