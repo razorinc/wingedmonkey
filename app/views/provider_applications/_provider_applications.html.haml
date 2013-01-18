@@ -1,0 +1,3 @@
+- provider_applications.each do |app|
+  %li.provider_application.running.toggle_container
+    = render_provider_partial("provider_application", { :app => app })

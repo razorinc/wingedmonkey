@@ -1,0 +1,4 @@
+$('#refresh_applications_list').html("<%= escape_javascript render 'update_applications_link' %>");
+$('ul.provider_applications').html("<%= escape_javascript render :partial => 'provider_applications',
+                                                                   :locals => {:provider_applications => @provider_applications } %>");
+$(".js_hidden").hide();

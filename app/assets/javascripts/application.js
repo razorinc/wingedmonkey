@@ -15,7 +15,7 @@
 
 //= require alchemy/flash_messages
 
-$(document).ready(function() {
+$(function() {
   // Remove no-js class from html tag if js is on
   $("html").removeClass("no-js");
 
@@ -25,7 +25,7 @@ $(document).ready(function() {
   // Toggle functionality
   $('js_toggle_trigger').show(); //toggle triggers are hidden by default
 
-  $('.js_toggle_trigger').click(function(e) {
+  $(document).on("click", '.js_toggle_trigger', function(e) {
     var $trigger = $(this);
     e.preventDefault();
     $trigger.closest('.toggle_container').find('.js_toggleable').slideToggle(80, function() {
@@ -42,5 +42,12 @@ $(document).ready(function() {
   // Submit provider_select_form when provider select changes
   $("#provider_select_form #provider_id").change(function(){
     $(this).closest('form').submit();
+  });
+
+  // Display spinner and text after clicking the link to update Applications list
+  // $("#refresh_applications_list a").live("click", function(e) {
+  $("#refresh_applications_list").on("click", "a", function(e) {
+    $(this).addClass("loading");
+    $(this).text($(this).data("loading"));
   });
 });
