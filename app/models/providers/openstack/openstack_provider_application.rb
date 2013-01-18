@@ -1,7 +1,7 @@
 module Providers
   module OpenStack
     class OpenStackProviderApplication < ProviderApplication
-      attr_accessor :flavor_id
+      attr_accessor :flavor_id, :ip_addresses, :created_at
 
       def launchable
         Launchable.find(@launchable_id)
@@ -47,7 +47,9 @@ module Providers
                        :state => state,
                        :wm_state => wm_state,
                        :launchable_id => server_hash[:image][:id],
-                       :flavor_id => server_hash[:flavor][:id]
+                       :flavor_id => server_hash[:flavor][:id],
+                       :ip_addresses => server_hash[:addresses][:public].map{|x| x[:addr]} + server_hash[:addresses][:private].map{|x| x[:addr]},
+                       :created_at => DateTime.parse(server_hash[:created])
                      })
           end
         }

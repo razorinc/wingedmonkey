@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-16 15:43+0100\n"
+"POT-Creation-Date: 2013-01-17 16:50-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,6 +46,9 @@ msgid "Configure and Deploy"
 msgstr ""
 
 msgid "Deploy Launchable"
+msgstr ""
+
+msgid "Flavor"
 msgstr ""
 
 msgid "Invalid cloud credentials"
@@ -159,9 +162,6 @@ msgstr ""
 msgid "Running applications can be stopped, restarted, paused, resumed, and deleted."
 msgstr ""
 
-msgid "Running time"
-msgstr ""
-
 msgid "Select"
 msgstr ""
 
@@ -186,7 +186,7 @@ msgstr ""
 msgid "To configure providers, you will need to create a <code>config/providers.yml</code> file."
 msgstr ""
 
-msgid "Unknown"
+msgid "Uptime"
 msgstr ""
 
 msgid "Username"
@@ -214,9 +214,6 @@ msgid "You selected"
 msgstr ""
 
 msgid "Your new application is starting now."
-msgstr ""
-
-msgid "[ID: %s]"
 msgstr ""
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.launchable_id"
