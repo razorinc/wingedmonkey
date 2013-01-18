@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-17 16:50-0500\n"
+"POT-Creation-Date: 2013-01-18 11:48-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,9 @@ msgid "Deploy Launchable"
 msgstr ""
 
 msgid "Flavor"
+msgstr ""
+
+msgid "IP Address"
 msgstr ""
 
 msgid "Invalid cloud credentials"
@@ -184,6 +187,12 @@ msgid "There are no Application Blueprints available."
 msgstr ""
 
 msgid "To configure providers, you will need to create a <code>config/providers.yml</code> file."
+msgstr ""
+
+msgid "Updated at %s"
+msgstr ""
+
+msgid "Updating..."
 msgstr ""
 
 msgid "Uptime"
