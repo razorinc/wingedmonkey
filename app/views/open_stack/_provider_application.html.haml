@@ -19,7 +19,7 @@
     = app.state
   %li
     %span.label= _("Uptime")
-    = time_ago_in_words(app.created_at.to_time, true)
+    = time_ago_in_words(app.created_at, true)
   %li
     %span.label= _("Launchable")
     = app.launchable.name
