@@ -24,4 +24,9 @@
         #sidebar
           = yield :sidebar if content_for? :sidebar
       #footer
-        = _('Winged Monkey brought to you by Monkey Wings')
+        %span.info
+          = _("Found a problem?")
+          = link_to _("Report it"), "https://github.com/wingedmonkey/wingedmonkey/issues/new", :target => "_blank"
+        %span.info
+          = _("Need help?")
+          = link_to _("Check the docs"), "https://github.com/wingedmonkey/documents/wiki", :target => "_blank"
