@@ -20,6 +20,9 @@
     %dd= @provider_application.name
     %dt= _("Launchable")
     %dd= @provider_application.launchable.name
+    %dt= _("Status")
+    %dd= @provider_application.state
+    = render_provider_partial("provider_application_properties", {:app => @provider_application})
 
 %section
   %h3= _("What's next?")
