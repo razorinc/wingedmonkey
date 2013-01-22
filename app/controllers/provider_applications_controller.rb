@@ -42,6 +42,7 @@ class ProviderApplicationsController < ApplicationController
       @provider_application.destroy
     end
 
+    flash[:notice] = _("The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect.") % @provider_application.name
     redirect_to provider_applications_path
   end
 end

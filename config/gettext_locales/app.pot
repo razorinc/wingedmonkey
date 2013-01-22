@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-21 16:13-0500\n"
+"POT-Creation-Date: 2013-01-22 11:34-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,6 +193,9 @@ msgid "Success!"
 msgstr ""
 
 msgid "The example of <code>config/providers.yml</code> is available in config/providers.yml.default"
+msgstr ""
+
+msgid "The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect."
 msgstr ""
 
 msgid "There are no Application Blueprints available."
