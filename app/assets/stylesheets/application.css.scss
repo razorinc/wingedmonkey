@@ -111,11 +111,11 @@
         display: block;
         position: relative;
         list-style-type: none;
-        @include box-shadow(-1px 1px 1px 0 rgba($g3, 0.2),
-                            -1px 1px 1px 0px rgba($white_color, 0.3) inset);
+        @include box-shadow(0 1px 1px 0 rgba($g3, 0.10),
+                            -1px 1px 1px 0px rgba($white_color, 0.6) inset);
         @include border-radius(2px);
-        background: $background_color;
-        border: 1px solid darken($background_color, 3%);
+        background: $box_bg_color;
+        border: 1px solid darken($box_bg_color, 5%);
         padding: 0.75em;
         margin-bottom: 10px;
 
@@ -255,7 +255,7 @@
 
             .label {
               font-size: 90%;
-              color: $g3;
+              color: $g4;
 
               &:after {
                 display: inline;
@@ -266,10 +266,69 @@
         }
 
         // STATES
-        &.running {
+        &.running,
+        &.paused,
+        &.stopped,
+        &.error {
+          .container {
+            background-repeat: no-repeat;
+            background-position: 0.75em 1.85em;
+          }
+        }
+
+        // running
+        &.running .container {
           background-image: image-url("icon_running.png");
-          background-repeat: no-repeat;
-          background-position: 0.75em 1.75em;
+        }
+
+        // paused
+        &.paused {
+          @include opacity(0.75);
+          background-image: -webkit-repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
+          background-image: -moz-repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
+          background-image: repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
+
+          .container {
+            background: image-url("icon_paused.png") no-repeat 0.75em 1.85em;
+          }
+
+          &:hover {
+            @include opacity(1);
+          }
+        }
+
+        // stopped
+        &.stopped {
+          @include opacity(0.75);
+          background-color: darken($stopped_bg_color, 3%);
+          @include box-shadow(0 1px 1px 0px darken($stopped_bg_color, 5%) inset);
+          border-color: darken($stopped_bg_color, 5%);
+
+          .container {
+            background-image: image-url("icon_stopped.png");
+          }
+
+          &:hover {
+            @include opacity(1);
+            background-color: $stopped_bg_color;
+          }
+        }
+
+        // error
+        &.error {
+          @include opacity(1);
+          border-color: $error_color;
+
+          .container {
+            background-position: 1.25em 1.75em;
+            background-image: image-url("icon_error.png");
+          }
+        }
+
+        &.processing {
+          .container {
+            background-image: image-url("icon_processing.gif");
+          }
         }
       }
 
