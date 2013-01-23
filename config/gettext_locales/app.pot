@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 11:34-0500\n"
+"POT-Creation-Date: 2013-01-23 14:17+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,9 +22,6 @@ msgid "-- Select Provider --"
 msgstr ""
 
 msgid "< My Applications"
-msgstr ""
-
-msgid "After you have launched some applications, you can monitor their status. The way the status is reported by each application may vary depending on which back end provider is hosting your application."
 msgstr ""
 
 msgid "Application Overview"
@@ -58,6 +55,9 @@ msgid "Found a problem?"
 msgstr ""
 
 msgid "IP Address"
+msgstr ""
+
+msgid "In as little as three clicks, you can select a template and launch an application on the provider of your choice."
 msgstr ""
 
 msgid "Invalid cloud credentials"
@@ -174,9 +174,6 @@ msgstr ""
 msgid "Report it"
 msgstr ""
 
-msgid "Running applications can be stopped, restarted, paused, resumed, and deleted."
-msgstr ""
-
 msgid "Select"
 msgstr ""
 
@@ -190,6 +187,9 @@ msgid "Stop"
 msgstr ""
 
 msgid "Success!"
+msgstr ""
+
+msgid "The dashboard presents significant events for all of your running applications in a concise view."
 msgstr ""
 
 msgid "The example of <code>config/providers.yml</code> is available in config/providers.yml.default"
@@ -225,7 +225,7 @@ msgstr ""
 msgid "Winged Monkey"
 msgstr ""
 
-msgid "You can select from a variety of applications for your selected back end provider. Each application may have options that allow you to customize the running systems. Click Launch to launch a new application and get started."
+msgid "You decide when to pause, snapshot, and terminate your applications Note: capabilities may vary by provider."
 msgstr ""
 
 msgid "You have not configured any providers yet."
