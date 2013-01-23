@@ -111,14 +111,22 @@
         display: block;
         position: relative;
         list-style-type: none;
-        @include box-shadow(0 1px 1px 0 rgba($g3, 0.10),
+        @include box-shadow(0 1px 1px 0 rgba($g3, 0.1),
                             -1px 1px 1px 0px rgba($white_color, 0.6) inset);
         @include border-radius(2px);
         background: $box_bg_color;
         border: 1px solid darken($box_bg_color, 5%);
         padding: 0.75em;
         margin-bottom: 10px;
+        @include transition(all 0.1s ease-in-out);
 
+        &:hover:not(.no_hover) {
+          border-color: darken($box_bg_color, 10%);
+          @include box-shadow(0 1px 1px 0 rgba($g3, 0.3),
+                              -1px 1px 1px 0px rgba($white_color, 0.6) inset);
+        }
+
+        // headings for applications and launchables
         h3 {
           margin: 0;
           padding: 0;
@@ -142,6 +150,7 @@
         }
 */
 
+        // right-sided controls
         ul.controls{
           float: right;
           margin: 0 0 0 1em;
@@ -269,7 +278,8 @@
         &.running,
         &.paused,
         &.stopped,
-        &.error {
+        &.error,
+        &.processing {
           .container {
             background-repeat: no-repeat;
             background-position: 0.75em 1.85em;
@@ -277,8 +287,10 @@
         }
 
         // running
-        &.running .container {
-          background-image: image-url("icon_running.png");
+        &.running {
+          .container {
+            background-image: image-url("icon_running.png");
+          }
         }
 
         // paused
@@ -311,6 +323,8 @@
           &:hover {
             @include opacity(1);
             background-color: $stopped_bg_color;
+            border-color: darken($stopped_bg_color, 10%);
+            @include box-shadow(0 1px 1px 0px darken($stopped_bg_color, 7%) inset);
           }
         }
 
@@ -325,6 +339,7 @@
           }
         }
 
+        // processing
         &.processing {
           .container {
             background-image: image-url("icon_processing.gif");
@@ -417,11 +432,11 @@
       width: 250px;
 
       .container {
-        @include box-shadow(-1px 1px 1px 0 rgba($g3, 0.2),
+        @include box-shadow(0 1px 1px 0 rgba($g3, 0.2),
                             -1px 1px 1px 0px rgba($white_color, 0.3) inset);
         @include border-radius(2px);
-        background: $background_color;
-        border: 1px solid darken($background_color, 3%);
+        background: $box_bg_color;
+        border: 1px solid darken($box_bg_color, 7%);
         padding: 1em;
       }
 
