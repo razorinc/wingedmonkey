@@ -278,8 +278,9 @@
         &.running,
         &.paused,
         &.stopped,
-        &.error,
-        &.processing {
+        &.failed,
+        &.stopping,
+        &.pending {
           .container {
             background-repeat: no-repeat;
             background-position: 0.75em 1.85em;
@@ -328,8 +329,8 @@
           }
         }
 
-        // error
-        &.error {
+        // failed
+        &.failed {
           @include opacity(1);
           border-color: $error_color;
 
@@ -339,8 +340,15 @@
           }
         }
 
-        // processing
-        &.processing {
+        // stopping
+        &.stopping {
+          .container {
+            background-image: image-url("icon_processing.gif");
+          }
+        }
+
+        // pending
+        &.pending {
           .container {
             background-image: image-url("icon_processing.gif");
           }
