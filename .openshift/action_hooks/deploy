@@ -12,6 +12,10 @@ do
     . $env_var
 done
 
+# deploy application configuration files
+cp ${OPENSHIFT_REPO_DIR}/.openshift/config_files/database.yml ${OPENSHIFT_REPO_DIR}/config
+cp ${OPENSHIFT_REPO_DIR}/.openshift/config_files/providers.yml ${OPENSHIFT_REPO_DIR}/config
+
 # db:migrate
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
 bundle exec rake db:migrate RAILS_ENV="production"
