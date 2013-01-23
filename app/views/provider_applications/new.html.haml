@@ -14,7 +14,7 @@
 
 %section
   %h3= _("You selected")
-  .launchable
+  .launchable.no_hover
     = render_provider_partial("launchable_summary", {:launchable => @launchable })
 
 = render 'shared/error_messages', :object => @provider_application if @provider_application.errors.any?
