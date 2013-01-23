@@ -13,7 +13,8 @@ class ProviderApplicationsController < ApplicationController
       @launchable = Launchable.find(params[:launchable_id])
       @provider_application = ProviderApplication.create({:launchable_id => @launchable.id})
     else
-      redirect_to launchables_path, :alert => _("Please select Application Blueprint first")
+      flash[:error] = _("Please select Application Blueprint first")
+      redirect_to launchables_path
     end
   end
 
@@ -41,6 +42,7 @@ class ProviderApplicationsController < ApplicationController
       @provider_application.destroy
     end
 
+    flash[:notice] = _("The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect.") % @provider_application.name
     redirect_to provider_applications_path
   end
 end
