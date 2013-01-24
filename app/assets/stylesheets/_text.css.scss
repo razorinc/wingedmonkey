@@ -24,11 +24,13 @@ h5 {
   font-size: 115%;
 }
 
-a {
+a:not(.button) {
   color: $link_color;
+  text-decoration: underline;
 
-  &:hover:not(.button) {
+  &:hover {
     color: darken($link_color, 10%);
+    text-decoration: none;
   }
 }
 
@@ -43,4 +45,8 @@ dl.properties {
 
   dd {
   }
+}
+
+.strong {
+  font-weight: bold;
 }

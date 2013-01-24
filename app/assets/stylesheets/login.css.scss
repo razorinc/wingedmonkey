@@ -42,14 +42,12 @@
     @include container_border;
 
     #header{
+      @include header_style;
       line-height: 1;
-      padding: 0px 15px;
-      @include border-radius($border_radius $border_radius 0 0);
-      border-bottom: 2px solid $primary_color;
+      padding: 5px 15px;
 
       img {
         height: 45px;
-        padding: 5px;
       }
     }
 

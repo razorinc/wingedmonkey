@@ -1,11 +1,19 @@
-$primary_color: rgb(110, 50, 0);
-$primary_gradient_top_color: lighten($primary_color, 0%);
-$primary_gradient_bottom_color: darken($primary_color, 15%);
-$btn_primary_color: darken($primary_color, 5%);
+$primary_color: rgb(99, 55, 24);
+$secondary_color: rgb(205, 152, 96);
+$tertiary_color: rgb(255, 226, 184);
+$btn_primary_color: darken($primary_color, 12%);
+
+$link_color: darken($secondary_color, 5%);
+
+$header_line_color: rgba($primary_color, 0.2);
+
 $headlinefont: "OpenSans", "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
+
 $border_radius: 4px;
+
 $window_top_position: 5em;
+
 $background_color: rgb(240, 240, 240);
 
-$box_bg_color: rgb(249, 249, 249);
+$box_bg_color: rgb(245, 245, 245);
 $stopped_bg_color: rgb(235, 235, 235);
