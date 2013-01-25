@@ -13,6 +13,7 @@ gem 'psych'
 gem 'rbovirt'
 gem 'openstack'
 gem 'gettext_i18n_rails'
+gem 'angular-rails'
 
 # gem "alchemy", "~> 1.0.0"
 gem 'alchemy', :git => 'git://github.com/ui-alchemy/alchemy.git', :branch => 'master'

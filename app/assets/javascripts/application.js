@@ -12,8 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//
 //= require alchemy/flash_messages
+//
+//= require angular.min
+//= require angle-up
+//= require_tree ./angular
 
 $(function() {
   // Remove no-js class from html tag if js is on
