@@ -383,12 +383,11 @@
         padding-top: 34px;
 
         li{
-          position: relative;
           text-align: center;
           display: table-cell;
 
           // dashed line between points
-          &:not(:last-child):after {
+          &:not(:last-child) span:after, &:not(:last-child) a:after {
             content: "";
             display: block;
             width: 100%;
