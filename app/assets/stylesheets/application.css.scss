@@ -33,7 +33,7 @@
   top: $window_top_position;
   background: $white_color;
   @include box-shadow(0 0 15px 0 rgba($g1, 0.5) inset,
-                      0 4px 4px -4px $g2);
+                      0 4px 25px 0 $g2);
   @include border-radius($border_radius);
   @include container_border;
   margin: 0 auto;
