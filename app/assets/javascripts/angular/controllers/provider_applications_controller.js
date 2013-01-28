@@ -1,16 +1,11 @@
-var wingedMonkey = angular.module('wingedMonkey',['ngResource']);
+var wingedMonkey = angular.module('wingedMonkey',['providerApplicationService', 'wingedMonkeyFilters']);
 
-wingedMonkey.controller("ProviderAppsCtrl", function($scope, $http) {
+wingedMonkey.controller("ProviderAppsCtrl", function($scope, $filter, ProviderApplication) {
+  $scope.refreshProviderApps = function() {
+    ProviderApplication.query(function(data){
+      $scope.providerApps = data;
+    });
+  };
 
-  $http.get('/provider_applications.json').success(function(data) {
-    $scope.provider_apps = data;
-  });
-
-  // $scope.provider_apps = ProviderApplication.query();
-
-  // $scope.provider_apps = [
-  //     {state:"angular_state", launchable:"angular_launchable"},
-  //     {state:"angular_state2", launchable:"angular_launchable2"}
-  // ];
-
+  $scope.refreshProviderApps();
 });

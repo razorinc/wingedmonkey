@@ -8,17 +8,17 @@
       %section
 
 %section{ :'ng-controller' => "ProviderAppsCtrl" }
-
   %h2= _("My Applications")
   = link_to _("Launch New Application"), launchables_path, :class => 'provider_application', :id => "launch"
 
   - if @provider_applications.blank?
     = render :partial => "getting_started"
   - else
-    #refresh_applications_list= render "update_applications_link"
-    %span {{provider_apps.length}}
-    %ul.provider_applications{ :'ng-repeat' => "provider_app in provider_apps" }
-      %li {{provider_app.name}}
+    #refresh_applications_list
+      = render "update_applications_link"
+    #refresh_applications_list
+      %a{ :'ng-click' => 'refreshProviderApps()' } Refresh Angular
+    %ul.provider_applications
       = render :partial => "provider_applications", :locals => {:provider_applications => @provider_applications }
 
 = render :partial => 'features'
