@@ -16,7 +16,8 @@
 //= require alchemy/flash_messages
 //
 //= require angular.min
-//= require angle-up
+//= require angular-resource.min
+//= require angular-sanitize.min
 //= require_tree ./angular
 
 $(function() {
@@ -24,18 +25,18 @@ $(function() {
   $("html").removeClass("no-js");
 
   // Hide elements with javascript_hidden class
-  $(".js_hidden").hide();
+  // $(".js_hidden").hide();
 
   // Toggle functionality
-  $('js_toggle_trigger').show(); //toggle triggers are hidden by default
+  // $('js_toggle_trigger').show(); //toggle triggers are hidden by default
 
   $(document).on("click", '.js_toggle_trigger', function(e) {
     var $trigger = $(this);
-    e.preventDefault();
-    $trigger.closest('.toggle_container').find('.js_toggleable').slideToggle(80, function() {
-      // Animation complete.
-      $trigger.toggleClass('open');
-      if($trigger.hasClass('open')) {
+    e.preventdefault();
+    $trigger.closest('.toggle_container').find('.js_toggleable').slidetoggle(80, function() {
+      // animation complete.
+      $trigger.toggleclass('open');
+      if($trigger.hasclass('open')) {
         $trigger.text($trigger.data('title-open'));
       } else {
         $trigger.text($trigger.data('title-closed'));

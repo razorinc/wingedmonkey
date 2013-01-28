@@ -7,7 +7,7 @@
         = link_to _("Launch New Application"), launchables_path, :class => 'button primary', :id => "launch"
       %section
 
-%section
+%section{ :'ng-controller' => "ProviderAppsCtrl" }
 
   %h2= _("My Applications")
   = link_to _("Launch New Application"), launchables_path, :class => 'provider_application', :id => "launch"
@@ -16,7 +16,9 @@
     = render :partial => "getting_started"
   - else
     #refresh_applications_list= render "update_applications_link"
-    %ul.provider_applications
+    %span {{provider_apps.length}}
+    %ul.provider_applications{ :'ng-repeat' => "provider_app in provider_apps" }
+      %li {{provider_app.name}}
       = render :partial => "provider_applications", :locals => {:provider_applications => @provider_applications }
 
 = render :partial => 'features'
