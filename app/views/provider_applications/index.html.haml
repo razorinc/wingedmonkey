@@ -1,14 +1,16 @@
 - title _("My Applications")
 
-- content_for :sidebar do
-  .container
-    %section.launch
-      = link_to _("Launch New Application"), launchables_path, :class => 'button primary', :id => "launch"
-    %section
+-#
+  - content_for :sidebar do
+    .container
+      %section.launch
+        = link_to _("Launch New Application"), launchables_path, :class => 'button primary', :id => "launch"
+      %section
 
 %section
 
   %h2= _("My Applications")
+  = link_to _("Launch New Application"), launchables_path, :class => 'provider_application', :id => "launch"
 
   - if @provider_applications.blank?
     = render :partial => "getting_started"
