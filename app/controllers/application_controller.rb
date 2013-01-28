@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_provider
   helper_method :current_provider_id
 
+  rescue_from Exception, :with => :handle_error
+
   def require_provider_authentication
     session[:return_to] ||= request.path
     if current_provider.present? and session[:current_provider_creds].present?
@@ -26,5 +28,11 @@ class ApplicationController < ActionController::Base
 
   def current_provider
     Provider.find(session[:current_provider_id])
+  end
+
+  def handle_error(error)
+    Rails.logger.send(:error, error.backtrace.join("\n\t"))
+    flash.now[:error] = error
+    render :template => "layouts/empty", :layout => "application", :status => 500
   end
 end
