@@ -36,14 +36,13 @@ a:not(.button) {
 
 dl.properties {
   dt {
+    display: inline;
     font-weight: bold;
     &:after{ content: ":"; }
-    float: left;
-    margin-right: 0.5em;
-    clear: left;
   }
 
   dd {
+    display: inline;
   }
 }
 
