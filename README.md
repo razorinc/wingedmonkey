@@ -18,6 +18,8 @@ There are some things that Winged Monkey will **not** do:
 * System/application design and image building
 * Account multiplexing/cloud brokering
 
+Winged Monkey is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
 ## A bit of terminology
 
 *Applications* are collections of virtual instances that can be launched and
