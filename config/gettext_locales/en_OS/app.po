@@ -19,8 +19,8 @@ msgstr ""
 "POT-Creation-Date: 2013-02-01 08:48+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: English - OpenStack Provider terminology\n"
+"Language: op_OS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +30,7 @@ msgid "-- Select Provider --"
 msgstr ""
 
 msgid "< My Applications"
-msgstr ""
+msgstr "< My Instances"
 
 msgid "Application Overview"
 msgstr ""
@@ -129,22 +129,22 @@ msgid "Provider selection"
 msgstr ""
 
 msgid "Providers/conductor/conductor provider application"
-msgstr ""
+msgstr "Application"
 
 msgid "Providers/mock/mock provider application"
-msgstr ""
+msgstr "Application"
 
 msgid "Providers/open_stack/open_stack provider application"
-msgstr ""
+msgstr "Application"
 
 msgid "Providers/ovirt/ovirt provider application"
-msgstr ""
+msgstr "Application"
 
 msgid "Providers::Conductor::ConductorProviderApplication|Launchable id"
 msgstr ""
 
 msgid "Providers::Conductor::ConductorProviderApplication|Name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "Providers::Conductor::ConductorProviderApplication|State"
 msgstr ""
@@ -153,7 +153,7 @@ msgid "Providers::Mock::MockProviderApplication|Launchable id"
 msgstr ""
 
 msgid "Providers::Mock::MockProviderApplication|Name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "Providers::Mock::MockProviderApplication|State"
 msgstr ""
@@ -162,10 +162,10 @@ msgid "Providers::OpenStack::OpenStackProviderApplication|Flavor id"
 msgstr ""
 
 msgid "Providers::OpenStack::OpenStackProviderApplication|Launchable id"
-msgstr ""
+msgstr "Application Name"
 
 msgid "Providers::OpenStack::OpenStackProviderApplication|Name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "Providers::OpenStack::OpenStackProviderApplication|State"
 msgstr ""
@@ -174,7 +174,7 @@ msgid "Providers::Ovirt::OvirtProviderApplication|Launchable id"
 msgstr ""
 
 msgid "Providers::Ovirt::OvirtProviderApplication|Name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "Providers::Ovirt::OvirtProviderApplication|State"
 msgstr ""
@@ -246,43 +246,43 @@ msgid "Your new application is starting now."
 msgstr ""
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.launchable_id"
-msgstr ""
+msgstr "Launchable"
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.state"
-msgstr ""
+msgstr "State"
 
 msgid "helpers.label.providers_mock_mock_provider_application.launchable_id"
-msgstr ""
+msgstr "Launchable"
 
 msgid "helpers.label.providers_mock_mock_provider_application.name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "helpers.label.providers_mock_mock_provider_application.state"
-msgstr ""
+msgstr "State"
 
 msgid "helpers.label.providers_open_stack_open_stack_provider_application.flavor_id"
-msgstr ""
+msgstr "Flavor"
 
 msgid "helpers.label.providers_open_stack_open_stack_provider_application.launchable_id"
-msgstr ""
+msgstr "Launchable"
 
 msgid "helpers.label.providers_open_stack_open_stack_provider_application.name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "helpers.label.providers_open_stack_open_stack_provider_application.state"
-msgstr ""
+msgstr "State"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.launchable_id"
-msgstr ""
+msgstr "Launchable"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.name"
-msgstr ""
+msgstr "Application Name"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.state"
-msgstr ""
+msgstr "State"
 
 msgid "see less"
 msgstr ""

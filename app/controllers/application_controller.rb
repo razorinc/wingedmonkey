@@ -14,6 +14,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :require_provider_authentication
+  before_filter :set_locale
 
   helper_method :current_provider
   helper_method :current_provider_id
@@ -47,5 +48,11 @@ class ApplicationController < ActionController::Base
     Rails.logger.send(:error, error.backtrace.join("\n\t"))
     flash.now[:error] = error
     render :template => "layouts/empty", :layout => "application", :status => 500
+  end
+
+  private
+
+  def set_locale
+    I18n.locale = "#{I18n.default_locale}_OS"
   end
 end
