@@ -12,6 +12,12 @@
   type: ovirt
   url: https://ovirt.test/api
   datacenter: UUID
+- !ruby/object:Providers::OpenStack::OpenStackProvider
+  id: test_openstack
+  name: Test OpenStack
+  type: open_stack
+  url: http://openstack.test.com/v2.0
+  tenant: test
 - !ruby/object:Providers::Conductor::ConductorProvider
   id: test_conductor
   name: Test Conductor
