@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 08:48+0100\n"
+"POT-Creation-Date: 2013-02-04 13:34+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - OpenStack Provider terminology\n"
-"Language: op_OS\n"
+"Language: en_OS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,10 +33,10 @@ msgid "< My Applications"
 msgstr "< My Instances"
 
 msgid "Application Overview"
-msgstr ""
+msgstr "Instance Overview"
 
 msgid "Are you sure you want to stop this application?"
-msgstr ""
+msgstr "Are you sure you want to stop this instance?"
 
 msgid "Check the docs"
 msgstr ""
@@ -54,7 +54,7 @@ msgid "Configure and Deploy"
 msgstr ""
 
 msgid "Deploy Launchable"
-msgstr ""
+msgstr "Deploy Image"
 
 msgid "Flavor"
 msgstr ""
@@ -72,25 +72,25 @@ msgid "Invalid cloud credentials"
 msgstr ""
 
 msgid "It looks like you haven't launched any applications yet. To get started, launch a new application."
-msgstr ""
+msgstr "It looks like you haven't launched any instances yet. To get started, launch a new instance."
 
 msgid "Launch"
 msgstr ""
 
 msgid "Launch New Application"
-msgstr ""
+msgstr "Launch New Instance"
 
 msgid "Launch a New Application"
-msgstr ""
+msgstr "Launch a New Instance"
 
 msgid "Launch another Application"
-msgstr ""
+msgstr "Launch another Instance"
 
 msgid "Launchable"
-msgstr ""
+msgstr "Image"
 
 msgid "List of my Applications"
-msgstr ""
+msgstr "List of my Instances"
 
 msgid "Log in"
 msgstr ""
@@ -111,7 +111,7 @@ msgid "Monitor"
 msgstr ""
 
 msgid "My Applications"
-msgstr ""
+msgstr "My Server Instances"
 
 msgid "Name"
 msgstr ""
@@ -123,7 +123,7 @@ msgid "Password"
 msgstr ""
 
 msgid "Please select Application Blueprint first"
-msgstr ""
+msgstr "Please select Image first"
 
 msgid "Provider selection"
 msgstr ""
@@ -135,13 +135,13 @@ msgid "Providers/mock/mock provider application"
 msgstr "Application"
 
 msgid "Providers/open_stack/open_stack provider application"
-msgstr "Application"
+msgstr "Instance"
 
 msgid "Providers/ovirt/ovirt provider application"
 msgstr "Application"
 
 msgid "Providers::Conductor::ConductorProviderApplication|Launchable id"
-msgstr ""
+msgstr "AppForm Blueprint"
 
 msgid "Providers::Conductor::ConductorProviderApplication|Name"
 msgstr "Application Name"
@@ -159,13 +159,13 @@ msgid "Providers::Mock::MockProviderApplication|State"
 msgstr ""
 
 msgid "Providers::OpenStack::OpenStackProviderApplication|Flavor id"
-msgstr ""
+msgstr "Flavor"
 
 msgid "Providers::OpenStack::OpenStackProviderApplication|Launchable id"
-msgstr "Application Name"
+msgstr "Image"
 
 msgid "Providers::OpenStack::OpenStackProviderApplication|Name"
-msgstr "Application Name"
+msgstr "Instance Name"
 
 msgid "Providers::OpenStack::OpenStackProviderApplication|State"
 msgstr ""
@@ -186,7 +186,7 @@ msgid "Select"
 msgstr ""
 
 msgid "Select an Application Blueprint"
-msgstr ""
+msgstr "Select an Image"
 
 msgid "Status"
 msgstr ""
@@ -204,10 +204,10 @@ msgid "The example of <code>config/providers.yml</code> is available in config/p
 msgstr ""
 
 msgid "The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect."
-msgstr ""
+msgstr "The Server Instance '%s' is being stopped. You may need to reload this page to see the change take effect."
 
 msgid "There are no Application Blueprints available."
-msgstr ""
+msgstr "There are no Images available."
 
 msgid "To configure providers, you will need to create a <code>config/providers.yml</code> file."
 msgstr ""
@@ -243,13 +243,13 @@ msgid "You selected"
 msgstr ""
 
 msgid "Your new application is starting now."
-msgstr ""
+msgstr "Your new Instance is starting now."
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.launchable_id"
-msgstr "Launchable"
+msgstr "AppForm Blueprint"
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.name"
-msgstr "Application Name"
+msgstr "AppForm Name"
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.state"
 msgstr "State"
@@ -267,10 +267,10 @@ msgid "helpers.label.providers_open_stack_open_stack_provider_application.flavor
 msgstr "Flavor"
 
 msgid "helpers.label.providers_open_stack_open_stack_provider_application.launchable_id"
-msgstr "Launchable"
+msgstr "Image"
 
 msgid "helpers.label.providers_open_stack_open_stack_provider_application.name"
-msgstr "Application Name"
+msgstr "Instance Name"
 
 msgid "helpers.label.providers_open_stack_open_stack_provider_application.state"
 msgstr "State"

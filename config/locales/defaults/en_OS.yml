@@ -1,6 +1,6 @@
 # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml
 
-en:
+en-OS:
   date:
     abbr_day_names:
     - Sun
