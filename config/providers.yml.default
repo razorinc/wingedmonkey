@@ -10,22 +10,26 @@
   id: dev_env_ovirt
   name: Dev Ovirt
   type: ovirt
+  locale_id: OV
   url: https://HOST:PORT/api
   datacenter: UUID
 - !ruby/object:Providers::Conductor::ConductorProvider
   id: dev_conductor
   name: Dev Conductor
   type: conductor
+  locale_id: CO
   url: https://HOST:PORT/api
   pool_id: 1
 - !ruby/object:Providers::OpenStack::OpenStackProvider
   id: dev_open_stack
   name: Dev OpenStack
   type: open_stack
+  locale_id: OS
   url: https://HOST:PORT/v2.0
   tenant: sample
 - !ruby/object:Providers::Mock::MockProvider
   id: my_mock
   name: Mock Provider
   type: mock
+  locale_id: MO
   url: https://HOST:PORT/api
