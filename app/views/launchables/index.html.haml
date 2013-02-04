@@ -1,4 +1,4 @@
-- title _("Select an Application Blueprint")
+- title _("Select a Launchable")
 
 %section
   .breadcrumbs= link_to _("< My Applications"), provider_applications_path
@@ -6,7 +6,7 @@
 
   %ol.progress
     %li
-      %span.current= _("Select an Application Blueprint")
+      %span.current= _("Select a Launchable")
     %li
       %span= _("Configure and Deploy")
     %li
@@ -14,7 +14,7 @@
 
 %section
   - if @launchables.blank?
-    %p= _("There are no Application Blueprints available.")
+    %p= _("There are no Launchables available.")
   - else
     %ul.launchables
     - @launchables.each do |launchable|
