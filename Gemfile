@@ -28,7 +28,7 @@ end
 
 group :development do
   gem 'gettext', '>=1.9.3', :require => false
-  gem 'ruby_parser', "~> 2.3.1"
+  gem 'ruby_parser'
 end
 
 group :test do

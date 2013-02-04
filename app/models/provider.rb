@@ -19,7 +19,7 @@ class Provider
   @@providers = nil
 
   #more to be added as needed
-  attr_accessor :id, :name, :type, :url
+  attr_accessor :id, :name, :type, :url, :locale_id
 
   def self.all
     providers

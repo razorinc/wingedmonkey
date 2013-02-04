@@ -14,6 +14,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :require_provider_authentication
+  before_filter :set_provider_locale
 
   helper_method :current_provider
   helper_method :current_provider_id
@@ -33,6 +34,7 @@ class ApplicationController < ActionController::Base
   def set_current_provider_id provider_id
     session[:current_provider_id] = provider_id
     session.delete(:current_provider_creds)
+    set_provider_locale
   end
 
   def current_provider_id
@@ -47,5 +49,11 @@ class ApplicationController < ActionController::Base
     Rails.logger.send(:error, error.backtrace.join("\n\t"))
     flash.now[:error] = error
     render :template => "layouts/empty", :layout => "application", :status => 500
+  end
+
+  private
+
+  def set_provider_locale
+    I18n.locale = "#{I18n.locale}_#{current_provider.locale_id}" if current_provider.present?
   end
 end
