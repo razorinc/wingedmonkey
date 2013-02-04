@@ -54,6 +54,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_provider_locale
-    I18n.locale = "#{I18n.locale}_#{current_provider.locale_id}" if current_provider.present?
+    I18n.locale = "#{I18n.locale[0,2]}_#{current_provider.locale_id}" if current_provider.present?
   end
 end
