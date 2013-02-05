@@ -78,6 +78,10 @@ module WingedMonkey
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # Avoid initializing the application when precompiling assets
+    # NOTE: this must be 'false' for building RPMs
+    config.assets.initialize_on_precompile = false
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
