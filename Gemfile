@@ -2,6 +2,8 @@ source :rubygems
 
 gem 'rails'
 
+gem 'thin'
+
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'haml-rails'
