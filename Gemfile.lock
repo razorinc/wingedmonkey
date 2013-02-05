@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ui-alchemy/alchemy.git
-  revision: b44652b8a0966401571bd96653f43e4a0437e019
+  revision: 61b4a6e37db9f08f8f20fc77df58c068efb8a303
   branch: master
   specs:
     alchemy (1.0.2)
