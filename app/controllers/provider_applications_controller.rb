@@ -13,12 +13,12 @@
 
 class ProviderApplicationsController < ApplicationController
   def index
-    @provider_applications = ProviderApplication.all
+    # @provider_applications = ProviderApplication.all
 
     respond_to do |format|
       format.html
       format.js
-      format.json{ render json: @provider_applications }
+      format.json{ render json: ProviderApplication.all }
     end
   end
 

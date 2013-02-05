@@ -11,14 +11,19 @@
   %h2= _("My Applications")
   = link_to _("Launch New Application"), launchables_path, :class => 'provider_application', :id => "launch"
 
-  - if @provider_applications.blank?
-    = render :partial => "getting_started"
-  - else
-    #refresh_applications_list
-      = render "update_applications_link"
-    #refresh_applications_list
-      %a{ :'ng-click' => 'refreshProviderApps()' } Refresh Angular
-    %ul.provider_applications
-      = render :partial => "provider_applications", :locals => {:provider_applications => @provider_applications }
+  / - if @provider_applications.blank?
+  /   = render :partial => "getting_started"
+  / - else
+  #refresh_applications_list
+    = render "update_applications_link"
+  #refresh_applications_list
+    %a{ :'ng-click' => 'refreshProviderApps()' } Refresh Angular
+  %label= _("Search:")
+  %input{ :'ng-model' => 'search.name' }
+  %label= _("Sort:")
+  %a{ :'ng-click' => "predicate = 'name'; reverse=!reverse"}= _("Name")
+  %a{ :'ng-click' => "predicate = 'state'; reverse=!reverse"}= _("State")
+  %ul.provider_applications
+    = render :partial => "provider_applications", :locals => {:provider_applications => @provider_applications }
 
 = render :partial => 'features'

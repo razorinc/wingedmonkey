@@ -70,6 +70,19 @@ module Providers
       def self.find id
         self.all.find{|app| app.id.to_s == id}
       end
+
+      def as_json(options={})
+        {
+          :id => self.id,
+          :name => self.name,
+          :state => self.state,
+          :wm_state => self.wm_state,
+          :ip_addresses => self.ip_addresses,
+          :launchable => self.launchable.name,
+          :flavor => self.flavor.name,
+          :created_at => self.created_at
+        }
+      end
     end
   end
 end

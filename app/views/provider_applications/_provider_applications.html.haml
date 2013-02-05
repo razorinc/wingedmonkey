@@ -1,4 +1,5 @@
-- provider_applications.each do |app|
-  %li.provider_application.toggle_container{ :class => "#{app.wm_state.downcase}",
-                                             :class => "{{(providerApps|findById:'#{app.id}').wm_state|lowercase}}" }
-    = render_provider_partial("provider_application", { :app => app })
+%li.spinner{:'ng-hide' => "providerApps" }
+  %h3= _('Your Applications are loading...')
+%li.provider_application.toggle_container{ :'ng-repeat' => "providerApp in providerApps|filter:search|orderBy:predicate:reverse",
+                                           :class => "{{providerApp.wm_state|lowercase}}" }
+  = render_provider_partial("provider_application")

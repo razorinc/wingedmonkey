@@ -17,7 +17,7 @@
 %ul.properties.js_hidden.js_toggleable
   %li
     %span.label= _("Status")
-    %span{ :'ng-bind' => "(providerApps|findById:'#{app.id}').state" }= app.state
+    %span{ :'ng-bind' => "providerApp.state" }= app.state
   %li
     %span.label= _("Launchable")
     = app.launchable.name
