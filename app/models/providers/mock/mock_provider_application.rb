@@ -38,6 +38,16 @@ module Providers
           connection.applications.find{|app| app.id.to_s == id}
         end
       end
+
+      def as_json(options={})
+        {
+          :id => self.id,
+          :name => self.name,
+          :state => self.state,
+          :wm_state => self.wm_state,
+          :launchable => self.launchable.name,
+        }
+      end
     end
   end
 end
