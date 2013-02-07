@@ -16,6 +16,10 @@ module Providers
     class OpenStackLaunchable < Launchable
       attr_accessor :state
 
+      def attributes
+        super.merge({ 'state' => state })
+      end
+
       def self.all filter=nil
         launchables = []
         connect! {|connection|

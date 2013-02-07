@@ -16,6 +16,7 @@
 class ProviderApplication
   include ActiveModel::Validations
   include ActiveModel::Conversion
+  include ActiveModel::Serializers::JSON
   extend ActiveModel::Naming
   extend ActiveModel::Callbacks
   extend ProviderModel
@@ -38,6 +39,18 @@ class ProviderApplication
     attributes.each do |name, value|
       send("#{name}=", value)
     end
+  end
+
+  # List of attributes accessible for as_json
+  # (see http://api.rubyonrails.org/classes/ActiveModel/Serialization.html)
+  def attributes
+    {
+      'id' => id,
+      'name' => name,
+      'launchable' => launchable,
+      'state' => state,
+      'wm_state' => wm_state,
+    }
   end
 
   def persisted?

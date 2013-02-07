@@ -40,13 +40,8 @@ module Providers
       end
 
       def as_json(options={})
-        {
-          :id => self.id,
-          :name => self.name,
-          :state => self.state,
-          :wm_state => self.wm_state,
-          :launchable => self.launchable.name,
-        }
+        super(:root => false,
+              :include => { :launchable => { :only => :name } })
       end
     end
   end
