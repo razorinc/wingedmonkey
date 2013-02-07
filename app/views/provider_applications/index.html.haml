@@ -14,22 +14,25 @@
   / - if @provider_applications.blank?
   /   = render :partial => "getting_started"
   / - else
-  .spinner{:'ng-hide' => "providerApps" }
-    %h3= _('Your Applications are loading...')
-  .spinner{:'ng-hide' => "providerApps" }
-    %h3= _('Your Applications are loading...')
-  .spinner{:'ng-hide' => "providerApps" }
-    = render :partial => "getting_started"
-  #refresh_applications_list
-    = render "update_applications_link"
-  #refresh_applications_list
-    %a{ :'ng-click' => 'refreshProviderApps()' } Refresh Angular
-  %label= _("Search:")
-  %input{ :'ng-model' => 'search.name' }
-  %label= _("Sort:")
-  %a{ :'ng-click' => "predicate = 'name'; reverse=!reverse"}= _("Name")
-  %a{ :'ng-click' => "predicate = 'state'; reverse=!reverse"}= _("State")
+  %p.no_app.spinner{:'ng-show' => "!appsLoaded" }
+    = _('Your Applications are loading...')
+  %p.no_app{ :'ng-show' => "appsLoaded && providerApps.length == 0" }
+    = _("It looks like you haven't launched any applications yet. To get started, launch a new application.")
+
+  .list_controls{ :'ng-show' => "providerApps.length > 0"}
+    #refresh_applications_list
+      = render "update_applications_link"
+    #refresh_applications_list
+      %a{ :'ng-click' => 'refreshProviderApps()' } Refresh Angular
+    %label= _("Search:")
+    %input{ :'ng-model' => 'search.name' }
+    %label= _("Sort:")
+    %a{ :'ng-click' => "predicate = 'name'; reverse=!reverse"}= _("Name")
+    %a{ :'ng-click' => "predicate = 'state'; reverse=!reverse"}= _("State")
+
   %ul.provider_applications
+    %li.no_app{:'ng-show' => "providerApps.length > 0 && !(providerApps|filter:search).length" }
+      = _('Filter result is empty')
     = render :partial => "provider_applications", :locals => {:provider_applications => @provider_applications }
 
 = render :partial => 'features'
