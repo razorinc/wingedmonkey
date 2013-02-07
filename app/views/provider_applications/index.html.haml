@@ -14,6 +14,12 @@
   / - if @provider_applications.blank?
   /   = render :partial => "getting_started"
   / - else
+  .spinner{:'ng-hide' => "providerApps" }
+    %h3= _('Your Applications are loading...')
+  .spinner{:'ng-hide' => "providerApps" }
+    %h3= _('Your Applications are loading...')
+  .spinner{:'ng-hide' => "providerApps" }
+    = render :partial => "getting_started"
   #refresh_applications_list
     = render "update_applications_link"
   #refresh_applications_list
