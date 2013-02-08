@@ -1,11 +1,9 @@
 .container
   %ul.controls
-    /  - if app.wm_state == ProviderApplication::WM_STATE_RUNNING
-    /  %li.stop= button_to _('Stop'), provider_application_path(app.id), :method => :delete, :confirm => _('Are you sure you want to stop this application?'), :class => 'button warning', :title => _('Stop')
+    %li.stop
+      %a.button{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Terminate') }= _('Terminate')
 
   %h3{ :'ng-bind' => 'providerApp.name' }
-    / = link_to app.name, provider_application_path(app.id)
-    / = app.name
 
   %dl.ip
     %dd{ :'ng-bind' => 'providerApp.ip_addresses.join(", ")' }
