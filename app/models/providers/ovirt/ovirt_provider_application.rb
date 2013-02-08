@@ -14,71 +14,69 @@
 module Providers
   module Ovirt
     class OvirtProviderApplication < ProviderApplication
+      attr_accessor :ips, :creation_time, :cores, :memory
+
+      validates_numericality_of :cores
+
       def launchable
         Launchable.find(@launchable_id)
       end
 
       def launch
-        @state = 'running'
-        self.class.connect! do |connection|
-          connection.create_vm(self)
+        self.class.connect! do |client|
+          vm = client.create_vm(:name => @name,
+                                :template => @launchable_id,
+                                :cores => @cores
+                                )
+          client.vm_action(vm.id, :start)
+          @id = vm.id 
         end
       end
 
       def destroy
-        self.class.connect! do |connection|
-          connection.destroy_vm id
+        self.class.connect! do |client|
+          client.destroy_vm id
         end
       end
 
       def self.all filter=nil
-        connect! do |connection|
-          connection.vms.map do |vm|
+        connect! do |client|
+          client.vms.map do |vm|
             self.map_vm_to_application vm
           end
         end
       end
 
       def self.find id
-        connect! do |connection|
-          vm = connection.vm(id)
+        connect! do |client|
+          vm = client.vm(id)
           self.map_vm_to_application vm
         end
       end
 
       private
+
       def self.map_vm_to_application vm
-        OvirtProviderApplication.new({
-          :id => vm.id,
-          :name => vm.name,
-          :description => vm.description,
-          :status => vm.status.strip,
-          :memory => vm.memory.strip,
-          :cores => vm.cores
-        })
-      end
+        state = vm.status.strip
+        wm_state = case state
+                   when "image_locked", "powering_up" then ProviderApplication::WM_STATE_PENDING
+                   when "up" then ProviderApplication::WM_STATE_RUNNING
+                   when "down" then ProviderApplication::WM_STATE_STOPPED
+                   when "powering_down" then ProviderApplication::WM_STATE_STOPPING
+                   else ProviderApplication::WM_STATE_FAILED
+                   end
 
-      def self.map_application_to_vm app
-        vm_hash = {
-          :name => app.name,
-          :template => app.launchable.id, # template id from launchable
-          :cluster => "", # need to store locally, I guess
-          :memory => "", # should come from the template, or collect from user as override?
-          :cores => "", # should come from template, or collect as override?, will default to 1
-          :boot_dev1 => "", # defaults to network
-          :boot_dev2 => "", # defaults to hd
-          :display => "", # ???
-        }
-      end
-
-      @states = {:up => "running", :down => "stopped"}
-      def self.map_status status
-        key = status.strip
-        if @states.has_key? key
-          @states[key]
-        else
-          "unknown"
-        end
+        ProviderApplication.create({
+                                     :id => vm.id,
+                                     :launchable_id => vm.template.id,
+                                     :name => vm.name,
+                                     :state => state,
+                                     :wm_state => wm_state,
+                                     :ips => vm.ips,
+                                     :creation_time => vm.creation_time,
+                                     :memory => vm.memory.strip,
+                                     :cores => vm.cores
+                                   })
       end
     end
   end

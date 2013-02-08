@@ -1,0 +1,34 @@
+.container
+  %ul.controls
+    - if app.wm_state == ProviderApplication::WM_STATE_RUNNING
+      %li.stop= button_to _('Stop'), provider_application_path(app.id), :method => :delete, :confirm => _('Are you sure you want to stop this application?'), :class => 'button warning', :title => _('Stop')
+
+  %h3
+    -#= link_to app.name, provider_application_path(app.id)
+    = app.name
+
+  %dl.ip
+    %dd
+      = app.ips.join(", ")
+
+  = link_to _("see more"), "#", :class => "more js_toggle_trigger", "data-title-closed" => _("see more"), "data-title-open" => _("see less")
+
+%ul.properties.js_hidden.js_toggleable
+  %li
+    %span.label= _("Status")
+    = app.state
+  %li
+    %span.label= _("Uptime")
+    = time_ago_in_words(app.creation_time, true)
+  %li
+    %span.label= _("Launchable")
+    - if app.launchable.nil?
+      = _("N/A")
+    - else
+      = app.launchable.name
+  %li
+    %span.label= _("Cores")
+    = app.cores
+  %li
+    %span.label= _("Memory")
+    = number_to_human_size(app.memory)
