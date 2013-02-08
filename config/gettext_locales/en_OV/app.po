@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-07 16:33-0500\n"
+"POT-Creation-Date: 2013-02-08 01:25-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: English - OpenStack Provider terminology\n"
-"Language: en_OS\n"
+"Language-Team: English - oVirt Provider terminology\n"
+"Language: en_OV\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,13 +30,13 @@ msgid "-- Select Provider --"
 msgstr ""
 
 msgid "< My Applications"
-msgstr "< My Instances"
+msgstr "< My Virtual Machines"
 
 msgid "Application Overview"
-msgstr "Instance Overview"
+msgstr "Virtual Machine Overview"
 
 msgid "Are you sure you want to stop this application?"
-msgstr "Are you sure you want to stop this instance?"
+msgstr "Are you sure you want to stop this VM?"
 
 msgid "Check the docs"
 msgstr ""
@@ -57,7 +57,7 @@ msgid "Cores"
 msgstr ""
 
 msgid "Deploy Launchable"
-msgstr "Deploy Image"
+msgstr "Deploy Template"
 
 msgid "Flavor"
 msgstr ""
@@ -69,31 +69,31 @@ msgid "IP Address"
 msgstr ""
 
 msgid "In as little as three clicks, you can select a launchable and launch an application on the provider of your choice."
-msgstr "In as little as three clicks, you can select an image and launch a server instance on the provider of your choice."
+msgstr "In as little as three clicks, you can select a template and launch a server VM on the provider of your choice."
 
 msgid "Invalid cloud credentials"
 msgstr ""
 
 msgid "It looks like you haven't launched any applications yet. To get started, launch a new application."
-msgstr "It looks like you haven't launched any instances yet. To get started, launch a new instance."
+msgstr "It looks like you haven't launched any VMs yet. To get started, launch a new VM."
 
 msgid "Launch"
 msgstr ""
 
 msgid "Launch New Application"
-msgstr "Launch New Instance"
+msgstr "Launch New VM"
 
 msgid "Launch a New Application"
-msgstr "Launch a New Instance"
+msgstr "Launch a New VM"
 
 msgid "Launch another Application"
-msgstr "Launch another Instance"
+msgstr "Launch another VM"
 
 msgid "Launchable"
-msgstr "Image"
+msgstr "Template"
 
 msgid "List of my Applications"
-msgstr "List of my Instances"
+msgstr "List of my VMs"
 
 msgid "Log in"
 msgstr ""
@@ -117,7 +117,7 @@ msgid "Monitor"
 msgstr ""
 
 msgid "My Applications"
-msgstr "My Server Instances"
+msgstr "My Server Virtual Machines"
 
 msgid "N/A"
 msgstr ""
@@ -132,7 +132,7 @@ msgid "Password"
 msgstr ""
 
 msgid "Please select a Launchable first"
-msgstr "Please select an Image first"
+msgstr "Please select a Template first"
 
 msgid "Provider selection"
 msgstr ""
@@ -183,7 +183,7 @@ msgid "Providers::Ovirt::OvirtProviderApplication|Launchable id"
 msgstr ""
 
 msgid "Providers::Ovirt::OvirtProviderApplication|Name"
-msgstr "Application Name"
+msgstr "Virtual Machine Name"
 
 msgid "Providers::Ovirt::OvirtProviderApplication|State"
 msgstr ""
@@ -195,7 +195,7 @@ msgid "Select"
 msgstr ""
 
 msgid "Select a Launchable"
-msgstr "Select an Image"
+msgstr "Select a Template"
 
 msgid "Status"
 msgstr ""
@@ -207,16 +207,16 @@ msgid "Success!"
 msgstr ""
 
 msgid "The dashboard presents significant events for all of your running applications in a concise view."
-msgstr "The dashboard presents significant events for all of your running server instances in a concise view."
+msgstr "The dashboard presents significant events for all of your running server VMs in a concise view."
 
 msgid "The example of <code>config/providers.yml</code> is available in config/providers.yml.default"
 msgstr ""
 
 msgid "The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect."
-msgstr "The Server Instance '%s' is being stopped. You may need to reload this page to see the change take effect."
+msgstr "The Server VM '%s' is being stopped. You may need to reload this page to see the change take effect."
 
 msgid "There are no Launchables available."
-msgstr "There are no Images available."
+msgstr "There are no Templates available."
 
 msgid "To configure providers, you will need to create a <code>config/providers.yml</code> file."
 msgstr ""
@@ -243,7 +243,7 @@ msgid "Winged Monkey"
 msgstr ""
 
 msgid "You decide when to pause, snapshot, and terminate your applications. Note: capabilities may vary by provider."
-msgstr "You decide when to pause, snapshot, and terminate your server instances. Note: capabilities may vary by provider."
+msgstr "You decide when to pause, snapshot, and terminate your server VMs. Note: capabilities may vary by provider."
 
 msgid "You have not configured any providers yet."
 msgstr ""
@@ -252,7 +252,7 @@ msgid "You selected"
 msgstr ""
 
 msgid "Your new application is starting now."
-msgstr "Your new Instance is starting now."
+msgstr "Your new VM is starting now."
 
 msgid "helpers.label.providers_conductor_conductor_provider_application.launchable_id"
 msgstr "AppForm Blueprint"
@@ -285,10 +285,10 @@ msgid "helpers.label.providers_open_stack_open_stack_provider_application.state"
 msgstr "State"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.launchable_id"
-msgstr "Launchable"
+msgstr "Template"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.name"
-msgstr "Application Name"
+msgstr "VM Name"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.state"
 msgstr "State"
