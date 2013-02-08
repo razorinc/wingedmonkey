@@ -35,7 +35,7 @@ module Providers
       end
 
       def self.find(id)
-        self.all.find{|app| app.id.to_s == id}
+        self.all.find{|image| image.id.to_s == id}
       end
     end
   end

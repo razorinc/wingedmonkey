@@ -14,10 +14,6 @@
 module Providers
   module Mock
     class MockProviderApplication < ProviderApplication
-      def launchable
-        Launchable.find(@launchable_id)
-      end
-
       def launch
         return false if not valid?
         @state = 'running'

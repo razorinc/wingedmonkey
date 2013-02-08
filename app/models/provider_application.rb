@@ -23,10 +23,10 @@ class ProviderApplication
   define_model_callbacks :save
   before_save :valid?
 
-  attr_accessor :id, :launchable_id, :name, :state, :wm_state
+  attr_accessor :id, :launchable, :name, :state, :wm_state
 
   validates :name, :presence => true
-  validates :launchable_id, :presence => true
+  validates :launchable, :presence => true
 
   WM_STATE_PENDING = "PENDING"
   WM_STATE_RUNNING = "RUNNING"

@@ -45,13 +45,13 @@ module Providers
           name = deployment_xml.xpath("name").text
           state = 'to be implemented'
           wm_state = ProviderApplication::WM_STATE_RUNNING
-          deployable_id = nil
+          deployable = nil
           deployments << ProviderApplication.
             create({ :id => deployment_id,
                      :name => name,
                      :state => state,
                      :wm_state => wm_state,
-                     :launchable_id => deployable_id })
+                     :launchable => deployable })
         end
         deployments
       end

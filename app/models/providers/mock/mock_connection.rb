@@ -20,7 +20,6 @@ module Providers::Mock
     @@provider_applications = []
     @@id = 1
 
-
     MOCK_LAUNCHABLE_CONFIG = YAML.load_file(File.join("#{Rails.root}", "config", "mock", "launchables.yml"))
     def launchables
       MOCK_LAUNCHABLE_CONFIG
