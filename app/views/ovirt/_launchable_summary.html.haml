@@ -1,0 +1,5 @@
+%h3= launchable.name
+%p.description= launchable.description
+%dl.memory
+  %dd
+    = number_to_human_size(launchable.memory)

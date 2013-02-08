@@ -4,10 +4,10 @@ require 'ostruct'
 describe Providers::Ovirt::OvirtLaunchable do
   before :all do
     @templates = [
-      OpenStruct.new({:id => 1, :name => "first", :description => "first template"}),
-      OpenStruct.new({:id => 2, :name => "second", :description => "second template"}),
-      OpenStruct.new({:id => 3, :name => "third", :description => "third template"}),
-      OpenStruct.new({:id => 4, :name => "fourth", :description => "fourth template"})]
+      OpenStruct.new({:id => 1, :name => "first", :description => "first template", :status => "ok", :memory => "0", :os => "linux", :cluster => "cluster"}),
+      OpenStruct.new({:id => 2, :name => "second", :description => "second template", :status => "ok", :memory => "0", :os => "linux", :cluster => "cluster"}),
+      OpenStruct.new({:id => 3, :name => "third", :description => "third template", :status => "ok", :memory => "0", :os => "linux", :cluster => "cluster"}),
+      OpenStruct.new({:id => 4, :name => "fourth", :description => "fourth template", :status => "ok", :memory => "0", :os => "linux", :cluster => "cluster"})]
 
     @empty_templates = []
   end

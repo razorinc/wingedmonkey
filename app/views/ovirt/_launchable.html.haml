@@ -1,0 +1,10 @@
+%ul.controls
+  %li= link_to _("Select"),
+            new_provider_application_path(:launchable_id => launchable.id),
+            :class => 'button'
+%h3= launchable.name
+%p.description.truncated= launchable.description
+
+%dl.memory
+  %dd
+    = number_to_human_size(launchable.memory)

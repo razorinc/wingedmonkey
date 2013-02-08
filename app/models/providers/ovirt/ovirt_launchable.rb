@@ -14,18 +14,26 @@
 module Providers
   module Ovirt
     class OvirtLaunchable < Launchable
+      attr_accessor :memory, :os, :cluster
 
       # List all of the launchable items.
       # The list may be reduced by the information in the current context.
       def self.all filter=nil
         launchables = []
-        connect! do |connection|
-          connection.templates.map do |template|
+        connect! do |client|
+          client.templates.map do |template|
+            state = template.status.strip
+            wm_state = (state == "ok") ? Launchable::WM_STATE_ACTIVE : Launchable::WM_STATE_INACTIVE
+
             OvirtLaunchable.new(
-              :id => template.id,
-              :name => template.name,
-              :description => template.description
-            )
+                                :id => template.id,
+                                :name => template.name,
+                                :description => template.description,
+                                :wm_state => wm_state,
+                                :memory => template.memory.strip,
+                                :os => template.os,
+                                :cluster => template.cluster,
+                                )
           end
         end
       end

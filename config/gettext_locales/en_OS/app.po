@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-04 10:39-0500\n"
+"POT-Creation-Date: 2013-02-08 01:25-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - OpenStack Provider terminology\n"
@@ -51,6 +51,9 @@ msgid "Configuration"
 msgstr ""
 
 msgid "Configure and Deploy"
+msgstr ""
+
+msgid "Cores"
 msgstr ""
 
 msgid "Deploy Launchable"
@@ -107,11 +110,17 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
+msgid "Memory"
+msgstr ""
+
 msgid "Monitor"
 msgstr ""
 
 msgid "My Applications"
 msgstr "My Server Instances"
+
+msgid "N/A"
+msgstr ""
 
 msgid "Name"
 msgstr ""

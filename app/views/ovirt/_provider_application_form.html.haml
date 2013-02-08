@@ -1,0 +1,7 @@
+= form.hidden_field :launchable_id, :name => 'provider_application[launchable_id]'
+.control_group
+  .label= form.label :name, :for => 'provider_application_name'
+  .input= form.text_field :name, :name => 'provider_application[name]'
+.control_group
+  .label= form.label :cores, :for => 'provider_application_cores'
+  .input= form.text_field :cores, :name => 'provider_application[cores]'

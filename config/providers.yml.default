@@ -7,11 +7,12 @@
 #  url: https://HOST:PORT/api
 
 - !ruby/object:Providers::Ovirt::OvirtProvider
-  id: dev_env_ovirt
+  id: dev_ovirt
   name: Dev Ovirt
   type: ovirt
   locale_id: OV
   url: https://HOST:PORT/api
+  domain: sample
   datacenter: UUID
 - !ruby/object:Providers::Conductor::ConductorProvider
   id: dev_conductor
