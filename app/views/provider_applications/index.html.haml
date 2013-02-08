@@ -11,17 +11,12 @@
   %h2= _("My Applications")
   = link_to _("Launch New Application"), launchables_path, :class => 'provider_application', :id => "launch"
 
-  / - if @provider_applications.blank?
-  /   = render :partial => "getting_started"
-  / - else
   %p.no_app.spinner{:'ng-show' => "!appsLoaded" }
     = _('Your Applications are loading...')
   %p.no_app{ :'ng-show' => "appsLoaded && providerApps.length == 0" }
     = _("It looks like you haven't launched any applications yet. To get started, launch a new application.")
 
   .list_controls{ :'ng-show' => "providerApps.length > 0"}
-    #refresh_applications_list
-      = render "update_applications_link"
     #refresh_applications_list
       %a{ :'ng-click' => 'refreshProviderApps()' } Refresh Angular
     %label= _("Search:")

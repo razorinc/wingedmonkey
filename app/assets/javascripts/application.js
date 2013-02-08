@@ -49,10 +49,4 @@ $(function() {
     $(this).closest('form').submit();
   });
 
-  // Display spinner and text after clicking the link to update Applications list
-  // $("#refresh_applications_list a").live("click", function(e) {
-  $("#refresh_applications_list").on("click", "a", function(e) {
-    $(this).addClass("loading");
-    $(this).text($(this).data("loading"));
-  });
 });
