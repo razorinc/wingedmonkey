@@ -28,7 +28,6 @@ module Providers
                                 :template => @launchable_id,
                                 :cores => @cores
                                 )
-          client.vm_action(vm.id, :start)
           @id = vm.id 
         end
       end
