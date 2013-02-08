@@ -6,20 +6,6 @@ describe Providers::Ovirt::OvirtProviderApplication do
     it "returns the reference launchable" do
     end
 
-    it "saves itself in a running state" do
-      connection = Object.new
-      connection.stub!(:create_vm).with(an_instance_of(Providers::Ovirt::OvirtProviderApplication)).and_return(nil)
-      Providers::Ovirt::OvirtProviderApplication.stub!(:connect!).and_yield(connection)
-
-      obj = Providers::Ovirt::OvirtProviderApplication.new({
-        :id => 1,
-        :name => "name",
-        :launchable_id => 1
-      })
-      obj.save
-      obj.state.should eq "running"
-    end
-
     it "destroys itself" do
       connection = Object.new
       connection.stub!(:destroy_vm).with(an_instance_of(Fixnum)).and_return(nil)
