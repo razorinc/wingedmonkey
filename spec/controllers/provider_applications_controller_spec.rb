@@ -47,7 +47,7 @@ describe ProviderApplicationsController do
     describe "POST 'create'" do
       it "responds with success when there are no errors" do
         as_user mock_user do
-          post "create", :provider_application => {:launchable_id => 1, :name => "New application"}
+          post "create", :launchable_id => "1", :provider_application => {:name => "New application"}
           app = ProviderApplication.all.last
           response.should redirect_to(launch_summary_provider_application_path(app.id))
         end
@@ -65,7 +65,8 @@ describe ProviderApplicationsController do
 
       it "redirects to provider applications" do
         as_user mock_user do
-          params = {:launchable_id => 1, :name => "New application"}
+          launchable = mock_model(Launchable, :id => "1")
+          params = {:launchable => launchable, :name => "New application"}
           application = Providers::Mock::MockProviderApplication.new(params)
           application.save
           post "destroy", {:id => application.id}

@@ -25,6 +25,7 @@ describe Providers::OpenStack::OpenStackProviderApplication do
     connection = Object.new
     connection.stub!(:list_servers_detail).and_return(@empty_servers)
     Providers::OpenStack::OpenStackProviderApplication.stub!(:connect!).and_yield(connection)
+    Launchable.stub!(:all).and_return([])
     Providers::OpenStack::OpenStackProviderApplication.all.should be_empty
   end
 
@@ -32,6 +33,7 @@ describe Providers::OpenStack::OpenStackProviderApplication do
     connection = Object.new
     connection.stub!(:list_servers_detail).and_return(@servers)
     Providers::OpenStack::OpenStackProviderApplication.stub!(:connect!).and_yield(connection)
+    Launchable.stub!(:all).and_return([])
     apps = Providers::OpenStack::OpenStackProviderApplication.all
     apps.should_not be_empty
     app = apps.first
@@ -43,6 +45,7 @@ describe Providers::OpenStack::OpenStackProviderApplication do
     connection.stub!(:list_servers_detail).and_return(@servers)
     connection.stub!(:get_flavor).with(an_instance_of(String)).and_return(@flavors[1])
     Providers::OpenStack::OpenStackProviderApplication.stub!(:connect!).and_yield(connection)
+    Launchable.stub!(:all).and_return([])
     app = Providers::OpenStack::OpenStackProviderApplication.find("2")
     app.name.should eq "second"
     app.flavor[:name].should eq "small"
