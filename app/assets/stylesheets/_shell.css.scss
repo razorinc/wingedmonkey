@@ -1,0 +1,98 @@
+/* === WRAPPER === */
+#wrapper{
+  position: relative;
+  top: $window_top_position;
+  background: $white_color;
+  @include box-shadow(0 0 15px 0 rgba($g1, 0.5) inset,
+                      0 4px 25px 0 $g2);
+  @include border-radius($border_radius);
+  @include container_border;
+  margin: 0 auto;
+}
+
+
+#header{
+  @include header_style;
+  line-height: 1;
+  padding: 0.5em 2em;
+
+  .controls {
+    padding: 1.5em 0;
+    float: right;
+    color: rgba($primary_color, 0.45);
+
+    a {
+      padding-left: 0.5em;
+      color: $primary_color;
+    }
+  }
+
+  h1 {
+    padding: 0;
+  }
+
+  #logo {
+    float: none;
+  }
+}
+
+/* === CONTENT === */
+#container {
+  display: table;
+  width: 100%;
+
+  /* === MAIN CONTENT === */
+  #content {
+    display: table-cell;
+    padding: 2em;
+    position: relative;
+
+    section {
+      padding: 3em 0 0 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+/* === SIDEBAR === */
+#sidebar{
+  //display: table-cell;
+  display: none;
+  padding: 1em;
+  width: 250px;
+
+  .container {
+    @include box-shadow(0 1px 1px 0 rgba($g3, 0.2),
+                        -1px 1px 1px 0px rgba($white_color, 0.3) inset);
+    @include border-radius(2px);
+    background: $box_bg_color;
+    border: 1px solid darken($box_bg_color, 7%);
+    padding: 1em;
+  }
+
+  section {
+    &.launch {
+      text-align: center;
+      padding-bottom: 2em;
+    }
+  }
+
+  .button, .btn {
+    margin: 0;
+  }
+}
+
+/* === FOOTER === */
+#footer{
+  padding: 1.5em 2em;
+  font-size: 10px;
+  border-top: 1px solid rgba($g4, 0.2);
+  color: $g4;
+
+  .info {
+    padding-right: 1.5em;
+  }
+}

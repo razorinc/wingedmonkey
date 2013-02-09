@@ -1,0 +1,20 @@
+#refresh_applications_list {
+  text-align: right;
+  margin-bottom: 2px;
+
+  a {
+    font-size: 90%;
+
+    &.loading {
+      text-decoration: none;
+
+      &:before {
+        content: "";
+        width: 20px;
+        height: 16px;
+        @include inline-block;
+        @include background(image-url("alchemy/icons/spinner.gif") no-repeat center center);
+      }
+    }
+  }
+}
