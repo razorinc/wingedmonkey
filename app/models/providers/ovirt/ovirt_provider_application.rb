@@ -18,14 +18,10 @@ module Providers
 
       validates_numericality_of :cores
 
-      def launchable
-        Launchable.find(@launchable_id)
-      end
-
       def launch
         self.class.connect! do |client|
           vm = client.create_vm(:name => @name,
-                                :template => @launchable_id,
+                                :template => @launchable.id,
                                 :cores => @cores
                                 )
           @id = vm.id 
@@ -39,23 +35,26 @@ module Providers
       end
 
       def self.all filter=nil
+        templates = Launchable.all
         connect! do |client|
           client.vms.map do |vm|
-            self.map_vm_to_application vm
+            self.map_vm_to_application(vm, templates)
           end
         end
       end
 
       def self.find id
+        templates = Launchable.all
         connect! do |client|
           vm = client.vm(id)
-          self.map_vm_to_application vm
+          self.map_vm_to_application(vm, templates)
         end
       end
 
       private
 
-      def self.map_vm_to_application vm
+      def self.map_vm_to_application(vm, templates)
+        template_id = vm.template.id
         state = vm.status.strip
         wm_state = case state
                    when "image_locked", "powering_up" then ProviderApplication::WM_STATE_PENDING
@@ -67,7 +66,7 @@ module Providers
 
         ProviderApplication.create({
                                      :id => vm.id,
-                                     :launchable_id => vm.template.id,
+                                     :launchable => templates.find{|t| t.id.to_s == template_id},
                                      :name => vm.name,
                                      :state => state,
                                      :wm_state => wm_state,

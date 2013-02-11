@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Providers::Ovirt::OvirtProviderApplication do
-
   describe "as an instance" do
     it "returns the reference launchable" do
     end
@@ -36,6 +35,7 @@ describe Providers::Ovirt::OvirtProviderApplication do
       connection = Object.new
       connection.stub!(:vms).and_return(@empty_vms)
       Providers::Ovirt::OvirtProviderApplication.stub!(:connect!).and_yield(connection)
+      Launchable.stub!(:all).and_return([])
       Providers::Ovirt::OvirtProviderApplication.all.should be_empty
     end
 

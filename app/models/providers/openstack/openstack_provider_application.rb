@@ -16,10 +16,6 @@ module Providers
     class OpenStackProviderApplication < ProviderApplication
       attr_accessor :flavor_id, :ip_addresses, :created_at
 
-      def launchable
-        Launchable.find(@launchable_id)
-      end
-
       def flavor
         self.class.connect! {|connection|
           connection.get_flavor(@flavor_id)
@@ -29,7 +25,7 @@ module Providers
       def launch
         self.class.connect! {|connection|
           server = connection.create_server(:name => @name,
-                                            :imageRef => @launchable_id,
+                                            :imageRef => @launchable.id,
                                             :flavorRef => @flavor_id)
           @id = server.id
         }
@@ -44,9 +40,11 @@ module Providers
 
       def self.all filter=nil
         apps = []
+        images = Launchable.all
         connect! {|connection|
           servers_hash = connection.list_servers_detail
           servers_hash.each do |server_hash|
+            image_id = server_hash[:image][:id]
             state = server_hash[:status]
             wm_state = case state
                          when "BUILD", "HARD_REBOOT", "PASSWORD", "REBOOT", "REBUILD", "RESCUE", "RESIZE", "REVERT_RESIZE", "VERIFY_RESIZE" then ProviderApplication::WM_STATE_PENDING
@@ -59,7 +57,7 @@ module Providers
                        :name => server_hash[:name],
                        :state => state,
                        :wm_state => wm_state,
-                       :launchable_id => server_hash[:image][:id],
+                       :launchable => images.find{|image| image.id.to_s == image_id},
                        :flavor_id => server_hash[:flavor][:id],
                        :ip_addresses => server_hash[:addresses][:public].map{|x| x[:addr]} + server_hash[:addresses][:private].map{|x| x[:addr]},
                        :created_at => DateTime.parse(server_hash[:created])
