@@ -116,12 +116,13 @@
   }
 
   .properties {
-    display: table;
     width: 100%;
     height: 2em;
     color: $g4;
     @include box-shadow(0 -1em 1.5em 0 rgba(white, 0.5) inset);
     border-top: 1px solid rgba($g2, 0.6);
+
+    &.js_show{ display: table; }
 
     li {
       display: table-cell;

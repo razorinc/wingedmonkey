@@ -1,3 +1,3 @@
-%li.provider_application.toggle_container{ :'ng-repeat' => "providerApp in providerApps|filter:search|orderBy:predicate:reverse",
+%li.provider_application{ :'ng-repeat' => "providerApp in providerApps|filter:search|orderBy:predicate:reverse",
                                            :class => "{{providerApp.wm_state|lowercase}}" }
   = render_provider_partial("provider_application")
