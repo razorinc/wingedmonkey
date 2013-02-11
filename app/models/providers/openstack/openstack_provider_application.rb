@@ -16,6 +16,12 @@ module Providers
     class OpenStackProviderApplication < ProviderApplication
       attr_accessor :flavor_id, :ip_addresses, :created_at
 
+      def attributes
+        super.merge({ 'flavor_id' => flavor_id,
+                      'ip_addresses' => ip_addresses,
+                      'created_at' => created_at })
+      end
+
       def flavor
         self.class.connect! {|connection|
           connection.get_flavor(@flavor_id)
@@ -69,6 +75,12 @@ module Providers
 
       def self.find id
         self.all.find{|app| app.id.to_s == id}
+      end
+
+      def as_json(options={})
+        super(:root => false,
+              :include => { :launchable => { :only => :name },
+                            :flavor => { :methods => :name_with_description } })
       end
     end
   end

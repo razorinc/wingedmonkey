@@ -1,0 +1,5 @@
+var providerApplicationService = angular.module('providerApplicationServices', ['ngResource']);
+
+providerApplicationService.factory("ProviderApplication", function($resource){
+  return $resource('/provider_applications.json', {}, {});
+});

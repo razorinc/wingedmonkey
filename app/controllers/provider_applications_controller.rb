@@ -13,11 +13,10 @@
 
 class ProviderApplicationsController < ApplicationController
   def index
-    @provider_applications = ProviderApplication.all
 
     respond_to do |format|
       format.html
-      format.js
+      format.json{ render :json => ProviderApplication.all }
     end
   end
 
@@ -56,7 +55,8 @@ class ProviderApplicationsController < ApplicationController
       @provider_application.destroy
     end
 
-    flash[:notice] = _("The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect.") % @provider_application.name
-    redirect_to provider_applications_path
+    respond_to do |format|
+      format.json{ render :nothing => true }
+    end
   end
 end

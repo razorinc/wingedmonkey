@@ -14,6 +14,12 @@
 require 'openstack'
 
 class OpenStack::Compute::Flavor
+  include ActiveModel::Serializers::JSON
+
+  def attributes
+    { 'name_with_description' => name_with_description }
+  end
+
   def description
     ram_string = ActionController::Base.helpers.number_to_human_size(@ram * 1024 * 1024)
     "#{ram_string} RAM | #{@vcpus} VCPU | #{@disk}GB Disk"

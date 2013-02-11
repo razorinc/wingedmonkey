@@ -9,4 +9,8 @@
   ul:last-child {
     @include border-radius(0 0 $border_radius $border_radius);
   }
+
 }
+
+.js_hide{display: none;}
+.js_show{display: block;}

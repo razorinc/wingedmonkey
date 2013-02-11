@@ -10,7 +10,8 @@ body {
   @include background(rgb(244, 244, 244) image-url("bg.png"));
 }
 
-html.no-js {
-  .js_toggle_trigger{ display: none; }
-}
+html.no-js {}
+
+.js_hide{display: none;}
+.js_show{display: block;}
 
