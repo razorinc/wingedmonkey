@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-08 01:25-0500\n"
+"POT-Creation-Date: 2013-02-11 15:43+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - oVirt Provider terminology\n"
@@ -58,6 +58,9 @@ msgstr ""
 
 msgid "Deploy Launchable"
 msgstr "Deploy Template"
+
+msgid "Filter result is empty"
+msgstr ""
 
 msgid "Flavor"
 msgstr ""
@@ -191,11 +194,20 @@ msgstr ""
 msgid "Report it"
 msgstr ""
 
+msgid "Search:"
+msgstr ""
+
 msgid "Select"
 msgstr ""
 
 msgid "Select a Launchable"
 msgstr "Select a Template"
+
+msgid "Sort:"
+msgstr ""
+
+msgid "State"
+msgstr ""
 
 msgid "Status"
 msgstr ""
@@ -206,25 +218,19 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
+msgid "Terminate"
+msgstr ""
+
 msgid "The dashboard presents significant events for all of your running applications in a concise view."
 msgstr "The dashboard presents significant events for all of your running server VMs in a concise view."
 
 msgid "The example of <code>config/providers.yml</code> is available in config/providers.yml.default"
 msgstr ""
 
-msgid "The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect."
-msgstr "The Server VM '%s' is being stopped. You may need to reload this page to see the change take effect."
-
 msgid "There are no Launchables available."
 msgstr "There are no Templates available."
 
 msgid "To configure providers, you will need to create a <code>config/providers.yml</code> file."
-msgstr ""
-
-msgid "Updated at %s"
-msgstr ""
-
-msgid "Updating..."
 msgstr ""
 
 msgid "Uptime"
@@ -250,6 +256,9 @@ msgstr ""
 
 msgid "You selected"
 msgstr ""
+
+msgid "Your Applications are loading..."
+msgstr "Your Virtual Machines are loading..."
 
 msgid "Your new application is starting now."
 msgstr "Your new VM is starting now."

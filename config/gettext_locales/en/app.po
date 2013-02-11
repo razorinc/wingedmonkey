@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-08 01:25-0500\n"
+"POT-Creation-Date: 2013-02-11 15:43+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English\n"
@@ -57,6 +57,9 @@ msgid "Cores"
 msgstr ""
 
 msgid "Deploy Launchable"
+msgstr ""
+
+msgid "Filter result is empty"
 msgstr ""
 
 msgid "Flavor"
@@ -191,10 +194,19 @@ msgstr ""
 msgid "Report it"
 msgstr ""
 
+msgid "Search:"
+msgstr ""
+
 msgid "Select"
 msgstr ""
 
 msgid "Select a Launchable"
+msgstr ""
+
+msgid "Sort:"
+msgstr ""
+
+msgid "State"
 msgstr ""
 
 msgid "Status"
@@ -206,25 +218,19 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
+msgid "Terminate"
+msgstr ""
+
 msgid "The dashboard presents significant events for all of your running applications in a concise view."
 msgstr ""
 
 msgid "The example of <code>config/providers.yml</code> is available in config/providers.yml.default"
 msgstr ""
 
-msgid "The provider application '%s' is being stopped.  You may need to reload this page to see the change take effect."
-msgstr ""
-
 msgid "There are no Launchables available."
 msgstr ""
 
 msgid "To configure providers, you will need to create a <code>config/providers.yml</code> file."
-msgstr ""
-
-msgid "Updated at %s"
-msgstr ""
-
-msgid "Updating..."
 msgstr ""
 
 msgid "Uptime"
@@ -249,6 +255,9 @@ msgid "You have not configured any providers yet."
 msgstr ""
 
 msgid "You selected"
+msgstr ""
+
+msgid "Your Applications are loading..."
 msgstr ""
 
 msgid "Your new application is starting now."
