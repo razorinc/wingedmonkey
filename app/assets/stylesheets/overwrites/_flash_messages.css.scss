@@ -1,15 +1,3 @@
-*{ @include box-sizing(border-box); }
-
-body,html{
-  height: 100%;
-  position: relative;
-  min-width: 320px;
-}
-
-body {
-  @include background(rgb(244, 244, 244) image-url("bg.png"));
-}
-
 .flash_hud {
   margin: 0 auto;
   @include background(white);

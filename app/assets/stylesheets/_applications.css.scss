@@ -1,0 +1,228 @@
+@import "applications_none";
+@import "applications_refresh";
+@import "applications_launch";
+
+.provider_application {
+  display: block;
+  position: relative;
+  list-style-type: none;
+  @include box-shadow(0 1px 1px 0 rgba($g3, 0.1),
+                      -1px 1px 1px 0px rgba($white_color, 0.6) inset);
+  @include border-radius(2px);
+  background: $box_bg_color;
+  border: 1px solid darken($box_bg_color, 5%);
+  padding: 0.75em;
+  margin-bottom: 10px;
+  @include transition(all 0.1s ease-in-out);
+
+  &:hover:not(.no_hover) {
+    border-color: darken($box_bg_color, 10%);
+    @include box-shadow(0 1px 1px 0 rgba($g3, 0.3),
+                        -1px 1px 1px 0px rgba($white_color, 0.6) inset);
+  }
+
+  // headings for applications and launchables
+  h3 {
+    margin: 0;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // right-sided controls
+  ul.controls{
+    float: right;
+    margin: 0 0 0 1em;
+    position: relative;
+
+    .button {
+      margin: 0;
+    }
+
+    li {
+      @include inline-block;
+      margin: 0 0 0 5px;
+
+      &.cost {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.provider_application {
+  padding: 0;
+
+  .container {
+    padding: 10px 10px 10px 34px;
+
+    // buttons
+    ul.controls {
+      margin-top: 2px;
+
+      .stop .button {
+        width: 40px;
+        height: 40px;
+        border: 0 none;
+        padding: 0;
+        color: transparent;
+        @include text-shadow(none);
+        @include background(image-url("icon_terminate_inactive.png") no-repeat 50% 50%);
+        @include box-shadow(none);
+
+        &:hover {
+          @include background(image-url("icon_terminate.png") no-repeat 50% 50%);
+        }
+      }
+    }
+
+    &:hover {
+      ul.controls {
+        @include opacity(1);
+        right: 0;
+      }
+    }
+
+    // information about ip
+    .ip {
+      font-size: 90%;
+      display: inline;
+      color: $g4;
+
+      dd {
+        display: inline;
+      }
+    }
+
+    // link to show more properties
+    .more {
+      color: $g4;
+
+      &:before {
+        display: inline-block;
+        content: ", ⇣";
+        text-decoration: none;
+        padding-right: 0.2em;
+      }
+
+      &.open:before{ content: ", ⇡"; }
+    }
+  }
+
+  .properties {
+    display: table;
+    width: 100%;
+    height: 2em;
+    color: $g4;
+    @include box-shadow(0 -1em 1.5em 0 rgba(white, 0.5) inset);
+    border-top: 1px solid rgba($g2, 0.6);
+
+    li {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 1em;
+      border-left: 1px solid rgba($g2, 0.6);
+
+      &:first-child {
+        padding-left: 0.75em;
+        border-left: 0 none;
+      }
+
+      .label {
+        font-size: 90%;
+        color: $g4;
+
+        &:after {
+          display: inline;
+          content: ":";
+        }
+      }
+    }
+  }
+
+  // STATES
+  &.running,
+  &.paused,
+  &.stopped,
+  &.failed,
+  &.stopping,
+  &.pending {
+    .container {
+      background-repeat: no-repeat;
+      background-position: 10px 17px;
+    }
+  }
+
+  // running
+  &.running {
+    .container {
+      background-image: image-url("icon_running.png");
+    }
+  }
+
+  // paused
+  &.paused {
+    @include opacity(0.75);
+    background-image: -webkit-repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
+    background-image: -moz-repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
+    background-image: repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
+
+    .container {
+      background: image-url("icon_paused.png") no-repeat 0.75em 1.85em;
+    }
+
+    &:hover {
+      @include opacity(1);
+    }
+  }
+
+  // stopped
+  &.stopped {
+    @include opacity(0.75);
+    background-color: darken($stopped_bg_color, 3%);
+    @include box-shadow(0 1px 1px 0px darken($stopped_bg_color, 5%) inset);
+    border-color: darken($stopped_bg_color, 5%);
+
+    .container {
+      background-image: image-url("icon_stopped.png");
+    }
+
+    &:hover {
+      @include opacity(1);
+      background-color: $stopped_bg_color;
+      border-color: darken($stopped_bg_color, 10%);
+      @include box-shadow(0 1px 1px 0px darken($stopped_bg_color, 7%) inset);
+    }
+  }
+
+  // failed
+  &.failed {
+    @include opacity(1);
+    border-color: $error_color;
+
+    .container {
+      background-position: 1.25em 1.75em;
+      background-image: image-url("icon_error.png");
+    }
+  }
+
+  // stopping
+  &.stopping {
+    .container {
+      background-image: image-url("icon_processing.gif");
+    }
+  }
+
+  // pending
+  &.pending {
+    .container {
+      background-image: image-url("icon_processing.gif");
+    }
+  }
+}

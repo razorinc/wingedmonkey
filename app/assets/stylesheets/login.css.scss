@@ -12,16 +12,17 @@
  */
 
 @import "compass/reset";
-@import "compass/layout/sticky-footer";
 
-@import "vars";
-@import "mixins";
+@import "vars/vars";
+@import "vars/mixins";
+
 @import "alchemy/composites/content_elements";
-@import "fonts";
-@import "text";
-@import "forms";
-@import "shared";
-@import "nojs";
+@import "overwrites/fonts";
+@import "overwrites/text";
+@import "overwrites/forms";
+@import "overwrites/flash_messages";
+
+@import "common";
 
 .flash_hud,
 #wrapper {

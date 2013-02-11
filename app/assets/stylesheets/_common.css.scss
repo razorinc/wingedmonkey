@@ -1,0 +1,16 @@
+*{ @include box-sizing(border-box); }
+
+body,html{
+  height: 100%;
+  position: relative;
+  min-width: 320px;
+}
+
+body {
+  @include background(rgb(244, 244, 244) image-url("bg.png"));
+}
+
+html.no-js {
+  .js_toggle_trigger{ display: none; }
+}
+

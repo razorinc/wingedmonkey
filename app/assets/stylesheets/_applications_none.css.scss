@@ -1,0 +1,23 @@
+#content {
+
+  .no_app {
+    font-size: 130%;
+    color: $g4;
+    margin-top: 1em;
+  }
+
+  .start {
+    margin-top: 1.5em;
+    padding-top: 0.75em;
+    border-top: 1px dashed rgb(235, 235, 235);
+
+    h3 {
+      font-size: 170%;
+      color: $g4;
+    }
+
+    .graphics {
+      text-align: center;
+    }
+  }
+}

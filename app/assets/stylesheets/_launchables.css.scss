@@ -1,0 +1,68 @@
+#content {
+
+  .launchable {
+    display: block;
+    position: relative;
+    list-style-type: none;
+    @include box-shadow(0 1px 1px 0 rgba($g3, 0.1),
+                        -1px 1px 1px 0px rgba($white_color, 0.6) inset);
+    @include border-radius(2px);
+    background: $box_bg_color;
+    border: 1px solid darken($box_bg_color, 5%);
+    padding: 0.75em;
+    margin-bottom: 10px;
+    @include transition(all 0.1s ease-in-out);
+
+    &:hover:not(.no_hover) {
+      border-color: darken($box_bg_color, 10%);
+      @include box-shadow(0 1px 1px 0 rgba($g3, 0.3),
+                          -1px 1px 1px 0px rgba($white_color, 0.6) inset);
+    }
+
+    // headings for applications and launchables
+    h3 {
+      margin: 0;
+      padding: 0;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // right-sided controls
+    ul.controls{
+      float: right;
+      margin: 0 0 0 1em;
+      position: relative;
+
+      .button {
+        margin: 0;
+      }
+
+      li {
+        @include inline-block;
+        margin: 0 0 0 5px;
+
+        &.cost {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  // JUST FOR LAUNCHABLE
+  .launchable {
+    ul.controls {
+      li {
+        .button, .btn {
+          position: relative;
+          top: -2px;
+        }
+      }
+    }
+  }
+}
