@@ -7,6 +7,7 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
     ProviderApplication.query(function(data){
       $scope.providerApps = data;
       $scope.appsLoaded = true;
+      setTimeout($scope.refreshProviderApps, 20000);
     });
   };
 
