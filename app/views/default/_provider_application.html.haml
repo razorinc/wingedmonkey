@@ -1,6 +1,12 @@
 .container
   %ul.controls
+    %li.run
+      %a.button{ :'ng-click' => 'startProviderApp(providerApp.id)', :title => _('Start') }= _('Start')
+    %li.pause
+      %a.button{ :'ng-click' => 'pauseProviderApp(providerApp.id)', :title => _('Pause') }= _('Pause')
     %li.stop
+      %a.button{ :'ng-click' => 'stopProviderApp(providerApp.id)', :title => _('Stop') }= _('Stop')
+    %li.terminate
       %a.button{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Terminate') }= _('Terminate')
 
   %h3{ :'ng-bind' => 'providerApp.name' }
