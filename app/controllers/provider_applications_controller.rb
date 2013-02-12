@@ -59,4 +59,44 @@ class ProviderApplicationsController < ApplicationController
       format.json{ render :nothing => true }
     end
   end
+
+  def start
+    @provider_application = params[:id] ? ProviderApplication.find(params[:id]) : nil
+    if !@provider_application.nil? && @provider_application.respond_to?("start")
+      @provider_application.start
+    else
+      flash[:error] = _("'Start' action not supported by this provider.")
+    end
+
+    respond_to do |format|
+      format.json{ render :nothing => true }
+    end
+  end
+
+  def stop
+    @provider_application = params[:id] ? ProviderApplication.find(params[:id]) : nil
+    if !@provider_application.nil? && @provider_application.respond_to?("stop")
+      @provider_application.stop
+    else
+      flash[:error] = _("'Stop' action not supported by this provider.")
+    end
+
+    respond_to do |format|
+      format.json{ render :nothing => true }
+    end
+  end
+
+  def pause
+    @provider_application = params[:id] ? ProviderApplication.find(params[:id]) : nil
+    if !@provider_application.nil? && @provider_application.respond_to?("pause")
+      @provider_application.pause
+    else
+      flash[:error] = _("'Pause' action not supported by this provider.")
+    end
+
+    respond_to do |format|
+      format.json{ render :nothing => true }
+    end
+  end
+
 end
