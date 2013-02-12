@@ -1,12 +1,7 @@
 .container
-  = render :partial => 'provider_applications/controls'
-
-  %h3{ :'ng-bind' => 'providerApp.name' }
-
-  %dl.ip
-    %dd{ :'ng-bind' => 'providerApp.ips.join(", ")' }
-
-  = link_to _("see more"), "", :'ng-click' => "showProperties=!showProperties", :class => "more"
+  %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
+    .wrapper
+      %span{ :'ng-bind' => 'providerApp.name' }
 
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
@@ -26,3 +21,5 @@
     %span.label= _("Memory")
     %span{ :'ng-bind' => "providerApp.memory" }
     / = number_to_human_size(app.memory)
+
+  = render :partial => 'provider_applications/controls'

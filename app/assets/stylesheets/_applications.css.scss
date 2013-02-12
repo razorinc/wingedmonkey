@@ -3,82 +3,142 @@
 @import "applications_launch";
 
 .provider_application {
-  display: block;
-  position: relative;
-  list-style-type: none;
-  @include box-shadow(0 1px 1px 0 rgba($g3, 0.1),
-                      -1px 1px 1px 0px rgba($white_color, 0.6) inset);
+  @include box-shadow(0 1px 1px 0 rgba($g3, 0.3),
+                      -1px 1px 1px 0px rgba($white_color, 0.8) inset);
   @include border-radius(2px);
-  background: $box_bg_color;
+  @include linear_gradient($box_bg_color, lighten($box_bg_color, 8%), $box_bg_color);
   border: 1px solid darken($box_bg_color, 5%);
-  padding: 0.75em;
   margin-bottom: 10px;
   @include transition(all 0.1s ease-in-out);
 
-  &:hover:not(.no_hover) {
-    border-color: darken($box_bg_color, 10%);
-    @include box-shadow(0 1px 1px 0 rgba($g3, 0.3),
-                        -1px 1px 1px 0px rgba($white_color, 0.6) inset);
+  &:hover:not(.stopped):not(.paused):not(.pending):not(.stopping):not(.failed) {
+    @include linear_gradient(lighten($box_bg_color, 3%), lighten($box_bg_color, 25%), lighten($box_bg_color, 3%));
+    border-color: darken($box_bg_color, 9%);
+    @include box-shadow(0 1px 1px 0 rgba($g3, 0.1),
+                        -1px 1px 2px 0px rgba($white_color, 0.6) inset);
   }
 
-  // headings for applications and launchables
-  h3 {
-    margin: 0;
-    padding: 0;
+// --- TABLE
+  .container {
+    display: table;
+    table-layout: fixed;
+  }
 
-    a {
-      text-decoration: none;
+  // --- TABLE CELL 1
+  // headings
+  h3 {
+    display: table-cell;
+    width: 100%;
+    padding: 0;
+    max-width: 0;
+    vertical-align: middle;
+    color: $g5;
+    cursor: pointer;
+
+    .wrapper {
+      display: block;
+      width: 100%;
+      height: $application-height;
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0 $application_height 0 34px;
+    }
+
+    a,
+    span {
+      margin-top: $application_height/4.8;
+      display: inline-block;
+      color: inherit;
 
       &:hover {
-        text-decoration: underline;
+        color: $black_color;
       }
     }
   }
 
+  // arrows
+  .toggle_trigger {
+    .wrapper:after {
+      content: "";
+      display: block;
+      width: $application_height;
+      height: $application_height;
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include opacity(0.2);
+      @include background(image-url("arrow_down_inactive.png") no-repeat 50% 50%);
+    }
+
+    &.open .wrapper:after {
+      @include background(image-url("arrow_up_inactive.png") no-repeat 50% 50%);
+    }
+  }
+
+  &:hover {
+    .toggle_trigger {
+      .wrapper:after {
+        @include opacity(0.5);
+      }
+
+      &:hover {
+        .wrapper:after {
+          @include opacity(1);
+          @include background(image-url("arrow_down.png") no-repeat 50% 52%);
+        }
+
+        &.open .wrapper:after {
+          @include background(image-url("arrow_up.png") no-repeat 50% 52%);
+        }
+      }
+    }
+  }
+
+  // --- TABLE CELL 2
   // right-sided controls
   ul.controls{
-    float: right;
-    margin: 0 0 0 1em;
-    position: relative;
-
-    .button {
-      margin: 0;
-    }
+    display: table-cell;
+    white-space: nowrap;
+    font-size: 0;
+    height: 0;
 
     li {
       @include inline-block;
-      margin: 0 0 0 5px;
-
-      &.cost {
-        font-weight: bold;
-      }
+      margin: 0;
+      border-left: 1px solid darken($box_bg_color, 5%);
     }
   }
-}
 
-.provider_application {
-  padding: 0;
+  // buttons
+  .button-graphical {
+    display: block;
+    width: $application_height;
+    height: $application_height;
+    position: relative;
+    border: 0 none;
+    padding: 0;
+    color: transparent;
+    cursor: pointer;
+    @include box-shadow(none);
 
-  .container {
-    padding: 10px 10px 10px 34px;
+    &:after {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include opacity(0.25);
+    }
 
-    // buttons
-    ul.controls {
-      margin-top: 2px;
+    &[disabled] {
+      cursor: default;
 
-      .terminate .button {
-        width: 40px;
-        height: 40px;
-        border: 0 none;
-        padding: 0;
-        color: transparent;
-        @include text-shadow(none);
-        @include background(image-url("icon_terminate_inactive.png") no-repeat 50% 50%);
-        @include box-shadow(none);
-
-        &:hover {
-          @include background(image-url("icon_terminate.png") no-repeat 50% 50%);
-        }
+      &:after {
+        @include opacity(0.1);
       }
 
       .run .button {
@@ -115,44 +175,47 @@
       }
     }
 
-    &:hover {
-      ul.controls {
-        @include opacity(1);
-        right: 0;
-      }
-    }
-
-    // information about ip
-    .ip {
-      font-size: 90%;
-      display: inline;
-      color: $g4;
-
-      dd {
-        display: inline;
-      }
-    }
-
-    // link to show more properties
-    .more {
-      color: $g4;
-
-      &:before {
-        display: inline-block;
-        content: ", ⇣";
-        text-decoration: none;
-        padding-right: 0.2em;
-      }
-
-      &.open:before{ content: ", ⇡"; }
+    &:not([disabled]):hover {
+      $hover_color: rgba($black_color, 0.02);
+      @include linear_gradient($hover_color, darken($hover_color, 5%), $hover_color, 5%);
+      @include box-shadow(0 1px 2px 0px darken($box_bg_color, 5%) inset);
     }
   }
 
+  &:hover .button-graphical {
+    &:after {
+      @include opacity(0.6);
+    }
+
+    &[disabled]:after {
+      @include opacity(0.1);
+    }
+
+    &:not([disabled]):hover:after {
+      @include opacity(1);
+    }
+  }
+
+  // buttons for application functions
+  $application_functions: stop pause run restart;
+
+  @each $function in $application_functions {
+    .#{$function} {
+      .button-graphical:after {
+        @include background(image-url("icon_#{$function}_inactive.png") no-repeat 50% 50%);
+      }
+    }
+
+    &:hover .#{$function}:hover .button-graphical:not([disabled]):after {
+      @include background(image-url("icon_#{$function}.png") no-repeat 50% 55%);
+    }
+  }
+
+  // EXPANDABLE PROPERTIES
   .properties {
     width: 100%;
-    height: 2em;
-    color: $g4;
-    @include box-shadow(0 -1em 1.5em 0 rgba(white, 0.5) inset);
+    height: $application_expended_height;
+    color: $g5;
     border-top: 1px solid rgba($g2, 0.6);
 
     &.js_show{ display: table; }
@@ -175,6 +238,23 @@
         &:after {
           display: inline;
           content: ":";
+        }
+      }
+
+      &.delete {
+        width: $application_height;
+        padding: 0;
+
+        .button-graphical {
+          height: $application_expended_height;
+
+          &:after {
+            @include background(image-url("icon_delete_small_inactive.png") no-repeat 50% 50%);
+          }
+
+          &:hover:after {
+            @include background(image-url("icon_delete_small.png") no-repeat 50% 50%);
+          }
         }
       }
     }
@@ -203,12 +283,11 @@
   // paused
   &.paused {
     @include opacity(0.75);
-    background-image: -webkit-repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
-    background-image: -moz-repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
-    background-image: repeating-linear-gradient(darken($box_bg_color, 2%), darken($box_bg_color, 2%) 0.75em, transparent 0.75em, transparent 1.5em);
+    $stripe_color: rgba(white, 0.45);
+    @include stripes_background(lighten($box_bg_color, 1%), $stripe_color);
 
     .container {
-      background: image-url("icon_paused.png") no-repeat 0.75em 1.85em;
+      background-image: image-url("icon_paused.png");
     }
 
     &:hover {
@@ -219,8 +298,8 @@
   // stopped
   &.stopped {
     @include opacity(0.75);
-    background-color: darken($stopped_bg_color, 3%);
     @include box-shadow(0 1px 1px 0px darken($stopped_bg_color, 5%) inset);
+    background: $stopped_bg_color;
     border-color: darken($stopped_bg_color, 5%);
 
     .container {
@@ -229,34 +308,70 @@
 
     &:hover {
       @include opacity(1);
-      background-color: $stopped_bg_color;
-      border-color: darken($stopped_bg_color, 10%);
       @include box-shadow(0 1px 1px 0px darken($stopped_bg_color, 7%) inset);
+    }
+
+    ul.controls li,
+    .properties,
+    .properties li {
+      border-color: darken($stopped_bg_color, 9%);
     }
   }
 
   // failed
   &.failed {
-    @include opacity(1);
-    border-color: $error_color;
+    @include opacity(0.8);
+    border-color: rgba($error_color, 0.2);
+    @include stripes_background(lighten($error_color, 49%), lighten($error_color, 52%));
 
     .container {
-      background-position: 1.25em 1.75em;
+      background-position: 1.25em 50%;
       background-image: image-url("icon_error.png");
     }
+
+    &:hover {
+      @include opacity(1);
+    }
+
+    ul.controls li,
+    .properties,
+    .properties li {
+      border-color: rgba($error_color, 0.15);
+    }
+
+    .button-graphical {
+      &:not([disabled]):hover {
+        $hover_color: rgba($error_color, 0.03);
+        @include linear_gradient($hover_color, darken($hover_color, 5%), $hover_color, 5%);
+        @include box-shadow(0 1px 2px 0px darken($box_bg_color, 5%) inset);
+      }
+    }
   }
 
-  // stopping
+  // pending, stopping
+  &.pending,
   &.stopping {
-    .container {
-      background-image: image-url("icon_processing.gif");
-    }
-  }
+    @include opacity(0.75);
+    $stripe_color: rgba(white, 0.45);
+    @include stripes_background($box_bg_color, $stripe_color);
 
-  // pending
-  &.pending {
+    -webkit-animation: animate-pending 3s linear infinite;
+    -moz-animation: animate-pending 3s linear infinite;
+
     .container {
       background-image: image-url("icon_processing.gif");
     }
+
+    &:hover {
+      @include opacity(1);
+    }
   }
+}
+
+@-webkit-keyframes animate-pending {
+  0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
+
+@-moz-keyframes animate-pending {
+  0% {background-position: 0 0;} 100% {background-position: 60px 0;}
 }

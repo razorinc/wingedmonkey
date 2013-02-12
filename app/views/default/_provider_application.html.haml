@@ -1,9 +1,7 @@
 .container
-  = render :partial => 'provider_applications/controls'
-
-  %h3{ :'ng-bind' => 'providerApp.name' }
-
-  = link_to _("see more"), "", :'ng-click' => "showProperties=!showProperties", :class => "more"
+  %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
+    .wrapper
+      %span{ :'ng-bind' => 'providerApp.name' }
 
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
@@ -12,6 +10,6 @@
   %li
     %span.label= _("Launchable")
     %span{ :'ng-bind' => 'providerApp.launchable.name' }
-  %li
-    %span.label= "{{(providerApp.available_actions | filter:'TERMINATE').length}}"
+
+  = render :partial => 'provider_applications/controls'
 

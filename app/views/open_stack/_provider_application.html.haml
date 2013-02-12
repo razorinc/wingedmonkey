@@ -1,17 +1,15 @@
 .container
-  = render :partial => 'provider_applications/controls'
-
-  %h3{ :'ng-bind' => 'providerApp.name' }
-
-  %dl.ip
-    %dd{ :'ng-bind' => 'providerApp.ip_addresses.join(", ")' }
-
-  = link_to _("see more"), "", :'ng-click' => "showProperties=!showProperties", :class => "more"
+  %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
+    .wrapper
+      %span{ :'ng-bind' => 'providerApp.name' }
 
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
     %span.label= _("Status")
     %span{ :'ng-bind' => "providerApp.state" }
+  %li
+    %span.label= _("IP")
+    %span{ :'ng-bind' => 'providerApp.ip_addresses.join(", ")' }
   %li
     %span.label= _("Uptime")
     %span{ :'ng-bind' => 'providerApp.created_at' }
@@ -22,3 +20,5 @@
   %li
     %span.label= _("Flavor")
     %span{ :'ng-bind' => 'providerApp.flavor.name_with_description' }
+
+  = render :partial => 'provider_applications/controls'

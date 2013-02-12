@@ -69,6 +69,7 @@ class ProviderApplicationsController < ApplicationController
     end
 
     respond_to do |format|
+      format.json{ render :json => @provider_application }
       format.json{ render :nothing => true }
     end
   end
@@ -82,7 +83,7 @@ class ProviderApplicationsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json{ render :nothing => true }
+      format.json{ render :json => @provider_application }
     end
   end
 
@@ -95,7 +96,7 @@ class ProviderApplicationsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json{ render :nothing => true }
+      format.json{ render :json => @provider_application }
     end
   end
 

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-12 12:13-0500\n"
+"POT-Creation-Date: 2013-02-12 16:28-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - Mock Provider terminology\n"
@@ -44,16 +44,10 @@ msgstr ""
 msgid "Application Overview"
 msgstr ""
 
-msgid "Are you sure you want to terminate this application?"
-msgstr ""
-
 msgid "Check the docs"
 msgstr ""
 
 msgid "Close"
-msgstr ""
-
-msgid "Conductor does not currently support the association between provider applications and launchables."
 msgstr ""
 
 msgid "Configuration"
@@ -63,6 +57,9 @@ msgid "Configure and Deploy"
 msgstr ""
 
 msgid "Cores"
+msgstr ""
+
+msgid "Delete"
 msgstr ""
 
 msgid "Deploy Launchable"
@@ -75,6 +72,9 @@ msgid "Flavor"
 msgstr ""
 
 msgid "Found a problem?"
+msgstr ""
+
+msgid "IP"
 msgstr ""
 
 msgid "IP Address"
@@ -129,9 +129,6 @@ msgid "Monitor"
 msgstr ""
 
 msgid "My Applications"
-msgstr ""
-
-msgid "N/A"
 msgstr ""
 
 msgid "Name"
@@ -233,9 +230,6 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-msgid "Terminate"
-msgstr ""
-
 msgid "The dashboard presents significant events for all of your running applications in a concise view."
 msgstr ""
 
@@ -316,9 +310,3 @@ msgstr "Application Name"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.state"
 msgstr "State"
-
-msgid "see less"
-msgstr ""
-
-msgid "see more"
-msgstr ""
