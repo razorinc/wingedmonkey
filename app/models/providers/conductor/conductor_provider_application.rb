@@ -14,10 +14,6 @@
 module Providers
   module Conductor
     class ConductorProviderApplication < ProviderApplication
-      def launchable
-        raise _("Conductor does not currently support the association between provider applications and launchables.")
-      end
-
       def launch
         ## not implemented yet
       end
@@ -34,6 +30,10 @@ module Providers
         connect! do |connection|
           connection.deployments.find{|app| app.id.to_s == id}
         end
+      end
+
+      def as_json(options={})
+        super(:root => false)
       end
     end
   end
