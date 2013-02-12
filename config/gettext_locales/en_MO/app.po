@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-11 15:43+0100\n"
+"POT-Creation-Date: 2013-02-12 12:13-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - Mock Provider terminology\n"
@@ -25,6 +25,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "'Pause' action not supported by this provider."
+msgstr ""
+
+msgid "'Start' action not supported by this provider."
+msgstr ""
+
+msgid "'Stop' action not supported by this provider."
+msgstr ""
 
 msgid "-- Select Provider --"
 msgstr ""
@@ -35,7 +44,7 @@ msgstr ""
 msgid "Application Overview"
 msgstr ""
 
-msgid "Are you sure you want to stop this application?"
+msgid "Are you sure you want to terminate this application?"
 msgstr ""
 
 msgid "Check the docs"
@@ -134,6 +143,9 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+msgid "Pause"
+msgstr ""
+
 msgid "Please select a Launchable first"
 msgstr ""
 
@@ -204,6 +216,9 @@ msgid "Select a Launchable"
 msgstr ""
 
 msgid "Sort:"
+msgstr ""
+
+msgid "Start"
 msgstr ""
 
 msgid "State"
