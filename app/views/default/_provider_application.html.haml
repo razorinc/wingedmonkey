@@ -3,16 +3,6 @@
     .wrapper
       %span{ :'ng-bind' => 'providerApp.name' }
 
-  %ul.controls
-    %li.run
-      %a.button-graphical{ :'ng-click' => '', :title => _('Already runnning'), :disabled => '' }
-    %li.restart
-      %a.button-graphical{ :'ng-click' => '', :title => _('Restart') }
-    %li.pause
-      %a.button-graphical{ :'ng-click' => '', :title => _('Pause') }
-    %li.stop
-      %a.button-graphical{ :'ng-click' => '', :title => _('Stop') }
-
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
     %span.label= _("Status")
@@ -20,5 +10,6 @@
   %li
     %span.label= _("Launchable")
     %span{ :'ng-bind' => 'providerApp.launchable.name' }
-  %li.delete
-    %a.button-graphical{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Delete') }
+
+  = render :partial => 'provider_applications/controls'
+

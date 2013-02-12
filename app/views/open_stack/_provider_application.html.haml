@@ -3,8 +3,6 @@
     .wrapper
       %span{ :'ng-bind' => 'providerApp.name' }
 
-  %ul.controls
-
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
     %span.label= _("Status")
@@ -22,5 +20,5 @@
   %li
     %span.label= _("Flavor")
     %span{ :'ng-bind' => 'providerApp.flavor.name_with_description' }
-  %li.delete
-    %a.button-graphical{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Delete') }
+
+  = render :partial => 'provider_applications/controls'

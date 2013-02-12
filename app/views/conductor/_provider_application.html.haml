@@ -1,14 +1,11 @@
 .container
-  %ul.controls
-    %li.stop
-      %a.button{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Terminate') }= _('Terminate')
-
-  %h3{ :'ng-bind' => 'providerApp.name' }
-
-  = link_to _("see more"), "", :'ng-click' => "showProperties=!showProperties", :class => "more"
-
+  %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
+    .wrapper
+      %span{ :'ng-bind' => 'providerApp.name' }
 
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
     %span.label= _("Status")
     %span{ :'ng-bind' => "providerApp.state" }
+
+  = render :partial => 'provider_applications/controls'

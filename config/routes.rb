@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :launchables
   resources :provider_applications do
     get 'launch_summary', :on => :member
+    post 'start', :on => :member
+    post 'stop', :on => :member
+    post 'pause', :on => :member
   end
 
   match 'login',       :to => 'sessions#new',     :as => 'login'

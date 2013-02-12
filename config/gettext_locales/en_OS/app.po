@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-12 17:26+0100\n"
+"POT-Creation-Date: 2013-02-12 16:28-0500\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - OpenStack Provider terminology\n"
@@ -26,28 +26,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+msgid "'Pause' action not supported by this provider."
+msgstr ""
+
+msgid "'Start' action not supported by this provider."
+msgstr ""
+
+msgid "'Stop' action not supported by this provider."
+msgstr ""
+
 msgid "-- Select Provider --"
 msgstr ""
 
 msgid "< My Applications"
 msgstr "< My Instances"
 
-msgid "Already runnning"
-msgstr ""
-
 msgid "Application Overview"
 msgstr "Instance Overview"
-
-msgid "Are you sure you want to stop this application?"
-msgstr "Are you sure you want to stop this instance?"
 
 msgid "Check the docs"
 msgstr ""
 
 msgid "Close"
-msgstr ""
-
-msgid "Conductor does not currently support the association between provider applications and launchables."
 msgstr ""
 
 msgid "Configuration"
@@ -131,9 +131,6 @@ msgstr ""
 msgid "My Applications"
 msgstr "My Server Instances"
 
-msgid "N/A"
-msgstr ""
-
 msgid "Name"
 msgstr ""
 
@@ -206,9 +203,6 @@ msgstr ""
 msgid "Report it"
 msgstr ""
 
-msgid "Restart"
-msgstr ""
-
 msgid "Search:"
 msgstr ""
 
@@ -219,6 +213,9 @@ msgid "Select a Launchable"
 msgstr "Select an Image"
 
 msgid "Sort:"
+msgstr ""
+
+msgid "Start"
 msgstr ""
 
 msgid "State"
@@ -313,9 +310,3 @@ msgstr "Application Name"
 
 msgid "helpers.label.providers_ovirt_ovirt_provider_application.state"
 msgstr "State"
-
-msgid "see less"
-msgstr ""
-
-msgid "see more"
-msgstr ""

@@ -14,6 +14,19 @@
 module Providers
   module Mock
     class MockProviderApplication < ProviderApplication
+      def available_actions
+
+        case wm_state
+        when ProviderApplication::WM_STATE_RUNNING then
+          [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_PAUSE, ProviderApplication::WM_ACTION_STOP ]
+        when ProviderApplication::WM_STATE_STOPPED then
+          [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_START ]
+        when ProviderApplication::WM_STATE_PAUSED then
+          [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_START, ProviderApplication::WM_ACTION_STOP ]
+        else [ WM_ACTION_TERMINATE ]
+        end
+      end
+
       def launch
         return false if not valid?
         @state = 'running'
@@ -27,6 +40,21 @@ module Providers
         self.class.connect! do |connection|
           connection.destroy_application(self)
         end
+      end
+
+      def start
+        @state = 'running'
+        @wm_state = ProviderApplication::WM_STATE_RUNNING
+      end
+
+      def pause
+        @state = 'paused'
+        @wm_state = ProviderApplication::WM_STATE_PAUSED
+      end
+
+      def stop
+        @state = 'stopped'
+        @wm_state = ProviderApplication::WM_STATE_STOPPED
       end
 
       def self.all filter=nil

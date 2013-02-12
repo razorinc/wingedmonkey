@@ -26,4 +26,44 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
       }
     });
   };
+
+  $scope.startProviderApp = function(app_id) {
+    $scope.providerApps.forEach(function(app, index) {
+      if (app_id === app.id) {
+        app.$start({id: app.id, action: "start"}, function(response) {
+          response.state = "STARTING";
+        }, function(response){
+          //failure
+          console.log(response);
+        });
+      }
+    });
+  };
+
+  $scope.stopProviderApp = function(app_id) {
+    $scope.providerApps.forEach(function(app, index) {
+      if (app_id === app.id) {
+        app.$stop({id: app.id, action: "stop"}, function(response) {
+          response.state = "STOPPING";
+        }, function(response){
+          //failure
+          console.log(response);
+        });
+      }
+    });
+  };
+
+  $scope.pauseProviderApp = function(app_id) {
+    $scope.providerApps.forEach(function(app, index) {
+      if (app_id === app.id) {
+        app.$pause({id: app.id, action: "pause"}, function(response) {
+          //success
+          response.state = "PAUSING";
+        }, function(response){
+          //failure
+          console.log(response);
+        });
+      }
+    });
+  };
 });
