@@ -29,6 +29,21 @@ module Providers
         end
       end
 
+      def start
+        @state = 'running'
+        @wm_state = ProviderApplication::WM_STATE_RUNNING
+      end
+
+      def pause
+        @state = 'paused'
+        @wm_state = ProviderApplication::WM_STATE_PAUSED
+      end
+
+      def stop
+        @state = 'stopped'
+        @wm_state = ProviderApplication::WM_STATE_STOPPED
+      end
+
       def self.all filter=nil
         connect! {|connection| connection.applications}
       end
