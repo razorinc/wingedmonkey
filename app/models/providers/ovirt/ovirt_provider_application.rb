@@ -16,6 +16,13 @@ module Providers
     class OvirtProviderApplication < ProviderApplication
       attr_accessor :ips, :creation_time, :cores, :memory
 
+      def attributes
+        super.merge({ 'ips' => ips,
+                      'creation_time' => creation_time,
+                      'memory' => memory,
+                      'cores' => cores })
+      end
+
       validates_numericality_of :cores
 
       def launch
@@ -24,7 +31,7 @@ module Providers
                                 :template => @launchable.id,
                                 :cores => @cores
                                 )
-          @id = vm.id 
+          @id = vm.id
         end
       end
 
@@ -49,6 +56,10 @@ module Providers
           vm = client.vm(id)
           self.map_vm_to_application(vm, templates)
         end
+      end
+
+      def as_json(options={})
+        super(:root => false)
       end
 
       private

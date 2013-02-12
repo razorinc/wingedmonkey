@@ -1,15 +1,14 @@
 .container
   %ul.controls
-    - if app.wm_state == ProviderApplication::WM_STATE_RUNNING
-      %li.terminate= button_to _('Terminate'), provider_application_path(app.id), :method => :delete, :confirm => _('Are you sure you want to terminate this application?'), :class => 'button warning', :title => _('Terminate')
+    %li.stop
+      %a.button{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Terminate') }= _('Terminate')
 
-  %h3
-    -#= link_to app.name, provider_application_path(app.id)
-    = app.name
+  %h3{ :'ng-bind' => 'providerApp.name' }
 
-  = link_to _("see more"), "#", :class => "more js_toggle_trigger", "data-title-closed" => _("see more"), "data-title-open" => _("see less")
+  = link_to _("see more"), "", :'ng-click' => "showProperties=!showProperties", :class => "more"
 
-%ul.properties.js_hidden.js_toggleable
+
+%ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
     %span.label= _("Status")
-    = app.state
+    %span{ :'ng-bind' => "providerApp.state" }

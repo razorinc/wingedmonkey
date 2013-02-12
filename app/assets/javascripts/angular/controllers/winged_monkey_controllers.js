@@ -16,10 +16,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.destroyProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
-        // app.$delete({id: app.id}, function() {
-        app.$delete({id: app.id}, function() {
-          //success
-          app.state = "DELETING";
+        app.$delete({id: app.id}, function(response) {
+          response.state = "DELETING"
           // $scope.providerApps.splice(index, 1);
         }, function(response){
           //failure
@@ -32,9 +30,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.startProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
-        app.$start({id: app.id, action: "start"}, function() {
-          //success
-          app.state = "STARTING";
+        app.$start({id: app.id, action: "start"}, function(response) {
+          response.state = "STARTING";
         }, function(response){
           //failure
           console.log(response);
@@ -46,9 +43,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.stopProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
-        app.$stop({id: app.id, action: "stop"}, function() {
-          //success
-          app.state = "STOPPING";
+        app.$stop({id: app.id, action: "stop"}, function(response) {
+          response.state = "STOPPING";
         }, function(response){
           //failure
           console.log(response);
@@ -60,9 +56,9 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.pauseProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
-        app.$pause({id: app.id, action: "pause"}, function() {
+        app.$pause({id: app.id, action: "pause"}, function(response) {
           //success
-          app.state = "PAUSING";
+          response.state = "PAUSING";
         }, function(response){
           //failure
           console.log(response);
