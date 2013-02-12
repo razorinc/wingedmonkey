@@ -61,16 +61,17 @@ describe ProviderApplicationsController do
       end
     end
 
-    describe "POST 'destroy'" do
+    describe "POST 'destroy' as json" do
 
-      it "redirects to provider applications" do
+      it "responds with status 200" do
         as_user mock_user do
-          launchable = mock_model(Launchable, :id => "1")
+          launchable = stub_model(Launchable, :id => "1")
           params = {:launchable => launchable, :name => "New application"}
           application = Providers::Mock::MockProviderApplication.new(params)
           application.save
-          post "destroy", {:id => application.id}
-          response.should redirect_to(provider_applications_path)
+          delete "destroy", {:id => application.id, :format => :json }
+          response.body.should eql(application.to_json)
+          response.status.should eql(200)
         end
       end
     end
