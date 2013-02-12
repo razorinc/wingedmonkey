@@ -36,6 +36,11 @@ class ProviderApplication
   WM_STATE_STOPPED = "STOPPED"
   WM_STATE_FAILED = "FAILED"
 
+  WM_ACTION_START = "START"
+  WM_ACTION_STOP = "STOP"
+  WM_ACTION_PAUSE = "PAUSE"
+  WM_ACTION_TERMINATE = "TERMINATE"
+
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
@@ -51,11 +56,16 @@ class ProviderApplication
       'launchable' => launchable,
       'state' => state,
       'wm_state' => wm_state,
+      'available_actions' => available_actions
     }
   end
 
   def persisted?
     false
+  end
+
+  def available_actions
+    [ WM_ACTION_TERMINATE ]
   end
 
   def save

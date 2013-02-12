@@ -1,7 +1,5 @@
 .container
-  %ul.controls
-    %li.stop
-      %a.button{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Terminate') }= _('Terminate')
+  = render :partial => 'provider_applications/controls'
 
   %h3{ :'ng-bind' => 'providerApp.name' }
 

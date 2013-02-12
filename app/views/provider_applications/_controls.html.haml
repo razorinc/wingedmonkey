@@ -1,0 +1,9 @@
+%ul.controls
+  %li.run{ :'ng-show' => "(providerApp.available_actions | filter:'START').length" }
+    %a.button{ :'ng-click' => 'startProviderApp(providerApp.id)', :title => _('Start') }= _('Start')
+  %li.pause{ :'ng-show' => "(providerApp.available_actions | filter:'PAUSE').length" }
+    %a.button{ :'ng-click' => 'pauseProviderApp(providerApp.id)', :title => _('Pause') }= _('Pause')
+  %li.stop{ :'ng-show' => "(providerApp.available_actions | filter:'STOP').length" }
+    %a.button{ :'ng-click' => 'stopProviderApp(providerApp.id)', :title => _('Stop') }= _('Stop')
+  %li.terminate{ :'ng-show' => "(providerApp.available_actions | filter:'TERMINATE').length" }
+    %a.button{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Terminate') }= _('Terminate')
