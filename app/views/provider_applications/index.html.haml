@@ -9,7 +9,7 @@
 
 %section{ :'ng-controller' => "ProviderAppsCtrl" }
   %h2= _("My Applications")
-  = link_to _("Launch New Application"), launchables_path, :class => 'provider_application', :id => "launch"
+  = link_to _("Launch New Application"), launchables_path, :class => 'button', :id => "launch"
 
   %p.no_app.spinner{:'ng-show' => "!appsLoaded" }
     = _('Your Applications are loading...')

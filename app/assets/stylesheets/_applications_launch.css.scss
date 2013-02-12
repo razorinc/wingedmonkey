@@ -76,22 +76,16 @@
 
   // when the right sidebar is missing
   #launch {
-    padding: 10px 10px 10px 35px;
-    text-decoration: none;
-    border-style: dashed;
-    @include background(rgb(252, 252, 252));
-    @include box-shadow(none);
-    color: $g3;
-    font-size: 130%;
-
-    &:hover {
-      color: $g4;
-      @include background(rgb(250, 250, 250));
-    }
+    padding-left: 31px;
+    font-size: 120%;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    @include border-radius(2px);
 
     &:before {
       content: "\2b";
-      font-size: 175%;
+      font-size: 165%;
       display: block;
       position: absolute;
       top: 1px;

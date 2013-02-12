@@ -1,11 +1,17 @@
 .container
+  %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
+    .wrapper
+      %span{ :'ng-bind' => 'providerApp.name' }
+
   %ul.controls
+    %li.run
+      %a.button-graphical{ :'ng-click' => '', :title => _('Already runnning'), :disabled => '' }
+    %li.restart
+      %a.button-graphical{ :'ng-click' => '', :title => _('Restart') }
+    %li.pause
+      %a.button-graphical{ :'ng-click' => '', :title => _('Pause') }
     %li.stop
-      %a.button{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Terminate') }= _('Terminate')
-
-  %h3{ :'ng-bind' => 'providerApp.name' }
-
-  = link_to _("see more"), "", :'ng-click' => "showProperties=!showProperties", :class => "more"
+      %a.button-graphical{ :'ng-click' => '', :title => _('Stop') }
 
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
@@ -14,3 +20,5 @@
   %li
     %span.label= _("Launchable")
     %span{ :'ng-bind' => 'providerApp.launchable.name' }
+  %li.delete
+    %a.button-graphical{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Delete') }
