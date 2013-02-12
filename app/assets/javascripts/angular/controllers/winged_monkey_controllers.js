@@ -17,10 +17,52 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
         // app.$delete({id: app.id}, function() {
-        ProviderApplication.delete({id: app.id}, function() {
+        app.$delete({id: app.id}, function() {
           //success
           app.state = "DELETING";
           // $scope.providerApps.splice(index, 1);
+        }, function(response){
+          //failure
+          console.log(response);
+        });
+      }
+    });
+  };
+
+  $scope.startProviderApp = function(app_id) {
+    $scope.providerApps.forEach(function(app, index) {
+      if (app_id === app.id) {
+        app.$start({id: app.id, action: "start"}, function() {
+          //success
+          app.state = "STARTING";
+        }, function(response){
+          //failure
+          console.log(response);
+        });
+      }
+    });
+  };
+
+  $scope.stopProviderApp = function(app_id) {
+    $scope.providerApps.forEach(function(app, index) {
+      if (app_id === app.id) {
+        app.$stop({id: app.id, action: "stop"}, function() {
+          //success
+          app.state = "STOPPING";
+        }, function(response){
+          //failure
+          console.log(response);
+        });
+      }
+    });
+  };
+
+  $scope.pauseProviderApp = function(app_id) {
+    $scope.providerApps.forEach(function(app, index) {
+      if (app_id === app.id) {
+        app.$pause({id: app.id, action: "pause"}, function() {
+          //success
+          app.state = "PAUSING";
         }, function(response){
           //failure
           console.log(response);
