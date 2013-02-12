@@ -7,3 +7,12 @@ wingedMonkeyFilters.filter('findById', function($filter) {
     }
   };
 });
+
+// replace undefined with N/A string (custom string is passed)
+wingedMonkeyFilters.filter('notAvailable', function($filter) {
+  return function(input, replacementString){
+    if(typeof input !== 'undefined'){
+      return replacementString;
+    }
+  };
+});
