@@ -1,25 +1,18 @@
-.container
-  %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
-    .wrapper
-      %span{ :'ng-bind' => 'providerApp.name' }
-  = render :partial => 'provider_applications/controls'
+%li
+  %span.label= _("Status")
+  %span{ :'ng-bind' => "providerApp.state" }
+%li
+  %span.label= _("Uptime")
+  %span{ :'ng-bind' => 'providerApp.creation_time' }
+  / = time_ago_in_words(app.created_at, true)
+%li
+  %span.label= _("Launchable")
+  %span{ :'ng-bind' => 'providerApp.launchable.name|notAvailable:"N/A"' }
+%li
+  %span.label= _("Cores")
+  %span{ :'ng-bind' => "providerApp.cores" }
+%li
+  %span.label= _("Memory")
+  %span{ :'ng-bind' => "providerApp.memory" }
+  / = number_to_human_size(app.memory)
 
-%ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
-  %li
-    %span.label= _("Status")
-    %span{ :'ng-bind' => "providerApp.state" }
-  %li
-    %span.label= _("Uptime")
-    %span{ :'ng-bind' => 'providerApp.creation_time' }
-    / = time_ago_in_words(app.created_at, true)
-  %li
-    %span.label= _("Launchable")
-    %span{ :'ng-bind' => 'providerApp.launchable.name|notAvailable:"N/A"' }
-  %li
-    %span.label= _("Cores")
-    %span{ :'ng-bind' => "providerApp.cores" }
-  %li
-    %span.label= _("Memory")
-    %span{ :'ng-bind' => "providerApp.memory" }
-    / = number_to_human_size(app.memory)
-  = render :partial => 'provider_applications/delete'
