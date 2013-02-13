@@ -47,8 +47,15 @@ class ApplicationController < ActionController::Base
 
   def handle_error(error)
     Rails.logger.send(:error, error.backtrace.join("\n\t"))
-    flash.now[:error] = error
-    render :template => "layouts/empty", :layout => "application", :status => 500
+    respond_to do |format|
+      format.html do
+        flash.now[:error] = error.message
+        render :template => "layouts/empty", :layout => "application", :status => 500
+      end
+      format.json do
+        render(:json => error.message, :status => 500)
+      end
+    end
   end
 
   private
