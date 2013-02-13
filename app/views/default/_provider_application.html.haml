@@ -2,6 +2,7 @@
   %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
     .wrapper
       %span{ :'ng-bind' => 'providerApp.name' }
+  = render :partial => 'provider_applications/controls'
 
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
@@ -10,6 +11,4 @@
   %li
     %span.label= _("Launchable")
     %span{ :'ng-bind' => 'providerApp.launchable.name' }
-
-  = render :partial => 'provider_applications/controls'
-
+  = render :partial => 'provider_applications/delete'
