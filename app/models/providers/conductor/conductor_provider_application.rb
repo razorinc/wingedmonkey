@@ -28,7 +28,9 @@ module Providers
 
       def self.find id
         connect! do |connection|
-          connection.deployments.find{|app| app.id.to_s == id}
+          application = connection.deployments.find{|app| app.id.to_s == id}
+          raise ActiveRecord::RecordNotFound unless application
+          application
         end
       end
 
