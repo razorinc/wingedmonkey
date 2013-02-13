@@ -19,4 +19,4 @@
     %ul.launchables
     - @launchables.each do |launchable|
       %li.launchable
-        = render_provider_partial("launchable", {:launchable => launchable })
+        = render_provider_partial(:launchables, :details, {:launchable => launchable })
