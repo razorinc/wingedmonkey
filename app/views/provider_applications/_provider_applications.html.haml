@@ -1,3 +1,13 @@
 %li.provider_application{ :'ng-repeat' => "providerApp in providerApps|filter:search|orderBy:predicate:reverse",
                                            :class => "{{providerApp.wm_state|lowercase}}" }
-  = render_provider_partial("provider_application")
+
+  .container
+    %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
+      .wrapper
+        %span{ :'ng-bind' => 'providerApp.name' }
+    = render :partial => 'provider_applications/controls'
+
+  %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
+    = render_provider_partial("provider_application_properties")
+    = render :partial => 'provider_applications/delete'
+
