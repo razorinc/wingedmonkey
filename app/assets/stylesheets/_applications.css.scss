@@ -140,39 +140,6 @@
       &:after {
         @include opacity(0.1);
       }
-
-      .run .button {
-        width: 40px;
-        height: 40px;
-        border: 0 none;
-        padding: 0;
-        color: transparent;
-        @include text-shadow(none);
-        @include background(image-url("icon_run.png") no-repeat 50% 50%);
-        @include box-shadow(none);
-      }
-
-      .pause .button {
-        width: 40px;
-        height: 40px;
-        border: 0 none;
-        padding: 0;
-        color: transparent;
-        @include text-shadow(none);
-        @include background(image-url("icon_pause.png") no-repeat 50% 50%);
-        @include box-shadow(none);
-      }
-
-      .stop .button {
-        width: 40px;
-        height: 40px;
-        border: 0 none;
-        padding: 0;
-        color: transparent;
-        @include text-shadow(none);
-        @include background(image-url("icon_stop.png") no-repeat 50% 50%);
-        @include box-shadow(none);
-      }
     }
 
     &:not([disabled]):hover {

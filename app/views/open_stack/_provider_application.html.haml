@@ -2,6 +2,7 @@
   %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
     .wrapper
       %span{ :'ng-bind' => 'providerApp.name' }
+  = render :partial => 'provider_applications/controls'
 
 %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
   %li
@@ -20,5 +21,4 @@
   %li
     %span.label= _("Flavor")
     %span{ :'ng-bind' => 'providerApp.flavor.name_with_description' }
-
-  = render :partial => 'provider_applications/controls'
+  = render :partial => 'provider_applications/delete'

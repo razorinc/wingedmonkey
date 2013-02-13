@@ -1,0 +1,2 @@
+%li.delete{ :'ng-show' => "(providerApp.available_actions | filter:'TERMINATE').length" }
+  %a.button-graphical{ :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Delete') }
