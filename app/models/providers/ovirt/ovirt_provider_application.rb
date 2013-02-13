@@ -15,6 +15,7 @@ module Providers
   module Ovirt
     class OvirtProviderApplication < ProviderApplication
       attr_accessor :ips, :creation_time, :cores, :memory
+      validates_numericality_of :cores
 
       def attributes
         super.merge({ 'ips' => ips,
@@ -23,7 +24,17 @@ module Providers
                       'cores' => cores })
       end
 
-      validates_numericality_of :cores
+      def available_actions
+        case wm_state
+        when ProviderApplication::WM_STATE_RUNNING then
+          [ ProviderApplication::WM_ACTION_PAUSE, ProviderApplication::WM_ACTION_STOP ]
+        when ProviderApplication::WM_STATE_STOPPED then
+          [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_START ]
+        when ProviderApplication::WM_STATE_PAUSED then
+          [ ProviderApplication::WM_ACTION_START, ProviderApplication::WM_ACTION_STOP ]
+        else [ WM_ACTION_TERMINATE ]
+        end
+      end
 
       def launch
         self.class.connect! do |client|
@@ -38,6 +49,24 @@ module Providers
       def destroy
         self.class.connect! do |client|
           client.destroy_vm id
+        end
+      end
+
+      def start
+        self.class.connect! do |client|
+          client.vm_action(id, :start)
+        end
+      end
+
+      def pause
+        self.class.connect! do |client|
+          client.vm_action(id, :suspend)
+        end
+      end
+
+      def stop
+        self.class.connect! do |client|
+          client.vm_action(id, :shutdown)
         end
       end
 
@@ -68,9 +97,10 @@ module Providers
         template_id = vm.template.id
         state = vm.status.strip
         wm_state = case state
-                   when "image_locked", "powering_up" then ProviderApplication::WM_STATE_PENDING
+                   when "image_locked", "powering_up", "saving_state" then ProviderApplication::WM_STATE_PENDING
                    when "up" then ProviderApplication::WM_STATE_RUNNING
                    when "down" then ProviderApplication::WM_STATE_STOPPED
+                   when "suspended" then ProviderApplication::WM_STATE_PAUSED
                    when "powering_down" then ProviderApplication::WM_STATE_STOPPING
                    else ProviderApplication::WM_STATE_FAILED
                    end

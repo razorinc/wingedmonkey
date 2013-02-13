@@ -14,8 +14,8 @@
 module Providers
   module Mock
     class MockProviderApplication < ProviderApplication
-      def available_actions
 
+      def available_actions
         case wm_state
         when ProviderApplication::WM_STATE_RUNNING then
           [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_PAUSE, ProviderApplication::WM_ACTION_STOP ]
