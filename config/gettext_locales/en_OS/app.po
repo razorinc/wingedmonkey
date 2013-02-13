@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-12 16:28-0500\n"
+"POT-Creation-Date: 2013-02-13 14:50+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - OpenStack Provider terminology\n"
@@ -198,6 +198,9 @@ msgid "Providers::Ovirt::OvirtProviderApplication|Name"
 msgstr "Application Name"
 
 msgid "Providers::Ovirt::OvirtProviderApplication|State"
+msgstr ""
+
+msgid "Refresh List"
 msgstr ""
 
 msgid "Report it"
