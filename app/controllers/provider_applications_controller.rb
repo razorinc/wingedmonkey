@@ -12,6 +12,7 @@
 # under the License.
 
 class ProviderApplicationsController < ApplicationController
+  before_filter :find_provider_application, :only => [:show, :launch_summary, :destroy, :stop, :start, :pause]
   def index
 
     respond_to do |format|
@@ -42,18 +43,13 @@ class ProviderApplicationsController < ApplicationController
   end
 
   def show
-    @provider_application = ProviderApplication.find(params[:id])
   end
 
   def launch_summary
-    @provider_application = ProviderApplication.find(params[:id])
   end
 
   def destroy
-    @provider_application = params[:id] ? ProviderApplication.find(params[:id]) : nil
-    if !@provider_application.nil?
-      @provider_application.destroy
-    end
+    @provider_application.destroy
 
     respond_to do |format|
       format.json{ render :json => @provider_application }
@@ -61,8 +57,7 @@ class ProviderApplicationsController < ApplicationController
   end
 
   def start
-    @provider_application = params[:id] ? ProviderApplication.find(params[:id]) : nil
-    if !@provider_application.nil? && @provider_application.respond_to?("start")
+    if @provider_application.respond_to?("start")
       @provider_application.start
     else
       flash[:error] = _("'Start' action not supported by this provider.")
@@ -70,13 +65,11 @@ class ProviderApplicationsController < ApplicationController
 
     respond_to do |format|
       format.json{ render :json => @provider_application }
-      format.json{ render :nothing => true }
     end
   end
 
   def stop
-    @provider_application = params[:id] ? ProviderApplication.find(params[:id]) : nil
-    if !@provider_application.nil? && @provider_application.respond_to?("stop")
+    if @provider_application.respond_to?("stop")
       @provider_application.stop
     else
       flash[:error] = _("'Stop' action not supported by this provider.")
@@ -88,8 +81,7 @@ class ProviderApplicationsController < ApplicationController
   end
 
   def pause
-    @provider_application = params[:id] ? ProviderApplication.find(params[:id]) : nil
-    if !@provider_application.nil? && @provider_application.respond_to?("pause")
+    if @provider_application.respond_to?("pause")
       @provider_application.pause
     else
       flash[:error] = _("'Pause' action not supported by this provider.")
@@ -100,4 +92,9 @@ class ProviderApplicationsController < ApplicationController
     end
   end
 
+  private
+
+  def find_provider_application
+    @provider_application = ProviderApplication.find(params[:id])
+  end
 end

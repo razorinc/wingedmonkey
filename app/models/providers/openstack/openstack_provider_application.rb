@@ -74,7 +74,9 @@ module Providers
       end
 
       def self.find id
-        self.all.find{|app| app.id.to_s == id}
+        application = self.all.find{|app| app.id.to_s == id}
+        raise ActiveRecord::RecordNotFound unless application
+        application
       end
 
       def as_json(options={})
