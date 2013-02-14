@@ -15,12 +15,12 @@
 %section
   %h3= _("You selected")
   .launchable.no_hover
-    = render_provider_partial("launchable_summary", {:launchable => @launchable })
+    = render_provider_partial(:launchables, :summary, {:launchable => @launchable })
 
 = render 'shared/error_messages', :object => @provider_application if @provider_application.errors.any?
 = form_for @provider_application, :url => provider_applications_path, :html => { :class => 'form' } do |f|
   %section
     %h3= _("Configuration")
-    = render_provider_partial("provider_application_form", {:form => f, :provider_application => @provider_application})
+    = render_provider_partial(:provider_applications, :form, {:form => f, :provider_application => @provider_application})
   %section
     = f.submit _("Deploy Launchable"), :id => 'save', :class => 'button primary'

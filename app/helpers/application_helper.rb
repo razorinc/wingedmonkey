@@ -12,8 +12,8 @@
 # under the License.
 
 module ApplicationHelper
-  def render_provider_partial(partial_name, locals = {})
-    partial = provider_partial(partial_name)
+  def render_provider_partial(directory, name, locals = {})
+    partial = provider_partial(directory.to_s, name.to_s)
     if partial
       render :partial => partial, :locals => locals
     end
@@ -24,17 +24,17 @@ module ApplicationHelper
   end
 
   private
-  def provider_partial(partial_name)
+  def provider_partial(directory, name)
     provider_name = current_provider.type
-    if partial_exists?(provider_name, partial_name)
-      provider_name + "/" + partial_name
-    elsif partial_exists?("default", partial_name)
-      "default/" + partial_name
+    if partial_exists?(directory, name, provider_name)
+      "#{directory}/#{provider_name}/#{name}"
+    elsif partial_exists?(directory, name, "default")
+      "#{directory}/default/#{name}"
     end
   end
 
-  def partial_exists?(provider_name, partial_name)
-    partial_file = ::Rails.root.to_s + "/app/views/" + provider_name + "/_" + partial_name + ".html.haml"
+  def partial_exists?(directory, name, provider_name)
+    partial_file = "#{::Rails.root.to_s}/app/views/#{directory}/#{provider_name}/_#{name}.html.haml"
     File.exists?(partial_file)
   end
 

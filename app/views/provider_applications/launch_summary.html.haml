@@ -27,7 +27,7 @@
     %dt= _("Status")
     %dd= @provider_application.state
     %br
-    = render_provider_partial("provider_application_summary", {:app => @provider_application})
+    = render_provider_partial(:provider_applications, :summary, {:app => @provider_application})
 
 %section
   %h3= _("What's next?")
