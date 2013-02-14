@@ -138,6 +138,7 @@
 
     &[disabled] {
       cursor: default;
+      //@include background(none);
 
       &:after {
         @include opacity(0.1);
