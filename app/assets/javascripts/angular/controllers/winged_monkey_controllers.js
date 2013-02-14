@@ -7,7 +7,7 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
     ProviderApplication.query(function(data){
       $scope.providerApps = data;
       $scope.appsLoaded = true;
-      setTimeout($scope.refreshProviderApps, 20000);
+      // setTimeout($scope.refreshProviderApps, 20000);
     });
   };
 
@@ -31,7 +31,7 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
         app.$start({id: app.id}, function(response) {
-          response.state = "STARTING";
+          //success
         }, function(response){
           //failure
           console.log(response);
@@ -58,7 +58,6 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
       if (app_id === app.id) {
         app.$pause({id: app.id}, function(response) {
           //success
-          response.state = "PAUSING";
         }, function(response){
           //failure
           console.log(response);

@@ -59,6 +59,7 @@ class ProviderApplicationsController < ApplicationController
   def start
     if @provider_application.respond_to?("start")
       @provider_application.start
+      @provider_application.wm_state = ProviderApplication::WM_STATE_PENDING
     else
       flash[:error] = _("'Start' action not supported by this provider.")
     end
@@ -83,6 +84,7 @@ class ProviderApplicationsController < ApplicationController
   def pause
     if @provider_application.respond_to?("pause")
       @provider_application.pause
+      @provider_application.wm_state = ProviderApplication::WM_STATE_PENDING
     else
       flash[:error] = _("'Pause' action not supported by this provider.")
     end
