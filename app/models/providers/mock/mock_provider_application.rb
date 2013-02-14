@@ -23,7 +23,10 @@ module Providers
           [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_START ]
         when ProviderApplication::WM_STATE_PAUSED then
           [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_START, ProviderApplication::WM_ACTION_STOP ]
-        else [ WM_ACTION_TERMINATE ]
+        when ProviderApplication::WM_STATE_PENDING then
+          []
+        else
+          [ ProviderApplication::WM_ACTION_TERMINATE ]
         end
       end
 

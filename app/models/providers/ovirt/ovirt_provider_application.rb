@@ -32,7 +32,10 @@ module Providers
           [ ProviderApplication::WM_ACTION_TERMINATE, ProviderApplication::WM_ACTION_START ]
         when ProviderApplication::WM_STATE_PAUSED then
           [ ProviderApplication::WM_ACTION_START, ProviderApplication::WM_ACTION_STOP ]
-        else [ WM_ACTION_TERMINATE ]
+        when ProviderApplication::WM_STATE_PENDING then
+          []
+        else
+          [ ProviderApplication::WM_ACTION_TERMINATE ]
         end
       end
 
@@ -97,11 +100,10 @@ module Providers
         template_id = vm.template.id
         state = vm.status.strip
         wm_state = case state
-                   when "image_locked", "powering_up", "saving_state" then ProviderApplication::WM_STATE_PENDING
+                   when "image_locked", "powering_up", "saving_state", "restoring_state", "powering_down" then ProviderApplication::WM_STATE_PENDING
                    when "up" then ProviderApplication::WM_STATE_RUNNING
                    when "down" then ProviderApplication::WM_STATE_STOPPED
                    when "suspended" then ProviderApplication::WM_STATE_PAUSED
-                   when "powering_down" then ProviderApplication::WM_STATE_STOPPING
                    else ProviderApplication::WM_STATE_FAILED
                    end
 

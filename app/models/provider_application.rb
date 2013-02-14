@@ -32,7 +32,6 @@ class ProviderApplication
   WM_STATE_PENDING = "PENDING"
   WM_STATE_RUNNING = "RUNNING"
   WM_STATE_PAUSED = "PAUSED"
-  WM_STATE_STOPPING = "STOPPING"
   WM_STATE_STOPPED = "STOPPED"
   WM_STATE_FAILED = "FAILED"
 
@@ -65,7 +64,12 @@ class ProviderApplication
   end
 
   def available_actions
-    [ WM_ACTION_TERMINATE ]
+    case wm_state
+    when WM_STATE_PENDING then
+      []
+    else
+      [ WM_ACTION_TERMINATE ]
+    end
   end
 
   def save

@@ -124,6 +124,7 @@
     cursor: pointer;
     @include box-shadow(none);
     @include background(none);
+    @include border-radius(0);
 
     &:after {
       display: block;
@@ -138,7 +139,7 @@
 
     &[disabled] {
       cursor: default;
-      //@include background(none);
+      @include background(none);
 
       &:after {
         @include opacity(0.1);
