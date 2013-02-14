@@ -9,25 +9,12 @@
 
 %section{ :'ng-controller' => "ProviderAppsCtrl" }
   %h2= _("My Applications")
-  = link_to _("Launch New Application"), launchables_path, :class => 'button', :id => "launch"
-
-  %p.no_app.spinner{:'ng-show' => "!appsLoaded" }
-    = _('Your Applications are loading...')
-  %p.no_app{ :'ng-show' => "appsLoaded && providerApps.length == 0" }
-    = _("It looks like you haven't launched any applications yet. To get started, launch a new application.")
-
-  .list_controls{ :'ng-show' => "providerApps.length > 0"}
-    #refresh_applications_list
-      %a{ :'ng-click' => 'refreshProviderApps()' }= _('Refresh List')
-    %label= _("Search:")
-    %input{ :'ng-model' => 'search.name' }
-    %label= _("Sort:")
-    %a{ :'ng-click' => "predicate = 'name'; reverse=!reverse"}= _("Name")
-    %a{ :'ng-click' => "predicate = 'state'; reverse=!reverse"}= _("State")
+  = link_to _("Launch New Application"), launchables_path, :class => 'button', :id => "launch", :'ng-class' => "{'button primary': appsLoaded && providerApps.length == 0}"
+  = render :partial => 'loading'
+  = render :partial => 'no_application'
+  = render :partial => 'list_controls'
 
   %ul.provider_applications
-    %li.no_app{:'ng-show' => "providerApps.length > 0 && !(providerApps|filter:search).length" }
-      = _('Filter result is empty')
+    = render :partial => 'empty_filter'
     = render :partial => "provider_applications", :locals => {:provider_applications => @provider_applications }
 
-= render :partial => 'features'
