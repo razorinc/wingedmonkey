@@ -22,11 +22,15 @@ describe Providers::Ovirt::OvirtProviderApplication do
 
   describe "as a class" do
     before :all do
+      Provider.current = Provider.find("test_ovirt")
+
+      @templates = [ OpenStruct.new({:id => "1"}) ]
       @vms = [
-        OpenStruct.new({:id => 1, :name => "first", :description => "first template", :status => "  up  \n", :memory => "1234", :cores => 1}),
-        OpenStruct.new({:id => 2, :name => "second", :description => "second template"}),
-        OpenStruct.new({:id => 3, :name => "third", :description => "third template"}),
-        OpenStruct.new({:id => 4, :name => "fourth", :description => "fourth template"})]
+              OpenStruct.new({:id => 1, :name => "first", :description => "first template", :status => "  up  \n", :memory => "1234", :cores => 1, :ips => ["127.0.0.1"], :template => @templates[0]}),
+              OpenStruct.new({:id => 2, :name => "second", :description => "second template", :status => "  up  \n", :memory => "1234", :ips => ["127.0.0.1"], :template => @templates[0]}),
+              OpenStruct.new({:id => 3, :name => "third", :description => "third template", :status => "  up  \n", :memory => "1234", :ips => ["127.0.0.1"], :template => @templates[0]}),
+              OpenStruct.new({:id => 4, :name => "fourth", :description => "fourth template", :status => "  up  \n", :memory => "1234", :ips => ["127.0.0.1"], :template => @templates[0]})
+             ]
 
       @empty_vms = []
     end
@@ -40,9 +44,23 @@ describe Providers::Ovirt::OvirtProviderApplication do
     end
 
     it "lists all applications" do
+      connection = Object.new
+      connection.stub!(:vms).and_return(@vms)
+      Providers::Ovirt::OvirtProviderApplication.stub!(:connect!).and_yield(connection)
+      Launchable.stub!(:all).and_return(@templates)
+      apps = Providers::Ovirt::OvirtProviderApplication.all
+      apps.should_not be_empty
+      app = apps.first
+      app.name.should eq "first"
     end
 
     it "finds a specific application" do
+      connection = Object.new
+      connection.stub!(:vm).and_return(@vms[1])
+      Providers::Ovirt::OvirtProviderApplication.stub!(:connect!).and_yield(connection)
+      Launchable.stub!(:all).and_return(@templates)
+      app = Providers::Ovirt::OvirtProviderApplication.find("2")
+      app.name.should eq "second"
     end
   end
 end
