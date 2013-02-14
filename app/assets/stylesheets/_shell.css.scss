@@ -10,7 +10,7 @@
   margin: 0 auto;
 }
 
-
+/* === HEADER === */
 #header{
   @include header_style;
   line-height: 1;
@@ -21,9 +21,26 @@
     float: right;
     color: rgba($primary_color, 0.45);
 
-    a {
-      padding-left: 0.5em;
+    .highlight {
       color: $primary_color;
+    }
+
+    .logout {
+      @include  inline-block;
+      width: 16px;
+      height: 16px;
+      position: relative;
+      top: -1px;
+      margin-left: 0.25em;
+      color: transparent;
+      @include text-shadow(none);
+      @include background(image-url("icon_close_inactive.png") no-repeat 50% 0);
+      @include opacity(0.3);
+
+      &:hover {
+        @include background(image-url("icon_close.png") no-repeat 50% 0);
+        @include opacity(1);
+      }
     }
   }
 
@@ -33,6 +50,10 @@
 
   #logo {
     float: none;
+
+    img {
+      height: 45px;
+    }
   }
 }
 
