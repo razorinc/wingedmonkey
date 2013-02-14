@@ -1,10 +1,10 @@
 %ul.controls
   %li.run
-    %button.button-graphical{ :'ng-disabled' => "!(providerApp.available_actions | filter:'START').length",
+    %button.button-graphical{ :'ng-disabled' => "!(providerApp.available_actions | filter:'START').length || providerApp.disableButtons",
                               :'ng-click' => 'startProviderApp(providerApp.id)', :title => _('Start') }
   %li.pause
-    %button.button-graphical{ :'ng-disabled' => "!(providerApp.available_actions | filter:'PAUSE').length",
+    %button.button-graphical{ :'ng-disabled' => "!(providerApp.available_actions | filter:'PAUSE').length || providerApp.disableButtons",
                               :'ng-click' => 'pauseProviderApp(providerApp.id)', :title => _('Pause') }
   %li.stop
-    %button.button-graphical{ :'ng-disabled' => "!(providerApp.available_actions | filter:'STOP').length",
+    %button.button-graphical{ :'ng-disabled' => "!(providerApp.available_actions | filter:'STOP').length || providerApp.disableButtons",
                               :'ng-click' => 'stopProviderApp(providerApp.id)', :title => _('Stop') }

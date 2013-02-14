@@ -16,6 +16,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.destroyProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
+        app.wm_state = "PENDING"
+        app.disableButtons = true;
         app.$delete({id: app.id}, function(response) {
           //success
         }, function(response){
@@ -29,6 +31,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.startProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
+        app.wm_state = "PENDING"
+        app.disableButtons = true;
         app.$start({id: app.id}, function(response) {
           //success
         }, function(response){
@@ -42,6 +46,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.stopProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
+        app.wm_state = "PENDING"
+        app.disableButtons = true;
         app.$stop({id: app.id}, function(response) {
           //success
         }, function(response){
@@ -55,6 +61,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
   $scope.pauseProviderApp = function(app_id) {
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
+        app.wm_state = "PENDING"
+        app.disableButtons = true;
         app.$pause({id: app.id}, function(response) {
           //success
         }, function(response){
