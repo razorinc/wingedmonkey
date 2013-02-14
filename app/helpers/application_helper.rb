@@ -13,7 +13,7 @@
 
 module ApplicationHelper
   def render_provider_partial(directory, name, locals = {})
-    partial = provider_partial(directory.to_s, name.to_s)
+    partial = provider_partial(directory, name)
     if partial
       render :partial => partial, :locals => locals
     end
