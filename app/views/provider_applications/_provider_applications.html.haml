@@ -5,7 +5,7 @@
     %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
       .wrapper
         %span{ :'ng-bind' => 'providerApp.name' }
-    = render :partial => 'provider_applications/controls'
+    = render_provider_partial(:provider_applications, :controls)
 
   %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
     = render_provider_partial(:provider_applications, :properties)
