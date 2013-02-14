@@ -11,6 +11,7 @@
   name: Dev Ovirt
   type: ovirt
   url: https://ovirt.test/api
+  domain: test
   datacenter: UUID
 - !ruby/object:Providers::OpenStack::OpenStackProvider
   id: test_openstack

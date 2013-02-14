@@ -61,6 +61,27 @@ describe ProviderApplicationsController do
       end
     end
 
+    describe "POST 'pause/start/stop' as json" do
+
+      it "responds with status 200" do
+        as_user mock_user do
+          launchable = stub_model(Launchable, :id => "1")
+          params = {:launchable => launchable, :name => "New application"}
+          application = Providers::Mock::MockProviderApplication.new(params)
+          application.save
+          post "pause", {:id => application.id, :format => :json }
+          response.body.should eql(application.to_json)
+          response.status.should eql(200)
+          post "start", {:id => application.id, :format => :json }
+          response.body.should eql(application.to_json)
+          response.status.should eql(200)
+          post "stop", {:id => application.id, :format => :json }
+          response.body.should eql(application.to_json)
+          response.status.should eql(200)
+        end
+      end
+    end
+
     describe "POST 'destroy' as json" do
 
       it "responds with status 200" do
