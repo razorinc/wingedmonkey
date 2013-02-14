@@ -7,7 +7,7 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
     ProviderApplication.query(function(data){
       $scope.providerApps = data;
       $scope.appsLoaded = true;
-      // setTimeout($scope.refreshProviderApps, 20000);
+      setTimeout($scope.refreshProviderApps, 20000);
     });
   };
 
@@ -17,8 +17,7 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
         app.$delete({id: app.id}, function(response) {
-          response.state = "DELETING"
-          // $scope.providerApps.splice(index, 1);
+          //success
         }, function(response){
           //failure
           console.log(response);
@@ -44,7 +43,7 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $filter,
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
         app.$stop({id: app.id}, function(response) {
-          response.state = "STOPPING";
+          //success
         }, function(response){
           //failure
           console.log(response);

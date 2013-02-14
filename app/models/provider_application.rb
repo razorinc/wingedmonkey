@@ -65,7 +65,7 @@ class ProviderApplication
 
   def available_actions
     case wm_state
-    when ProviderApplication::WM_STATE_PENDING then
+    when WM_STATE_PENDING then
       []
     else
       [ WM_ACTION_TERMINATE ]

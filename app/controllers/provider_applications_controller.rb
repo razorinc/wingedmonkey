@@ -49,6 +49,7 @@ class ProviderApplicationsController < ApplicationController
   end
 
   def destroy
+    @provider_application.wm_state = ProviderApplication::WM_STATE_PENDING
     @provider_application.destroy
 
     respond_to do |format|
@@ -58,8 +59,8 @@ class ProviderApplicationsController < ApplicationController
 
   def start
     if @provider_application.respond_to?("start")
-      @provider_application.start
       @provider_application.wm_state = ProviderApplication::WM_STATE_PENDING
+      @provider_application.start
     else
       flash[:error] = _("'Start' action not supported by this provider.")
     end
@@ -71,6 +72,7 @@ class ProviderApplicationsController < ApplicationController
 
   def stop
     if @provider_application.respond_to?("stop")
+      @provider_application.wm_state = ProviderApplication::WM_STATE_PENDING
       @provider_application.stop
     else
       flash[:error] = _("'Stop' action not supported by this provider.")
@@ -83,8 +85,8 @@ class ProviderApplicationsController < ApplicationController
 
   def pause
     if @provider_application.respond_to?("pause")
-      @provider_application.pause
       @provider_application.wm_state = ProviderApplication::WM_STATE_PENDING
+      @provider_application.pause
     else
       flash[:error] = _("'Pause' action not supported by this provider.")
     end
