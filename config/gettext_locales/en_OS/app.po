@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-14 14:11+0100\n"
+"POT-Creation-Date: 2013-02-15 15:03+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English - OpenStack Provider terminology\n"
@@ -64,9 +64,6 @@ msgstr ""
 
 msgid "Deploy Launchable"
 msgstr "Deploy Image"
-
-msgid "Filter result is empty"
-msgstr ""
 
 msgid "Flavor"
 msgstr ""
@@ -133,6 +130,9 @@ msgstr ""
 
 msgid "Need help?"
 msgstr ""
+
+msgid "No application matches your searching criteria."
+msgstr "No instance matches your searching criteria."
 
 msgid "Password"
 msgstr ""
@@ -265,9 +265,6 @@ msgstr ""
 
 msgid "You selected"
 msgstr ""
-
-msgid "Your Applications are loading..."
-msgstr "Your Instances are loading..."
 
 msgid "Your new application is starting now."
 msgstr "Your new Instance is starting now."

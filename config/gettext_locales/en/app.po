@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-14 14:11+0100\n"
+"POT-Creation-Date: 2013-02-15 15:03+0100\n"
 "PO-Revision-Date: 2013-01-14 14:15+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English\n"
@@ -63,9 +63,6 @@ msgid "Delete"
 msgstr ""
 
 msgid "Deploy Launchable"
-msgstr ""
-
-msgid "Filter result is empty"
 msgstr ""
 
 msgid "Flavor"
@@ -132,6 +129,9 @@ msgid "Name"
 msgstr ""
 
 msgid "Need help?"
+msgstr ""
+
+msgid "No application matches your searching criteria."
 msgstr ""
 
 msgid "Password"
@@ -264,9 +264,6 @@ msgid "You have not configured any providers yet."
 msgstr ""
 
 msgid "You selected"
-msgstr ""
-
-msgid "Your Applications are loading..."
 msgstr ""
 
 msgid "Your new application is starting now."
