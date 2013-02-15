@@ -1,4 +1,4 @@
-.list_controls{ :'ng-show' => "providerApps.length > 0"}
+.list_controls{ :'ng-show' => "!!providerApps.length"}
   #refresh_applications_list
     %a{ :'ng-click' => 'refreshProviderApps()' }= _('Refresh List')
   %label= _("Search:")

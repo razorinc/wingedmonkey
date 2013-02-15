@@ -1,2 +1,2 @@
-%li.no_app_box{:'ng-show' => "providerApps.length > 0 && !(providerApps|filter:search).length" }
+%li.no_app_box{:'ng-show' => "!!providerApps.length && !(providerApps|filter:search).length" }
   = _('No application matches your searching criteria.')
