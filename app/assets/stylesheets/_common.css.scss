@@ -18,3 +18,9 @@ html.no-js {}
 .js_toggle_trigger {
   cursor: pointer;
 }
+
+.spinner {
+  background-image: image-url("alchemy/icons/spinner.gif");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
