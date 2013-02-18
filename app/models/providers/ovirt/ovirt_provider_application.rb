@@ -41,11 +41,11 @@ module Providers
 
       def launch
         self.class.connect! do |client|
-          vm = client.create_vm(:name => @name,
-                                :template => @launchable.id,
-                                :cores => @cores
+          vm = client.create_vm(:name => name,
+                                :template => launchable.id,
+                                :cores => cores
                                 )
-          @id = vm.id
+          self.id = vm.id
         end
       end
 

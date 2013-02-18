@@ -24,22 +24,22 @@ module Providers
 
       def flavor
         self.class.connect! {|connection|
-          connection.get_flavor(@flavor_id)
+          connection.get_flavor(flavor_id)
         }
       end
 
       def launch
         self.class.connect! {|connection|
-          server = connection.create_server(:name => @name,
-                                            :imageRef => @launchable.id,
-                                            :flavorRef => @flavor_id)
-          @id = server.id
+          server = connection.create_server(:name => name,
+                                            :imageRef => launchable.id,
+                                            :flavorRef => flavor_id)
+          self.id = server.id
         }
       end
 
       def destroy
         self.class.connect! {|connection|
-          server = connection.get_server(@id)
+          server = connection.get_server(id)
           server.delete!
         }
       end
