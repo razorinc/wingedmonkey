@@ -21,8 +21,9 @@
   }
 }
 
-@mixin stripes_background($bg_color, $stripe_color) {
-  @include background-size(30px 30px);
+@mixin stripes_background($bg_color, $stripe_color, $bg_size: 30px) {
+  @include background-size($bg_size $bg_size);
+
   background-image: -webkit-gradient(linear, left top, right bottom,
             color-stop(.25, $stripe_color), color-stop(.25, $bg_color),
             color-stop(.5, $bg_color), color-stop(.5, $stripe_color),

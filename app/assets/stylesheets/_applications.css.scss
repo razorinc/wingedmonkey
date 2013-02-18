@@ -22,6 +22,26 @@
   .container {
     display: table;
     table-layout: fixed;
+    position: relative;
+
+    &:before,
+    &:after {
+      display: block;
+      content: "";
+      height: 100%;
+      width: $application_name_padding;
+      @include border-radius(2px 0 0 2px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include box-shadow(0 1px 5px 0 rgba($white_color, 0.3) inset)
+    }
+
+    &:after {
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      z-index: 1;
+    }
   }
 
   // --- TABLE CELL 1
@@ -43,7 +63,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      padding: 0 $application_height 0 34px;
+      padding: 0 $application_height 0 $application_name_padding+10px;
     }
 
     a,
@@ -182,7 +202,7 @@
     }
   }
 
-  // EXPANDABLE PROPERTIES
+// === EXPANDABLE PROPERTIES ===
   .properties {
     width: 100%;
     height: $application_expended_height;
@@ -231,34 +251,45 @@
     }
   }
 
-  // STATES
+
+// === STATES ===
   &.running,
   &.paused,
   &.stopped,
   &.failed,
   &.stopping,
   &.pending {
-    .container {
-      background-repeat: no-repeat;
-      background-position: 10px 17px;
-    }
+
   }
 
-  // running
+  // RUNNING
   &.running {
     .container {
-      background-image: image-url("icon_running.png");
+      &:before {
+        @include linear_gradient($success_color, lighten($success_color, 7%), darken($success_color, 7%));
+      }
+
+      &:after {
+        background-image: image-url("icon_running.png");
+      }
     }
   }
 
-  // paused
+  // PAUSED
   &.paused {
     @include opacity(0.75);
     $stripe_color: rgba(white, 0.45);
     @include stripes_background(lighten($box_bg_color, 1%), $stripe_color);
 
     .container {
-      background-image: image-url("icon_paused.png");
+      &:before {
+        @include box-shadow(none);
+        @include linear_gradient($paused_color, lighten($paused_color, 7%), darken($paused_color, 7%));
+      }
+
+      &:after {
+        background-image: image-url("icon_paused.png");
+      }
     }
 
     &:hover {
@@ -266,15 +297,22 @@
     }
   }
 
-  // stopped
+  // STOPPED
   &.stopped {
-    @include opacity(0.75);
+    @include opacity(0.8);
     @include box-shadow(0 1px 1px 0px darken($stopped_bg_color, 5%) inset);
     background: $stopped_bg_color;
     border-color: darken($stopped_bg_color, 5%);
 
     .container {
-      background-image: image-url("icon_stopped.png");
+      &:before {
+        @include box-shadow(none);
+        @include linear_gradient($stopped_color, lighten($stopped_color, 7%), darken($stopped_color, 7%));
+      }
+
+      &:after {
+        background-image: image-url("icon_stopped.png");
+      }
     }
 
     &:hover {
@@ -289,25 +327,24 @@
     }
   }
 
-  // failed
+  // FAILED
   &.failed {
-    @include opacity(0.8);
-    border-color: rgba($error_color, 0.2);
-    @include stripes_background(lighten($error_color, 49%), lighten($error_color, 52%));
+    @include opacity(0.85);
+    @include stripes_background(lighten($error_color, 51%), $white_color, 10px);
 
     .container {
-      background-position: 1.25em 50%;
-      background-image: image-url("icon_error.png");
+      &:before {
+        @include linear_gradient($error_color, lighten($error_color, 3%), darken($error_color, 10%));
+      }
+
+      &:after {
+        background-image: image-url("icon_error.png");
+      }
     }
 
     &:hover {
       @include opacity(1);
-    }
-
-    ul.controls li,
-    .properties,
-    .properties li {
-      border-color: rgba($error_color, 0.15);
+      @include stripes_background(lighten($error_color, 52.5%), $white_color, 10px);
     }
 
     .button-graphical {
@@ -319,7 +356,7 @@
     }
   }
 
-  // pending, stopping
+  // PENDING, STOPPING
   &.pending,
   &.stopping {
     @include opacity(0.75);
@@ -329,7 +366,7 @@
     -webkit-animation: animate-pending 3s linear infinite;
     -moz-animation: animate-pending 3s linear infinite;
 
-    .container {
+    .container:after {
       background-image: image-url("icon_processing.gif");
     }
 
@@ -338,6 +375,9 @@
     }
   }
 }
+
+
+// === ANIMATIONS ===
 
 @-webkit-keyframes animate-pending {
   0% {background-position: 0 0;} 100% {background-position: 60px 0;}
