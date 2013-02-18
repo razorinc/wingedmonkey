@@ -208,6 +208,7 @@
     height: $application_expended_height;
     color: $g5;
     border-top: 1px solid rgba($g2, 0.6);
+    position: relative;
 
     &.js_show{ display: table; }
 
@@ -246,6 +247,18 @@
           &:hover:after {
             @include background(image-url("icon_delete_small.png") no-repeat 50% 50%);
           }
+          &.active{
+            background: grey;
+          }
+        }
+        div.confirm_message{
+          position: absolute;
+          width: 50%;
+          height: 50px;
+          background: grey;
+          color: white;
+          right: 0;
+          top: -50px;
         }
       }
     }
