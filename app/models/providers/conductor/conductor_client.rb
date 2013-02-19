@@ -22,10 +22,10 @@ module Providers
       attr_accessor :username, :password, :url, :pool_id
 
       def initialize(username, password, url, pool_id)
-        @username = username
-        @password = password
-        @url = url
-        @pool_id = pool_id
+        self.username = username
+        self.password = password
+        self.url = url
+        self.pool_id = pool_id
       end
 
       def valid_credentials?
@@ -37,7 +37,7 @@ module Providers
       end
 
       def deployments
-        doc = xml "/pools/" + @pool_id.to_s + "/deployments"
+        doc = xml "/pools/" + pool_id.to_s + "/deployments"
         deployments = []
         deployments_xml = doc.xpath("//deployment")
         deployments_xml.each do |deployment_xml|
@@ -57,7 +57,7 @@ module Providers
       end
 
       def deployables
-        doc = xml "/pools/" + @pool_id.to_s + "/deployables"
+        doc = xml "/pools/" + pool_id.to_s + "/deployables"
         deployables = []
         deployables_xml = doc.xpath("//deployable")
         deployables_xml.each do |deployable_listing_xml|
@@ -82,10 +82,10 @@ module Providers
       private
 
       def xml page
-        page_url = @url + page + ".xml"
+        page_url = url + page + ".xml"
         begin
           Nokogiri::XML(open(page_url,
-                             :http_basic_authentication => [@username, @password],
+                             :http_basic_authentication => [username, password],
                              :read_timeout => 10))
         rescue => e
           raise "Could not connect to Conductor at " + page_url + ": " + e.message

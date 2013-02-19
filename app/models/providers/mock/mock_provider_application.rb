@@ -32,8 +32,8 @@ module Providers
 
       def launch
         return false if not valid?
-        @state = 'running'
-        @wm_state = ProviderApplication::WM_STATE_RUNNING
+        self.state = 'running'
+        self.wm_state = ProviderApplication::WM_STATE_RUNNING
         self.class.connect! do |connection|
           connection.add_application(self)
         end
@@ -46,18 +46,18 @@ module Providers
       end
 
       def start
-        @state = 'running'
-        @wm_state = ProviderApplication::WM_STATE_RUNNING
+        self.state = 'running'
+        self.wm_state = ProviderApplication::WM_STATE_RUNNING
       end
 
       def pause
-        @state = 'paused'
-        @wm_state = ProviderApplication::WM_STATE_PAUSED
+        self.state = 'paused'
+        self.wm_state = ProviderApplication::WM_STATE_PAUSED
       end
 
       def stop
-        @state = 'stopped'
-        @wm_state = ProviderApplication::WM_STATE_STOPPED
+        self.state = 'stopped'
+        self.wm_state = ProviderApplication::WM_STATE_STOPPED
       end
 
       def self.all filter=nil
