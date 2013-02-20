@@ -6,8 +6,7 @@
   %span{ :'ng-bind' => 'providerApp.ip_addresses.join(", ")' }
 %li
   %span.label= _("Uptime")
-  %span{ :'ng-bind' => 'providerApp.created_at' }
-  / = time_ago_in_words(app.created_at, true)
+  %span{ :'ng-bind' => 'providerApp.uptime' }
 %li
   %span.label= _("Launchable")
   %span{ :'ng-bind' => 'providerApp.launchable.name' }
