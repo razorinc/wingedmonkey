@@ -22,13 +22,6 @@ describe Providers::Ovirt::OvirtProviderApplication do
     it "returns the reference launchable" do
     end
 
-    it "returns its custom attributes" do
-      @app.attributes.has_key?("ips").should be_true
-      @app.attributes.has_key?("creation_time").should be_true
-      @app.attributes.has_key?("memory").should be_true
-      @app.attributes.has_key?("cores").should be_true
-    end
-
     it "returns the available actions if it is running" do
       @app.wm_state = ProviderApplication::WM_STATE_RUNNING
       @app.available_actions.include?(ProviderApplication::WM_ACTION_PAUSE).should be_true
