@@ -1,5 +1,7 @@
 Winged Monkey
 -------------
+[![Code
+Climate](https://codeclimate.com/github/wingedmonkey/wingedmonkey.png)](https://codeclimate.com/github/wingedmonkey/wingedmonkey)
 
 ## What is Winged Monkey?
 
