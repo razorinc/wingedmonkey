@@ -18,22 +18,20 @@ module Providers
 
       # List all of the launchable items.
       # The list may be reduced by the information in the current context.
-      def self.all filter=nil
+      def self.all(filter=nil)
         launchables = []
         connect! do |client|
           client.templates.map do |template|
             state = template.status.strip
             wm_state = (state == "ok") ? Launchable::WM_STATE_ACTIVE : Launchable::WM_STATE_INACTIVE
 
-            OvirtLaunchable.new(
-                                :id => template.id,
-                                :name => template.name,
+            OvirtLaunchable.new(:id          => template.id,
+                                :name        => template.name,
                                 :description => template.description,
-                                :wm_state => wm_state,
-                                :memory => template.memory.strip,
-                                :os => template.os,
-                                :cluster => template.cluster,
-                                )
+                                :wm_state    => wm_state,
+                                :memory      => template.memory.strip,
+                                # :cluster   => template.cluster,
+                                :os          => template.os)
           end
         end
       end
