@@ -16,10 +16,6 @@ module Providers
     class MockLaunchable < Launchable
       attr_accessor :cost
 
-      def attributes
-        super.merge({ 'cost' => cost })
-      end
-
       # List all of the launchable items.
       # The list may be reduced by the information in the current context.
       def self.all filter=nil

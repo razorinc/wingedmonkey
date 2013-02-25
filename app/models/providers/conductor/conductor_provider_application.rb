@@ -33,10 +33,6 @@ module Providers
           application
         end
       end
-
-      def as_json(options={})
-        super(:root => false)
-      end
     end
   end
 end

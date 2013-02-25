@@ -5,12 +5,6 @@ describe Providers::Mock::MockLaunchable do
 
   describe "as an instance" do
 
-    it "returns its custom attributes" do
-      launchable = Providers::Mock::MockLaunchable.
-        new({:id => 1, :name => "first", :cost => 1})
-      launchable.attributes.has_key?("cost").should be_true
-    end
-
   end
 
   describe "as a class" do
@@ -21,17 +15,17 @@ describe Providers::Mock::MockLaunchable do
                       OpenStruct.new({:id => 2, :name => "second", :cost => 2}),
                       OpenStruct.new({:id => 3, :name => "third", :cost => 3}),
                       OpenStruct.new({:id => 4, :name => "fourth", :cost => 4})]
-      
+
       @empty_launchables = []
     end
-    
+
     it "returns an empty list of launchables" do
       connection = Object.new
       connection.stub!(:launchables).and_return(@empty_launchables)
       Providers::Mock::MockLaunchable.stub!(:connect!).and_yield(connection)
       Providers::Mock::MockLaunchable.all.should be_empty
     end
-    
+
     it "lists all launchables" do
       connection = Object.new
       connection.stub!(:launchables).and_return(@launchables)
@@ -42,7 +36,7 @@ describe Providers::Mock::MockLaunchable do
     launchable = launchables.first
       launchable.name.should eq verify_hash[launchable.id]
     end
-    
+
     it "finds a specific launchable" do
       connection = Object.new
       connection.stub!(:launchables).and_return(@launchables)

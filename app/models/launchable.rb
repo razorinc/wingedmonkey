@@ -14,7 +14,6 @@
 class Launchable
   include ActiveModel::Validations
   include ActiveModel::Conversion
-  include ActiveModel::Serializers::JSON
   extend ProviderModel
   extend ActiveModel::Naming
 
@@ -22,15 +21,6 @@ class Launchable
   WM_STATE_INACTIVE = "INACTIVE"
 
   attr_accessor :id, :name, :description, :wm_state
-
-  def attributes
-    {
-      'id' => id,
-      'name' => name,
-      'description' => description,
-      'wm_state' => wm_state,
-    }
-  end
 
   def initialize(attributes = {})
     attributes.each do |name, value|

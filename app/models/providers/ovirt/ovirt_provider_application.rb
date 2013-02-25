@@ -17,13 +17,6 @@ module Providers
       attr_accessor :ips, :creation_time, :cores, :memory
       validates_numericality_of :cores
 
-      def attributes
-        super.merge({ 'ips' => ips,
-                      'creation_time' => creation_time,
-                      'memory' => memory,
-                      'cores' => cores })
-      end
-
       def available_actions
         case wm_state
         when ProviderApplication::WM_STATE_RUNNING then
@@ -88,10 +81,6 @@ module Providers
           vm = client.vm(id)
           self.map_vm_to_application(vm, templates)
         end
-      end
-
-      def as_json(options={})
-        super(:root => false)
       end
 
       private

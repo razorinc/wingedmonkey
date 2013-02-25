@@ -72,11 +72,6 @@ module Providers
           application
         end
       end
-
-      def as_json(options={})
-        super(:root => false,
-              :include => { :launchable => { :only => :name } })
-      end
     end
   end
 end

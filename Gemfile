@@ -15,6 +15,8 @@ gem 'openstack'
 gem 'gettext_i18n_rails'
 gem 'angular-rails'
 gem 'sqlite3'
+gem 'rabl'
+gem 'oj'
 
 # gem "alchemy", "~> 1.0.0"
 gem 'alchemy', :git => 'git://github.com/ui-alchemy/alchemy.git', :branch => 'master'

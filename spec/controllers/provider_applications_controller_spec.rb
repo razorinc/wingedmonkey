@@ -70,13 +70,13 @@ describe ProviderApplicationsController do
           application = Providers::Mock::MockProviderApplication.new(params)
           application.save
           post "pause", {:id => application.id, :format => :json }
-          response.body.should eql(application.to_json)
+          response.should render_template("provider_applications/default/provider_application")
           response.status.should eql(200)
           post "start", {:id => application.id, :format => :json }
-          response.body.should eql(application.to_json)
+          response.should render_template("provider_applications/default/provider_application")
           response.status.should eql(200)
           post "stop", {:id => application.id, :format => :json }
-          response.body.should eql(application.to_json)
+          response.should render_template("provider_applications/default/provider_application")
           response.status.should eql(200)
         end
       end
@@ -91,7 +91,7 @@ describe ProviderApplicationsController do
           application = Providers::Mock::MockProviderApplication.new(params)
           application.save
           delete "destroy", {:id => application.id, :format => :json }
-          response.body.should eql(application.to_json)
+          response.should render_template("provider_applications/default/provider_application")
           response.status.should eql(200)
         end
       end

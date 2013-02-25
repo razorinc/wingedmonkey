@@ -12,12 +12,15 @@
 # under the License.
 
 class ProviderApplicationsController < ApplicationController
+  include ApplicationHelper
   before_filter :find_provider_application, :only => [:show, :launch_summary, :destroy, :stop, :start, :pause]
   def index
 
     respond_to do |format|
       format.html
-      format.json{ render :json => ProviderApplication.all }
+      format.json do
+        @provider_applications = ProviderApplication.all
+      end
     end
   end
 
@@ -53,7 +56,7 @@ class ProviderApplicationsController < ApplicationController
     @provider_application.destroy
 
     respond_to do |format|
-      format.json{ render :json => @provider_application }
+      format.json{ render provider_rabl_view(:provider_applications, :provider_application) }
     end
   end
 
@@ -66,7 +69,7 @@ class ProviderApplicationsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json{ render :json => @provider_application }
+      format.json{ render provider_rabl_view(:provider_applications, :provider_application) }
     end
   end
 
@@ -79,7 +82,7 @@ class ProviderApplicationsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json{ render :json => @provider_application }
+      format.json{ render provider_rabl_view(:provider_applications, :provider_application) }
     end
   end
 
@@ -92,7 +95,7 @@ class ProviderApplicationsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json{ render :json => @provider_application }
+      format.json{ render provider_rabl_view(:provider_applications, :provider_application) }
     end
   end
 

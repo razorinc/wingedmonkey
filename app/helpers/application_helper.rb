@@ -12,6 +12,10 @@
 # under the License.
 
 module ApplicationHelper
+  def authenticated?
+    session[:current_provider_creds].present?
+  end
+
   def render_provider_partial(directory, name, locals = {})
     partial = provider_partial(directory, name)
     if partial
@@ -19,22 +23,29 @@ module ApplicationHelper
     end
   end
 
-  def authenticated?
-    session[:current_provider_creds].present?
+  def provider_rabl_view(directory, name)
+    provider_name = current_provider.type
+    partial_name = "#{name}.json.rabl"
+    if partial_exists?(directory, partial_name, provider_name)
+      "#{directory}/#{provider_name}/#{name}"
+    elsif partial_exists?(directory, partial_name, "default")
+      "#{directory}/default/#{name}"
+    end
   end
 
   private
   def provider_partial(directory, name)
     provider_name = current_provider.type
-    if partial_exists?(directory, name, provider_name)
+    partial_name = "_#{name}.html.haml"
+    if partial_exists?(directory, partial_name, provider_name)
       "#{directory}/#{provider_name}/#{name}"
-    elsif partial_exists?(directory, name, "default")
+    elsif partial_exists?(directory, partial_name, "default")
       "#{directory}/default/#{name}"
     end
   end
 
   def partial_exists?(directory, name, provider_name)
-    partial_file = "#{::Rails.root.to_s}/app/views/#{directory}/#{provider_name}/_#{name}.html.haml"
+    partial_file = "#{::Rails.root.to_s}/app/views/#{directory}/#{provider_name}/#{name}"
     File.exists?(partial_file)
   end
 
