@@ -2,7 +2,9 @@
   <button class="button-graphical" ng-disabled="!(providerApp.available_actions | filter: action).length || providerApp.disableButtons"></button>
   <div class="confirm_message js_hide">
     <span ng-bind="message"></span>
-    <button class="danger" ng-bind="confirmTitle", ng-click="confirmAction()"></button>
-    <button ng-bind="cancel"></button>
+    <div class="buttons">
+      <button class="danger" ng-bind="confirmTitle", ng-click="confirmAction()"></button>
+      <button ng-bind="cancel"></button>
+    </div>
   </div>
 </li>

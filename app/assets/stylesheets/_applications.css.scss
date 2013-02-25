@@ -210,7 +210,9 @@
     border-top: 1px solid rgba($g2, 0.6);
     position: relative;
 
-    &.js_show{ display: table; }
+    &.js_show {
+      display: table;
+    }
 
     li {
       display: table-cell;
@@ -233,9 +235,11 @@
         }
       }
 
+      // DELETE
       &.delete {
         width: $application_height;
         padding: 0;
+
 
         .button-graphical {
           height: $application_expended_height;
@@ -244,21 +248,65 @@
             @include background(image-url("icon_delete_small_inactive.png") no-repeat 50% 50%);
           }
 
-          &:hover:after {
+          &:hover:not(.active):not([disabled]):after {
             @include background(image-url("icon_delete_small.png") no-repeat 50% 50%);
           }
-          &.active{
-            background: grey;
+
+          &.active {
+            @include background($confirm_bg_color);
+
+            &[disabled]:after {
+              @include opacity(0.1);
+            }
           }
+
         }
-        div.confirm_message{
+
+        .confirm_message {
+          display: table;
           position: absolute;
-          width: 50%;
-          height: 50px;
-          background: grey;
-          color: white;
+          width: 100%;
+          height: $application_height;
+          @include background-image(linear-gradient(left, rgba($confirm_bg_color, 0.1) 0%,
+                                                          rgba($confirm_bg_color, 0.1) 20%,
+                                                          rgba($confirm_bg_color, 1) 50%,
+                                                          rgba($confirm_bg_color, 1) 100%));
           right: 0;
-          top: -50px;
+          top: -$application_height - 1px;
+          text-align: right;
+
+          span,
+          .buttons {
+            display: table-cell;
+            vertical-align: middle;
+          }
+
+          span {
+            color: $error_color;
+            width: 100%;
+            padding-left: 35%;
+          }
+
+          .buttons {
+            white-space: nowrap;
+            padding: 0 1em;
+
+            button {
+              margin: 0 0 0 0.5em;
+
+              &:first-child {
+                margin: 0;
+              }
+            }
+          }
+
+          // overwrite js_hide and show, so it works with table view
+          &.js_hide {
+            display: none;
+          }
+          &.js_show {
+            display: table;
+          }
         }
       }
     }
