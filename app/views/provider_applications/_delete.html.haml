@@ -1,3 +1,6 @@
-%li.delete{ }
-  %button.button-graphical{ :'ng-disabled' => "!(providerApp.available_actions | filter:'TERMINATE').length || providerApp.disableButtons",
-                            :'ng-click' => 'destroyProviderApp(providerApp.id)', :title => _('Delete') }
+%li.delete{ :'wm-provider-app-confirm' => _('Are you sure you want to delete this application?'),
+            :'provider-app' => "providerApp",
+            :action => 'TERMINATE',
+            :'confirm-action' => 'destroyProviderApp(providerApp.id)',
+            :'confirm-title' => _('Delete'),
+            :cancel => _('Cancel') }
