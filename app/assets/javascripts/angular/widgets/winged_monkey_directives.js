@@ -29,25 +29,29 @@ wingedMonkeyDirectives.directive('wmProviderAppConfirm', function() {
     link: function(scope, element, attrs) {
 
       var initialButton = angular.element(element.children()[0]);
-      var message = angular.element(element.children()[1]);
-      var confirmButton = angular.element(message.children()[1]);
-      var cancelButton = angular.element(message.children()[2]);
+      var confirm_message = angular.element(element.children()[1]);
+      var confirmButton = angular.element(angular.element(confirm_message.children()[1]).children()[0]);
+      var cancelButton = angular.element(angular.element(confirm_message.children()[1]).children()[1]);
 
       initialButton.bind('click', open);
       confirmButton.bind('click', close);
-      cancelButton.bind('click', close);
+      cancelButton.bind('click', cancel);
 
       function open() {
-        message.addClass('js_show');
-        message.removeClass('js_hide');
+        confirm_message.addClass('js_show');
+        confirm_message.removeClass('js_hide');
         initialButton.addClass('active');
         initialButton.attr("disabled", "true");
       }
 
       function close() {
-        message.addClass('js_hide');
-        message.removeClass('js_show');
+        confirm_message.addClass('js_hide');
+        confirm_message.removeClass('js_show');
         initialButton.removeClass('active');
+      }
+
+      function cancel() {
+        close();
         initialButton.removeAttr("disabled");
       }
     }
