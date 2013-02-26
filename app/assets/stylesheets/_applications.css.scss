@@ -24,6 +24,7 @@
     table-layout: fixed;
     position: relative;
 
+    // status icon
     &:before,
     &:after {
       display: block;
@@ -43,6 +44,7 @@
       z-index: 1;
     }
   }
+
 
   // --- TABLE CELL 1
   // headings
@@ -91,10 +93,6 @@
       @include opacity(0.2);
       @include background(image-url("arrow_down_inactive.png") no-repeat 50% 50%);
     }
-
-    &.open .wrapper:after {
-      @include background(image-url("arrow_up_inactive.png") no-repeat 50% 50%);
-    }
   }
 
   &:hover {
@@ -107,10 +105,6 @@
         .wrapper:after {
           @include opacity(1);
           @include background(image-url("arrow_down.png") no-repeat 50% 52%);
-        }
-
-        &.open .wrapper:after {
-          @include background(image-url("arrow_up.png") no-repeat 50% 52%);
         }
       }
     }
@@ -207,7 +201,6 @@
     width: 100%;
     height: $application_expended_height;
     color: $g5;
-    border-top: 1px solid rgba($g2, 0.6);
     position: relative;
 
     &.js_show {
@@ -264,16 +257,17 @@
 
         .confirm_message {
           display: table;
+          border-collapse: collapse;
           position: absolute;
           width: 100%;
           height: $application_height;
+          right: 0;
+          top: -$application_height - 1px;
+          text-align: right;
           @include background-image(linear-gradient(left, rgba($confirm_bg_color, 0.1) 0%,
                                                           rgba($confirm_bg_color, 0.1) 20%,
                                                           rgba($confirm_bg_color, 1) 50%,
                                                           rgba($confirm_bg_color, 1) 100%));
-          right: 0;
-          top: -$application_height - 1px;
-          text-align: right;
 
           span,
           .buttons {
@@ -312,16 +306,36 @@
     }
   }
 
+  // opened application (shown properties)
+  &.opened {
+   .container {
+      border-bottom: 1px solid rgba($g2, 0.6);
+
+      &:before {
+        @include border-radius(2px 0 0 0);
+      }
+    }
+
+    .toggle_trigger .wrapper:after {
+      @include background(image-url("arrow_up_inactive.png") no-repeat 50% 50%);
+    }
+
+    .toggle_trigger:hover .wrapper:after {
+      @include background(image-url("arrow_up.png") no-repeat 50% 52%);
+    }
+  }
+
 
 // === STATES ===
+  /*
   &.running,
   &.paused,
   &.stopped,
   &.failed,
   &.stopping,
   &.pending {
-
   }
+  */
 
   // RUNNING
   &.running {
