@@ -28,6 +28,7 @@ end
 
 group :development, :test do
   gem 'debugger'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -43,5 +44,4 @@ group :test do
   gem 'factory_girl'
   gem 'vcr'
   gem 'fakeweb'
-  gem 'rspec-rails'
 end
