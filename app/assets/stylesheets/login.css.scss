@@ -39,7 +39,7 @@
     background: white;
     @include box-shadow(0 0 15px 0 rgba($g1, 0.5) inset,
                       0 4px 25px 0 $g2);
-    @include border-radius($border_radius);
+    @include border-radius($border_radius_outer);
     @include container_border;
 
     #header{
@@ -54,7 +54,7 @@
 
     #content{
       padding: 0 0 15px 0;
-      @include border-radius(0 0 $border_radius $border_radius);
+      @include border-radius(0 0 $border_radius_outer $border_radius_outer);
 
       h2 {
         margin: 15px 0 5px 0;
