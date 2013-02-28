@@ -1,4 +1,4 @@
-%li.provider_application{ :'ng-repeat' => "providerApp in providerApps|filter:search|orderBy:predicate:reverse",
+%li.provider_application{ :'ng-repeat' => "providerApp in providerApps|filter:search|orderBy:sort.predicate:sort.reverse",
                                            :class => "{{providerApp.wm_state|lowercase}}" }
 
   .container

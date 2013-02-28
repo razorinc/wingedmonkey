@@ -2,6 +2,7 @@ var wingedMonkeyControllers = angular.module('wingedMonkeyControllers',[]);
 
 wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout, ProviderApplication) {
   $scope.appsLoaded = false;
+  $scope.sort = { predicate: "name", reverse: false };
 
   var timeoutPromise;
   var timeoutDelay = 15000;
