@@ -1,3 +1,4 @@
+// wrapping container
 .list_controls {
   margin: 10px 0 5px 0;
 }
@@ -35,7 +36,7 @@
     display: inline-block;
     margin-left: 0.5em;
 
-    // select box
+    // select box imitation
     span {
       padding-left: 23px;
       position: relative;
@@ -43,7 +44,7 @@
       @include unselectable;
 
       &.ascending:before,
-      &.descending:before {
+      &.descending:before { // sorting icons
         left: 7px;
         top: 7px;
         @include opacity(0.5);
@@ -75,7 +76,7 @@
         margin:0;
         padding:0;
 
-        // box in the line
+        // box in the line (buttons)
         a {
           display: table-cell;
           text-decoration: none;
@@ -84,25 +85,28 @@
           position: relative;
           border: 1px solid rgba($black_color, 0.05);
 
-          // position of arrows
-          &:before {
-            left: 9px;
-            top: 9px;
+          i { // FF bug (we can't absolute position in table-cell)
+            @include inline-block;
+            position: relative;
+            line-height: 1;
           }
 
-          // name
-          &.name {
+          i:before { // position of arrows
+            left: -5px;
+            top: -4px;
+          }
+
+          &.name { // name
             padding-left: 10px;
             min-width: 8em;
           }
 
-          // general already in use
-          &.active {
+          &.active { // currently selected
             background: rgba($black_color, 0.05);
           }
         }
 
-        // hovering
+        // hovering buttons
         &:hover .name,
         .name:hover ~ a.ascending,
         a:hover {
@@ -127,41 +131,43 @@
 
     // arrows
     .ascending,
-    .descending {
-      &:before {
+    .descending { // general rule
+      &.button:before,
+      i:before {
         content: "";
         width: 0;
         height: 0;
         position:absolute;
-        transition: all .15s ease;
         @include opacity(0.3);
       }
     }
 
-    .ascending {
-      &:before {
+    .ascending { // ascending
+      &.button:before,
+      i:before {
         border-left: 0.5em solid transparent;
         border-right: 0.5em solid transparent;
         border-bottom: 0.7em solid $black_color;
       }
     }
 
-    .descending {
-      &:before {
+    .descending { // descending
+      &.button:before,
+      i:before {
         border-left: 0.5em solid transparent;
         border-right: 0.5em solid transparent;
         border-top: 0.7em solid $black_color;
       }
     }
 
-    a.ascending:hover:before,
-    a.name:hover ~ a.ascending:before,
-    a.descending:hover:before {
+    a.ascending:hover i:before,
+    a.name:hover ~ a.ascending i:before,
+    a.descending:hover i:before { // hovers
       @include opacity(0.95);
       border-color: $white_color transparent;
     }
 
-    // displayed
+    // displayed menu
     &.active {
       span {
         color: $primary_color;

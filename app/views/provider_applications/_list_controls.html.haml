@@ -13,14 +13,18 @@
                      :'ng-class' => "{'active':sort.predicate == 'name'}"}= _("Name")
             %a.ascending{ :'ng-click' => "sort.predicate = 'name'; sort.reverse=false",
                           :'ng-class' => "{'active':sort.predicate == 'name' && !sort.reverse}"}
+              %i
             %a.descending{ :'ng-click' => "sort.predicate = 'name'; sort.reverse=true",
                            :'ng-class' => "{'active':sort.predicate == 'name' && sort.reverse}"}
+              %i
           %li
             %a.name{ :'ng-click' => "sort.predicate = 'state'; sort.reverse=false",
                      :'ng-class' => "{'active':sort.predicate == 'state'}"}= _("State")
             %a.ascending{ :'ng-click' => "sort.predicate = 'state'; sort.reverse=false",
                           :'ng-class' => "{'active':sort.predicate == 'state' && !sort.reverse}"}
+              %i
             %a.descending{ :'ng-click' => "sort.predicate = 'state'; sort.reverse=true",
                            :'ng-class' => "{'active':sort.predicate == 'state' && sort.reverse}"}
+              %i
 
     %a#refresh{ :'ng-click' => 'refreshProviderApps()' }= _('Refresh List')
