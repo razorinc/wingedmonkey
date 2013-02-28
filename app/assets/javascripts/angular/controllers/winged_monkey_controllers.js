@@ -1,6 +1,6 @@
 var wingedMonkeyControllers = angular.module('wingedMonkeyControllers',[]);
 
-wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout, ProviderApplication) {
+wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout, $filter, ProviderApplication) {
   $scope.appsLoaded = false;
   $scope.sort = { predicate: "name", reverse: false };
 
@@ -9,6 +9,20 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
 
   $scope.refreshProviderApps = function() {
     ProviderApplication.query(function(data){
+
+      if ($scope.appsLoaded) {
+        // go through the data...
+        data.forEach(function(dataApp) {
+          // try to find data item in providerApps...
+          app = $filter('filter')($scope.providerApps, { id: dataApp.id });
+          // if item is present in providerApps
+          if (app.length > 0) {
+            // set data item toggles value to providerApp one.
+            dataApp.toggles = app[0].toggles;
+          }
+        });
+      }
+
       $scope.providerApps = data;
       $scope.appsLoaded = true;
       timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
@@ -23,11 +37,11 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
       if (app_id === app.id) {
         app.wm_state = "PENDING"
         app.disableButtons = true;
+        toggles = app.toggles;
         app.$delete({id: app.id}, function(response) {
-          //success
+          response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
-          //failure
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
           console.log(response);
         });
@@ -41,11 +55,11 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
       if (app_id === app.id) {
         app.wm_state = "PENDING"
         app.disableButtons = true;
+        toggles = app.toggles;
         app.$start({id: app.id}, function(response) {
-          //success
+          response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
-          //failure
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
           console.log(response);
         });
@@ -59,11 +73,11 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
       if (app_id === app.id) {
         app.wm_state = "PENDING"
         app.disableButtons = true;
+        toggles = app.toggles;
         app.$stop({id: app.id}, function(response) {
-          //success
+          response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
-          //failure
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
           console.log(response);
         });
@@ -77,11 +91,11 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
       if (app_id === app.id) {
         app.wm_state = "PENDING"
         app.disableButtons = true;
+        toggles = app.toggles;
         app.$pause({id: app.id}, function(response) {
-          //success
+          response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
-          //failure
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
           console.log(response);
         });
