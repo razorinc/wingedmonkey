@@ -1,19 +1,195 @@
-#refresh_applications_list {
-  text-align: right;
-  margin-bottom: 2px;
+// wrapping container
+.list_controls {
+  margin: 10px 0 5px 0;
+}
 
-  a {
+// refresh
+#refresh {
+  float: right;
+  margin: 11px 15px 0 0;
+  font-size: 90%;
+}
+
+// search
+#search {
+  width: 14em;
+  @include transition(all 0.1s linear);
+
+  &:focus {
+    width: 21em;
+    @include transition(all 0.17s linear);
+  }
+}
+
+// sort
+#sort {
+  float: right;
+  padding-top: 4px;
+
+  label {
+    color: $g4;
     font-size: 90%;
+  }
 
-    &.loading {
-      text-decoration: none;
+  .menu {
+    position: relative;
+    display: inline-block;
+    margin-left: 0.5em;
 
-      &:before {
+    // select box imitation
+    span {
+      padding-left: 23px;
+      position: relative;
+      margin: 0;
+      @include unselectable;
+
+      &.ascending:before,
+      &.descending:before { // sorting icons
+        left: 7px;
+        top: 7px;
+        @include opacity(0.5);
+      }
+    }
+
+    // hidden menu
+    ul {
+      display: none;
+      border-collapse: collapse;
+      position: absolute;
+      right: 0;
+      list-style: none;
+      z-index:1;
+      padding:0;
+      margin:0;
+      background-color: lighten($tone, 36%);
+      @include border-radius($border_radius 0 $border_radius $border_radius);
+      @include box-shadow(0 1px 2px rgba($black_color, 0.15),
+                          0 0 3em rgba($black_color, 0.2),
+                          0 0 0 1px rgba($white_color, 0.05) inset);
+      overflow: hidden;
+      max-height: 13em;
+      overflow-y: auto;
+
+      // line
+      li {
+        display: table-row;
+        margin:0;
+        padding:0;
+
+        // box in the line (buttons)
+        a {
+          display: table-cell;
+          text-decoration: none;
+          color: darken($tone, 20%);
+          padding: 7px 15px;
+          position: relative;
+          border: 1px solid rgba($black_color, 0.05);
+
+          i { // FF bug (we can't absolute position in table-cell)
+            @include inline-block;
+            position: relative;
+            line-height: 1;
+          }
+
+          i:before { // position of arrows
+            left: -5px;
+            top: -4px;
+          }
+
+          &.name { // name
+            padding-left: 10px;
+            min-width: 8em;
+          }
+
+          &.active { // currently selected
+            background: rgba($black_color, 0.05);
+          }
+        }
+
+        // hovering buttons
+        &:hover .name,
+        .name:hover ~ a.ascending,
+        a:hover {
+          @include linear_gradient($primary_color, lighten($primary_color, 9%), $primary_color, 70%);
+          color: $white_color;
+          @include text-shadow(1px 1px 1px rgba($black_color, 0.4));
+        }
+
+        &:first-child a.name {
+          @include border-radius($border_radius 0 0 0);
+        }
+
+        &:last-child a.name {
+          @include border-radius(0 0 0 $border_radius);
+        }
+
+        &:last-child a.descending {
+          @include border-radius(0 0 $border_radius 0);
+        }
+      }
+    }
+
+    // arrows
+    .ascending,
+    .descending { // general rule
+      &.button:before,
+      i:before {
         content: "";
-        width: 20px;
-        height: 16px;
-        @include inline-block;
-        @include background(image-url("alchemy/icons/spinner.gif") no-repeat center center);
+        width: 0;
+        height: 0;
+        position:absolute;
+        @include opacity(0.3);
+      }
+    }
+
+    .ascending { // ascending
+      &.button:before,
+      i:before {
+        border-left: 0.5em solid transparent;
+        border-right: 0.5em solid transparent;
+        border-bottom: 0.7em solid $black_color;
+      }
+    }
+
+    .descending { // descending
+      &.button:before,
+      i:before {
+        border-left: 0.5em solid transparent;
+        border-right: 0.5em solid transparent;
+        border-top: 0.7em solid $black_color;
+      }
+    }
+
+    a.ascending:hover i:before,
+    a.name:hover ~ a.ascending i:before,
+    a.descending:hover i:before { // hovers
+      @include opacity(0.95);
+      border-color: $white_color transparent;
+    }
+
+    // displayed menu
+    &.active {
+      span {
+        color: $primary_color;
+        @include background(linear-gradient(top, lighten($tone, 30%) 0%,
+                                                 lighten($tone, 35%) 20%,
+                                                 lighten($tone, 35%) 100%));
+        @include border-radius($border_radius $border_radius 0 0);
+        @include box-shadow(0 0 1px 0 rgba($primary_color, 0.4));
+        border-color: $primary_color;
+
+        &.ascending:before,
+        &.descending:before {
+          border-color: $primary_color transparent;
+          @include opacity(0.7);
+        }
+      }
+
+      ul {
+        display: table;
+        @include box-shadow(0 0 0 1px lighten($tone, 15%),
+                            0 2em 3em  rgba($black_color, 0.2),
+                            0 0 0 1px rgba($white_color, 0.12) inset);
       }
     }
   }

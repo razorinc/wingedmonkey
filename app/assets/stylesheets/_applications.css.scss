@@ -5,7 +5,7 @@
 .provider_application {
   @include box-shadow(0 1px 1px 0 rgba($g3, 0.3),
                       -1px 1px 1px 0px rgba($white_color, 0.8) inset);
-  @include border-radius(2px);
+  @include border-radius($border_radius);
   @include linear_gradient($box_bg_color, lighten($box_bg_color, 8%), $box_bg_color);
   border: 1px solid darken($box_bg_color, 5%);
   margin-bottom: 10px;
@@ -30,7 +30,7 @@
       content: "";
       height: 100%;
       width: $application_name_padding;
-      @include border-radius(2px 0 0 2px);
+      @include border-radius($border_radius 0 0 $border_radius);
       position: absolute;
       top: 0;
       left: 0;

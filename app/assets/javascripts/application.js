@@ -29,4 +29,31 @@ $(function() {
     $(this).closest('form').submit();
   });
 
+  $("div.menu > span").click(function(e) {
+    var container = $(this).parent();
+    // var container = $(this).closest('div.menu'); // alternative
+
+    if (container.hasClass('active')) {
+      // Dropdown already open so close it
+      container.removeClass('active');
+    }
+    else {
+      // Hide all open dropdowns so only one is open at a time
+      $("div.menu.active").removeClass("active");
+      // Open this dropdown
+      container.addClass("active");
+     }
+
+     e.stopPropagation(); // prevent the $('html').click fires..
+  });
+
+  $('html').click(function(e){
+    // check if we are clicking inside an open select
+   if ($('div.menu.active').length != 0) {
+
+
+      // Close open dropdowns when clicking elsewhere
+      $('div.menu.active').removeClass('active');
+    }
+  });
 });
