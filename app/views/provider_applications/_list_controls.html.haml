@@ -5,15 +5,22 @@
     #sort
       %label= _("Sort by:")
       .menu
-        %span.ascending.button{ :'ng-bind' => 'predicate' }
+        %span.button{ :'ng-bind' => 'sort.predicate|capitalize',
+                      :'ng-class' => "{true:'descending', false:'ascending'}[sort.reverse]"}
         %ul
           %li
-            %a.name{ :'ng-click' => "predicate = 'name'; reverse=false"}= _("Name")
-            %a.ascending{ :'ng-click' => "predicate = 'name'; reverse=false"}
-            %a.descending{ :'ng-click' => "predicate = 'name'; reverse=true"}
+            %a.name{ :'ng-click' => "sort.predicate = 'name'; sort.reverse=false",
+                     :'ng-class' => "{'active':sort.predicate == 'name'}"}= _("Name")
+            %a.ascending{ :'ng-click' => "sort.predicate = 'name'; sort.reverse=false",
+                          :'ng-class' => "{'active':sort.predicate == 'name' && !sort.reverse}"}
+            %a.descending{ :'ng-click' => "sort.predicate = 'name'; sort.reverse=true",
+                           :'ng-class' => "{'active':sort.predicate == 'name' && sort.reverse}"}
           %li
-            %a.name{ :'ng-click' => "predicate = 'state'; reverse=false"}= _("State")
-            %a.ascending{ :'ng-click' => "predicate = 'state'; reverse=false"}
-            %a.descending{ :'ng-click' => "predicate = 'state'; reverse=true"}
+            %a.name{ :'ng-click' => "sort.predicate = 'state'; sort.reverse=false",
+                     :'ng-class' => "{'active':sort.predicate == 'state'}"}= _("State")
+            %a.ascending{ :'ng-click' => "sort.predicate = 'state'; sort.reverse=false",
+                          :'ng-class' => "{'active':sort.predicate == 'state' && !sort.reverse}"}
+            %a.descending{ :'ng-click' => "sort.predicate = 'state'; sort.reverse=true",
+                           :'ng-class' => "{'active':sort.predicate == 'state' && sort.reverse}"}
 
     %a#refresh{ :'ng-click' => 'refreshProviderApps()' }= _('Refresh List')
