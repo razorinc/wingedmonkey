@@ -40,6 +40,7 @@
       padding-left: 23px;
       position: relative;
       margin: 0;
+      @include unselectable;
 
       &.ascending:before,
       &.descending:before {
@@ -105,9 +106,9 @@
         &:hover .name,
         .name:hover ~ a.ascending,
         a:hover {
-          @include linear_gradient($tertiary_color, lighten($tertiary_color, 7%), lighten($tertiary_color, 3%));
-          color: $primary_color;
-          @include text-shadow(1px 1px 1px rgba($white_color, 0.6));
+          @include linear_gradient($primary_color, lighten($primary_color, 9%), $primary_color, 70%);
+          color: $white_color;
+          @include text-shadow(1px 1px 1px rgba($black_color, 0.4));
         }
 
         &:first-child a.name {
@@ -118,7 +119,7 @@
           @include border-radius(0 0 0 $border_radius);
         }
 
-        &:last-child a.name {
+        &:last-child a.descending {
           @include border-radius(0 0 $border_radius 0);
         }
       }
@@ -156,8 +157,8 @@
     a.ascending:hover:before,
     a.name:hover ~ a.ascending:before,
     a.descending:hover:before {
-      @include opacity(0.8);
-      border-color: $primary_color transparent;
+      @include opacity(0.95);
+      border-color: $white_color transparent;
     }
 
     // displayed
