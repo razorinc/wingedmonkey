@@ -1,10 +1,11 @@
 <li>
-  <button class="button-graphical" ng-disabled="!(providerApp.available_actions | filter: action).length || providerApp.disableButtons"></button>
-  <div class="confirm_message js_hide">
+  <button class="button-graphical" ng-disabled="!(providerApp.available_actions | filter: action).length || providerApp.disableButtons"
+          ng-click="toggleProperty=!toggleProperty"></button>
+  <div class="confirm_message js_hide" wm-toggle="toggleProperty">
     <span ng-bind="message"></span>
     <div class="buttons">
-      <button class="danger" ng-bind="confirmTitle", ng-click="confirmAction()"></button>
-      <button ng-bind="cancel"></button>
+      <button class="danger" ng-bind="confirmTitle", ng-click="toggleProperty=!toggleProperty; confirmAction()"></button>
+      <button ng-bind="cancel" ng-click="toggleProperty=!toggleProperty; cancelAction()"></button>
     </div>
   </div>
 </li>

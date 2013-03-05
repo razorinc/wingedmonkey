@@ -36,7 +36,10 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
         app.wm_state = "PENDING"
+        console.log(app.disableButtons);
         app.disableButtons = true;
+        console.log("destroyProviderApp action happened, disableButtons set to true");
+        console.log(app.disableButtons);
         toggles = app.toggles;
         app.$delete({id: app.id}, function(response) {
           response.toggles = toggles;
