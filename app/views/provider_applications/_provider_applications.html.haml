@@ -2,11 +2,11 @@
                                            :class => "{{providerApp.wm_state|lowercase}}" }
 
   .container
-    %h3.toggle_trigger{ :'ng-click' => "showProperties=!showProperties" }
+    %h3.toggle_trigger{ :'ng-click' => "providerApp.toggles.show_properties=!providerApp.toggles.show_properties" }
       .wrapper
         %span{ :'ng-bind' => 'providerApp.name' }
     = render_provider_partial(:provider_applications, :controls)
 
-  %ul.properties.js_hide{ :'wm-toggle' => "showProperties" }
+  %ul.properties.js_hide{ :'wm-toggle' => "providerApp.toggles.show_properties" }
     = render_provider_partial(:provider_applications, :properties)
     = render :partial => 'provider_applications/delete'
