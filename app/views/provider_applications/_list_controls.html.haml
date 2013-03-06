@@ -2,11 +2,11 @@
   %form.form
     %input#search{ :'ng-model' => 'search.name', :type => 'search', :placeholder => _('Search in Applications...') }
 
-    #sort
-      %label= _("Sort by:")
+    #sort.select_menu
       .menu
-        %span.button{ :'ng-bind' => 'sort.predicate|capitalize',
-                      :'ng-class' => "{true:'descending', false:'ascending'}[sort.reverse]"}
+        %span.btn.trigger{ :'ng-bind' => 'sort.predicate|capitalize',
+                           :'ng-class' => "{true:'descending', false:'ascending'}[sort.reverse]",
+                           :title => 'Sort by'}
         %ul
           %li
             %a.name{ :'ng-click' => "sort.predicate = 'name'; sort.reverse=false",
@@ -27,4 +27,28 @@
                            :'ng-class' => "{'active':sort.predicate == 'state' && sort.reverse}"}
               %i
 
-    %a#refresh{ :'ng-click' => 'refreshProviderApps()' }= _('Refresh List')
+    #refresh.select_menu
+      .menu
+        .btn_group
+          %a.btn.manual{ :'ng-click' => 'refreshProviderApps()', :title => 'Refresh list'}= _('Refresh list')
+          %span.btn.trigger{:title => 'Select refresh interval'}= _('20 seconds')
+
+        %ul
+          %li
+            %a= _('5 seconds')
+          %li
+            %a= _('10 seconds')
+          %li
+            %a.active= _('20 seconds')
+          %li
+            %a= _('1 minute')
+          %li
+            %a= _('5 minutes')
+          %li
+            %a= _('10 minutes')
+          %li
+            %a= _('30 minutes')
+          %li
+            %a= _('1 hour')
+          %li
+            %a= _('Manual')

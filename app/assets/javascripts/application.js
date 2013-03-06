@@ -29,9 +29,9 @@ $(function() {
     $(this).closest('form').submit();
   });
 
-  $("div.menu > span").click(function(e) {
-    var container = $(this).parent();
-    // var container = $(this).closest('div.menu'); // alternative
+  $(".select_menu .menu .trigger").click(function(e) {
+    var container = $(this).closest('div.menu');
+    //var container = $(this).parent(); // alternative
 
     if (container.hasClass('active')) {
       // Dropdown already open so close it
@@ -39,7 +39,7 @@ $(function() {
     }
     else {
       // Hide all open dropdowns so only one is open at a time
-      $("div.menu.active").removeClass("active");
+      $(".select_menu .menu.active").removeClass("active");
       // Open this dropdown
       container.addClass("active");
      }
@@ -49,11 +49,11 @@ $(function() {
 
   $('html').click(function(e){
     // check if we are clicking inside an open select
-   if ($('div.menu.active').length != 0) {
+   if ($('.select_menu .menu.active').length != 0) {
 
 
       // Close open dropdowns when clicking elsewhere
-      $('div.menu.active').removeClass('active');
+      $('.select_menu .menu.active').removeClass('active');
     }
   });
 });
