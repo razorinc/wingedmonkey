@@ -11,13 +11,9 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
     ProviderApplication.query(function(data){
 
       if ($scope.appsLoaded) {
-        // go through the data...
         data.forEach(function(dataApp) {
-          // try to find data item in providerApps...
           app = $filter('filter')($scope.providerApps, { id: dataApp.id });
-          // if item is present in providerApps
           if (app.length > 0) {
-            // set data item toggles value to providerApp one.
             dataApp.toggles = app[0].toggles;
           }
         });
