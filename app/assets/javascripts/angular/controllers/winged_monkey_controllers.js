@@ -1,6 +1,6 @@
 var wingedMonkeyControllers = angular.module('wingedMonkeyControllers',[]);
 
-wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout, $filter, ProviderApplication) {
+wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $rootScope, $timeout, $filter, ProviderApplication) {
   $scope.appsLoaded = false;
   $scope.sort = { predicate: "name", reverse: false };
 
@@ -56,6 +56,7 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
         app.disableButtons = true;
         toggles = app.toggles;
         app.$start({id: app.id}, function(response) {
+          $rootScope.flashMessages.push("Successfully started!");
           response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){

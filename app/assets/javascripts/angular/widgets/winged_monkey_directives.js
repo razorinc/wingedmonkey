@@ -45,3 +45,20 @@ wingedMonkeyDirectives.directive('wmProviderAppConfirm', function() {
     }
   }
 });
+
+wingedMonkeyDirectives.directive('wmFlashMessage', function($rootScope) {
+  return {
+    restrict: 'A',
+    templateUrl: "/directive_templates/wm_flash_message",
+    controller: function($scope, $attrs) {
+      $scope.clear = function(){
+        $rootScope.flashMessages = [];
+      }
+
+      $scope.clear();
+    },
+    link: function(scope, element, attrs) {
+
+    }
+  }
+});

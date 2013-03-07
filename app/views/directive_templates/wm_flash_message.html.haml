@@ -1,0 +1,4 @@
+.flash_hud{ :'ng-hide' => "!flashMessages.length" }
+  %a.control{ :'ng-click' => "clear()", :title => _("Close") }
+  %ul.flash_messages
+    %li{ :'ng-repeat' => "flashMessage in flashMessages", :'ng-bind' => "flashMessage" }
