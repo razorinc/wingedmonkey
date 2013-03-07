@@ -1,0 +1,60 @@
+#quota {
+  @include inline-block(baseline);
+  position: relative;
+  top: 1px;
+  margin-right: 10px;
+
+  .global_indicator,
+  .indicator {
+    width: 35px;
+    height: 1em;
+    border: 1px solid rgba($black_color, 0.2);
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include background($success_color);
+    }
+  }
+
+  .details {
+    display: none;
+    position: absolute;
+    left: 50%;
+    @include background(rgba(white, 0.8));
+    z-index: 3;
+
+    td {
+      white-space: nowrap;
+      padding: 3px 5px;
+      vertical-align: middle;
+
+      &:first-child {
+        text-align: right;
+        padding-left: 20px;
+        font-size: 85%;
+        color: $g3;
+      }
+
+      &:last-child {
+        padding-right: 20px;
+        color: $g5;
+      }
+
+      .indicator {
+        width: 100px;
+      }
+    }
+  }
+
+  &:hover {
+    .details {
+      display: table;
+    }
+  }
+}
