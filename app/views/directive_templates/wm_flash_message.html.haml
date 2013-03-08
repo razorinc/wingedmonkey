@@ -1,4 +1,7 @@
-.flash_hud{ :'ng-hide' => "!flashMessages.length" }
-  %a.control{ :'ng-click' => "clear()", :title => _("Close") }
-  %ul.flash_messages
-    %li{ :'ng-repeat' => "flashMessage in flashMessages", :'ng-bind' => "flashMessage" }
+.flash_hud{ :'ng-repeat' => "flashMessage in flashMessages" }
+  %a.control{ :'ng-click' => "clear(flashMessage)", :title => _("Close") }
+  %a.control.secondary{ :'ng-show' => "$index == 0 && flashMessages.length > 1",
+                        :'ng-click' => "clearAll()",
+                        :title => _("Close All") }= _("Close All")
+  %ul.flash_messages{ :'ng-class' => "flashMessage.type" }
+    %li{  :'ng-bind' => "flashMessage.content" }

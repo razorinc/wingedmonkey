@@ -1,5 +1,7 @@
 /* === WRAPPER === */
 #wrapper{
+  width: 95%;
+  max-width: 1180px;
   position: relative;
   top: $window_top_position;
   background: $white_color;

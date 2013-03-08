@@ -1,15 +1,35 @@
+#flash_messages {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  @include opacity(.9);
+}
+
 .flash_hud {
-  margin: 0 auto;
+  width: 1180*0.8px;
+  min-width: 300px;
+  margin: 2px auto 0 auto;
   @include background(white);
-  @include border-radius(0 0 $border_radius $border_radius);
+  @include border-radius($border_radius);
   @include container_border;
   @include box-shadow(0 0 15px 0 rgba($g1, 0.5) inset,
-                      0 4px 2px -4px $g2);
+                      0 4px 15px 0 rgba($g2, .8));
 
-  ul:last-child {
-    @include border-radius(0 0 $border_radius $border_radius);
+  ul {
+    @include border-radius($border_radius);
   }
 
+  .control.secondary {
+    right: 42px;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    background: none;
+    font-size: 90%;
+    color: $g3;
+    z-index: 1;
+  }
 }
 
 .js_hide{display: none;}

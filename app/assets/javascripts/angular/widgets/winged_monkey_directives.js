@@ -46,16 +46,20 @@ wingedMonkeyDirectives.directive('wmProviderAppConfirm', function() {
   }
 });
 
-wingedMonkeyDirectives.directive('wmFlashMessage', function($rootScope) {
+wingedMonkeyDirectives.directive('wmFlashMessage', function() {
   return {
     restrict: 'A',
     templateUrl: "/directive_templates/wm_flash_message",
-    controller: function($scope, $attrs) {
-      $scope.clear = function(){
-        $rootScope.flashMessages = [];
+    controller: function($scope, $attrs, FlashMessage) {
+      $scope.flashMessages = FlashMessage.all();
+
+      $scope.clear = function(msg){
+        FlashMessage.remove(msg);
       }
 
-      $scope.clear();
+      $scope.clearAll = function(){
+        FlashMessage.removeAll();
+      }
     },
     link: function(scope, element, attrs) {
 
