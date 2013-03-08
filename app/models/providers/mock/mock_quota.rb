@@ -11,11 +11,28 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-require 'providers/conductor/conductor_provider'
-require 'providers/conductor/conductor_provider_application'
-require 'providers/conductor/conductor_launchable'
-
 module Providers
-  module Conductor
+  module Mock
+    class MockQuota < Quota
+
+      def self.all filter=nil
+        quotas = []
+        connect! do |connection|
+          quotas << Quota
+            .create({
+                      :id => "application",
+                      :name => _("Applications"),
+                      :usage => connection.application_count,
+                      :limit => connection.max_application_count,
+                      :unit => _("applications"),
+                    })
+        end
+      end
+
+      def self.find(id)
+        self.all.find{|quota| quota.id.to_s == id}
+      end
+
+    end
   end
 end

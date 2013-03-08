@@ -11,11 +11,25 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-require 'providers/conductor/conductor_provider'
-require 'providers/conductor/conductor_provider_application'
-require 'providers/conductor/conductor_launchable'
+require 'yaml'
 
-module Providers
-  module Conductor
+class Quota
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
+  extend ProviderModel
+  extend ActiveModel::Naming
+
+  #more to be added as needed
+  attr_accessor :id, :name, :usage, :limit, :unit
+
+  def initialize(attributes = {})
+    attributes.each do |name, value|
+      send("#{name}=", value)
+    end
   end
+
+  def persisted?
+    false
+  end
+
 end
