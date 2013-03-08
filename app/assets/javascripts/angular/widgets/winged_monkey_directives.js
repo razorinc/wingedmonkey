@@ -26,7 +26,7 @@ wingedMonkeyDirectives.directive('wmProviderAppConfirm', function() {
       confirmTitle: '@',
       cancel: '@'
     },
-    templateUrl: "assets/wm_provider_app_confirm.html",
+    templateUrl: "/directive_templates/wm_provider_app_confirm",
     link: function(scope, element, attrs) {
       var initialButton = angular.element(element.children()[0]);
 
