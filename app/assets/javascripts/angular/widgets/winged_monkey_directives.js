@@ -26,7 +26,7 @@ wingedMonkeyDirectives.directive('wmProviderAppConfirm', function() {
       confirmTitle: '@',
       cancel: '@'
     },
-    templateUrl: "assets/wm_provider_app_confirm.html",
+    templateUrl: "/directive_templates/wm_provider_app_confirm",
     link: function(scope, element, attrs) {
       var initialButton = angular.element(element.children()[0]);
 
@@ -42,6 +42,27 @@ wingedMonkeyDirectives.directive('wmProviderAppConfirm', function() {
       scope.cancelAction = function() {
         scope.providerApp.disableButtons = false;
       }
+    }
+  }
+});
+
+wingedMonkeyDirectives.directive('wmFlashMessage', function() {
+  return {
+    restrict: 'A',
+    templateUrl: "/directive_templates/wm_flash_message",
+    controller: function($scope, $attrs, FlashMessage) {
+      $scope.flashMessages = FlashMessage.all();
+
+      $scope.clear = function(msg){
+        FlashMessage.remove(msg);
+      }
+
+      $scope.clearAll = function(){
+        FlashMessage.removeAll();
+      }
+    },
+    link: function(scope, element, attrs) {
+
     }
   }
 });

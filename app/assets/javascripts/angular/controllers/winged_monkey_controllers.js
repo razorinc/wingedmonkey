@@ -1,6 +1,6 @@
 var wingedMonkeyControllers = angular.module('wingedMonkeyControllers',[]);
 
-wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout, $filter, ProviderApplication) {
+wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout, $filter, ProviderApplication, FlashMessage) {
   $scope.appsLoaded = false;
   $scope.sort = { predicate: "name", reverse: false };
 
@@ -32,17 +32,14 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
     $scope.providerApps.forEach(function(app, index) {
       if (app_id === app.id) {
         app.wm_state = "PENDING"
-        console.log(app.disableButtons);
         app.disableButtons = true;
-        console.log("destroyProviderApp action happened, disableButtons set to true");
-        console.log(app.disableButtons);
         toggles = app.toggles;
         app.$delete({id: app.id}, function(response) {
           response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
+          FlashMessage.add("error", app.name + ": " + response.data);
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
-          console.log(response);
         });
       }
     });
@@ -57,10 +54,11 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
         toggles = app.toggles;
         app.$start({id: app.id}, function(response) {
           response.toggles = toggles;
+          // FlashMessage.add("success", app.name + ": " + "Successfully started!");
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
+          FlashMessage.add("error", app.name + ": " + response.data);
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
-          console.log(response);
         });
       }
     });
@@ -77,8 +75,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
           response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
+          FlashMessage.add("error", app.name + ": " + response.data);
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
-          console.log(response);
         });
       }
     });
@@ -95,8 +93,8 @@ wingedMonkeyControllers.controller("ProviderAppsCtrl", function($scope, $timeout
           response.toggles = toggles;
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
         }, function(response){
+          FlashMessage.add("error", app.name + ": " + response.data);
           timeoutPromise = $timeout($scope.refreshProviderApps, timeoutDelay);
-          console.log(response);
         });
       }
     });

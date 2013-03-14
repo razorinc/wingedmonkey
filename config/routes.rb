@@ -28,4 +28,8 @@ Rails.application.routes.draw do
 
   post "providers/select"
 
+  # directive templates
+  get "directive_templates/wm_provider_app_confirm"
+  get "directive_templates/wm_flash_message"
+
 end

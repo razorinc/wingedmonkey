@@ -1,0 +1,8 @@
+%li
+  %button.button-graphical{:'ng-disabled' => "!(providerApp.available_actions|filter:action).length || providerApp.disableButtons",
+                           :'ng-click' => "toggleProperty=!toggleProperty"}
+  .confirm_message.js_hide{:'wm-toggle' => "toggleProperty"}
+    %span{:'ng-bind' => 'message'}
+    .buttons
+      %button.danger{:'ng-bind' => "confirmTitle", :'ng-click' => "toggleProperty=!toggleProperty; confirmAction()"}
+      %button{:'ng-bind' => "cancel", :'ng-click' => "toggleProperty=!toggleProperty; cancelAction()"}
