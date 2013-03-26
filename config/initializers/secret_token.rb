@@ -17,4 +17,21 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-WingedMonkey::Application.config.secret_token = '377c102b4b655f68fc19c4968b6889fe6632db28c0d4c109ce1ffe5711840ad58927b99df3d2fa24748aba02eb74ccad16a23068bdf616ceb92ddd118de5314f'
+
+
+# Session key should not be in version control
+# http://brakemanscanner.org/docs/warning_types/session_setting/
+
+begin
+  token = File.read('/etc/wingedmonkey/secret_token')
+  raise RuntimeError, 'Secret token size is too small' if token.length < 30
+  WingedMonkey::Application.config.secret_token = token.chomp
+rescue Exception => e
+  # If anything goes wrong we make sure that the token is random.
+  # This is safe even when WingedMonkey is not configured correctly.
+  # But session will be lost after each restart.
+  Rails.logger.warn "Using randomly generated secret token: #{e.message}"
+  token = SecureRandom.hex(80)
+  File.open('/etc/wingedmonkey/secret_token','w'){|f| f.write(token)}
+  WingedMonkey::Application.config.secret_token = token
+end
